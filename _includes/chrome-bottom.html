@@ -1,0 +1,68 @@
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="{{ r }}">{% include logo.html %}<span class="brand-word">947947</span></a>
+      <p>Every number, decoded: maths you can verify, plus the folklore, wordplay and codes people attach to numbers around the world.</p>
+      <p class="foot-cta"><a class="btn btn-primary" href="{{ r }}reading/">Get my free number blueprint</a></p>
+      <p><a href="{{ site.data.settings.owner_contact_url }}" target="_blank" rel="noopener">Interested in this website, the domain, sponsorship, advertising or a partnership? Contact us.</a></p>
+    </div>
+    <nav aria-label="Explore">
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="{{ r }}numbers/">Number explorer</a></li>
+        <li><a href="{{ r }}angel-numbers/">Angel numbers</a></li>
+        <li><a href="{{ r }}numerology/">Numerology numbers</a></li>
+        <li><a href="{{ r }}numbers/years/">Years 1900–2100</a></li>
+        <li><a href="{{ r }}numbers/abcabc/">ABCABC numbers</a></li>
+        <li><a href="{{ r }}947947/">947947, decoded</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Tools">
+      <h2>Tools</h2>
+      <ul>
+        <li><a href="{{ r }}tools/life-path-calculator/">Life path calculator</a></li>
+        <li><a href="{{ r }}tools/name-numerology-calculator/">Name numerology</a></li>
+        <li><a href="{{ r }}tools/angel-number-decoder/">Angel number decoder</a></li>
+        <li><a href="{{ r }}tools/phone-number-numerology/">Lucky phone number check</a></li>
+        <li><a href="{{ r }}tools/compatibility-calculator/">Compatibility calculator</a></li>
+        <li><a href="{{ r }}tools/">All tools</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Guides">
+      <h2>Guides</h2>
+      <ul>
+        <li><a href="{{ r }}guides/angel-numbers-explained/">Angel numbers explained</a></li>
+        <li><a href="{{ r }}guides/chinese-lucky-numbers/">Chinese lucky numbers</a></li>
+        <li><a href="{{ r }}guides/japanese-number-wordplay/">Japanese number wordplay</a></li>
+        <li><a href="{{ r }}guides/lucky-numbers-around-the-world/">Lucky numbers worldwide</a></li>
+        <li><a href="{{ r }}guides/the-1001-trick/">The 7 × 11 × 13 trick</a></li>
+        <li><a href="{{ r }}guides/">All guides</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="947947">
+      <h2>947947</h2>
+      <ul>
+        <li><a href="{{ r }}about/">About and methods</a></li>
+        <li><a href="{{ r }}contact/">Contact</a></li>
+        <li><a href="{{ r }}advertise/">Advertise or sponsor</a></li>
+        <li><a href="{{ r }}business/">Business number audit</a></li>
+        <li><a href="{{ r }}contests/">Contests</a></li>
+        <li><a href="{{ r }}careers/">Work with us</a></li>
+        <li><a href="{{ r }}support/">Support us</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap foot-legal">
+    <p>Numerology, angel-number and luck content describes cultural beliefs and folklore. It is offered for reflection and entertainment, not as factual prediction or professional advice. Maths facts are computed and can be checked.</p>
+    <p>"947947" is used here as a domain name and a number. This site is not affiliated with, endorsed by or connected to any radio station, event, telecom operator, government body or brand that uses 947, 94.7 or 947947 in its name. Third-party names appear only to describe facts. <a href="{{ r }}disclaimer/">Disclaimer, trademark and copyright notice</a>.</p>
+    <p class="foot-links"><span>© {{ site.time | date: "%Y" }} 947947.com</span> <a href="{{ r }}privacy/">Privacy</a> <a href="{{ r }}terms/">Terms</a> <a href="{{ r }}disclaimer/">Disclaimer</a> <a href="{{ r }}about/#editorial">Editorial policy</a> <a href="{{ r }}sitemap.xml">Sitemap</a></p>
+  </div>
+</footer>
+<div class="toast" role="status" aria-live="polite" hidden></div>
+<script src="{{ r }}assets/js/site-data.js?v={{ site.time | date: '%y%m%d%H%M' }}" defer></script>
+<script src="{{ r }}assets/js/engine.js?v={{ site.time | date: '%y%m%d%H%M' }}" defer></script>
+<script src="{{ r }}assets/js/app.js?v={{ site.time | date: '%y%m%d%H%M' }}" defer></script>
+<script src="{{ r }}assets/js/forms.js?v={{ site.time | date: '%y%m%d%H%M' }}" defer></script>
+{%- if page.tools_js %}
+<script src="{{ r }}assets/js/tools.js?v={{ site.time | date: '%y%m%d%H%M' }}" defer></script>
+{%- endif %}

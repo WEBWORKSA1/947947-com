@@ -1,0 +1,15 @@
+{%- assign _ad_id = site.data.settings.adsense.slots[include.slot] -%}
+{%- if _ad_id and _ad_id != "" -%}
+<div class="ad ad-{{ include.slot }}"><span class="ad-label">Advertisement</span><ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.data.settings.adsense.client }}" data-ad-slot="{{ _ad_id }}" data-ad-format="{% if include.slot == 'side' %}vertical{% else %}auto{% endif %}" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+{%- else -%}
+{%- case include.slot -%}
+{%- when "top" -%}
+<aside class="house house-sponsor" aria-label="Sponsorship"><p class="house-k">From 947947</p><p><strong>Sponsor this page.</strong> Put your brand in front of people researching {% if nf %}{{ nf }}{% else %}numbers, luck and meaning{% endif %}.</p><a class="btn btn-ghost btn-sm" href="{{ r }}advertise/">See sponsorship options</a></aside>
+{%- when "mid" -%}
+<aside class="house house-reading" aria-label="Personal reading"><p class="house-k">From 947947</p><p><strong>What do your own numbers say?</strong> Your birth date and name give five core numbers. Get them free in about a minute.</p><a class="btn btn-primary btn-sm" href="{{ r }}reading/{% if s %}?n={{ s }}{% endif %}">Get my free blueprint</a></aside>
+{%- when "side" -%}
+<aside class="house house-support" aria-label="Support"><p class="house-k">From 947947</p><p><strong>Free for everyone, funded by readers.</strong> Support keeps the tools free and pays writers, translators and contest prizes.</p><a class="btn btn-ghost btn-sm" href="{{ r }}support/">Support 947947</a></aside>
+{%- else -%}
+<aside class="house house-contest" aria-label="Contest"><p class="house-k">From 947947</p><p><strong>{{ site.data.settings.contest.name }}.</strong> Spot a remarkable number in the wild, tell us its story, win a share of {{ site.data.settings.contest.prize_pool }}.</p><a class="btn btn-ghost btn-sm" href="{{ r }}contests/">Enter the contest</a></aside>
+{%- endcase -%}
+{%- endif -%}
