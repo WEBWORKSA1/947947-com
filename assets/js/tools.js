@@ -109,7 +109,7 @@
         e.preventDefault(); var s = E.clean(f.num.value); if (!need(s && +s <= 1e14, "Type a whole number up to 100 trillion.")) return;
         var n = +s, fs = E.factorize(n), g = E.group(fs), divs = n > 0 && g.reduce(function (a, x) { return a * (x.e + 1); }, 1) <= 400 ? E.divisorsFrom(g) : null, trace = [], m = n;
         fs.forEach(function (p) { trace.push(E.fmt(m) + " ÷ " + p + " = " + E.fmt(m / p)); m = m / p; });
-        out.innerHTML = '<div class="result"><h3>' + E.fmt(n) + " = " + (n < 2 ? "no prime factors" : g.map(function (x) { return x.p + (x.e > 1 ? "<sup>" + x.e + "</sup>" : ""); }).join(" × ")) + "</h3>" +
+        out.innerHTML = '<div class="result"><h3>' + E.fmt(n) + " = " + (n < 2 ? "no prime factors" : g.map(function (x) { return x.p + (x.e > 1 ? '<span class="sr">^</span><sup>' + x.e + "</sup>" : ""); }).join(" × ")) + "</h3>" +
           (fs.length === 1 ? "<p><strong>" + E.fmt(n) + " is prime.</strong></p>" : "") + (trace.length > 1 ? '<p class="work">' + trace.join("<br>") + "</p>" : "") +
           (divs ? "<p><strong>" + divs.length + " divisors:</strong> " + divs.map(E.fmt).join(", ") + "</p>" : "") + (E.hasPage(n) ? '<p><a href="' + url(s + "/") + '">Everything about ' + s + "</a></p>" : "") + "</div>";
         out.hidden = false;

@@ -151,7 +151,7 @@
     if (!a.groups) return "Too large to factor here";
     if (a.n < 2) return "None";
     if (a.isPrime) return a.s + " is prime";
-    return a.groups.map(function (g) { return g.p + (g.e > 1 ? "<sup>" + g.e + "</sup>" : ""); }).join(" × ");
+    return a.groups.map(function (g) { return g.p + (g.e > 1 ? '<span class="sr">^</span><sup>' + g.e + "</sup>" : ""); }).join(" × ");
   }
   function quickHtml(a) {
     var kind = a.n === 0 ? "zero" : a.n === 1 ? "one, neither prime nor composite" : (a.even ? "an even " : "an odd ") + (a.isPrime ? "prime number" : a.groups ? "composite number equal to " + pfHtml(a) : "number");
