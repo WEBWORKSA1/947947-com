@@ -1,0 +1,46 @@
+---
+layout: page
+title: "Number explorer: look up the meaning of any number"
+h1: "Number explorer"
+crumb: "Numbers"
+parent_title: false
+description: "Look up any number up to 15 digits: maths, numerology, angel-number meaning and Chinese, Japanese and Korean readings. Browse 2,402 number pages."
+lede: "Look up any whole number up to 15 digits. Numbers with their own page open it straight away; everything else gets a full analysis right here."
+---
+{% include rel.html %}
+<div class="wrap page-body" data-explorer>
+  <form class="decoder" action="{{ r }}numbers/" method="get" role="search" style="max-width:760px" data-lookup>
+    <label for="explore-n">Number to look up</label>
+    <div class="dec-row"><input id="explore-n" name="n" inputmode="numeric" maxlength="20" placeholder="e.g. 31415926" autocomplete="off"><button class="btn btn-primary" type="submit">Look up</button></div>
+  </form>
+  <div id="explorer-result" class="article" style="margin-top:28px" aria-live="polite"></div>
+
+  <section class="section">
+    <h2>Browse by range</h2>
+    <nav class="range-nav" aria-label="Number ranges">
+      {%- for k in (0..9) -%}{%- assign lo = k | times: 100 -%}{%- assign hi = lo | plus: 99 -%}
+      <a href="{{ r }}numbers/{{ lo }}-{{ hi }}/">{{ lo }}–{{ hi }}</a>
+      {%- endfor -%}
+    </nav>
+    <div class="cols-3">
+      <a class="card card-link" href="{{ r }}angel-numbers/"><h3>Angel numbers</h3><p>Repeating and mirrored numbers such as 111, 1212 and 4444, with their folklore readings.</p></a>
+      <a class="card card-link" href="{{ r }}numbers/years/"><h3>Years 1900 to 2100</h3><p>Roman numerals, Chinese zodiac sign and numerology year number for every year.</p></a>
+      <a class="card card-link" href="{{ r }}numbers/patterns/"><h3>Patterns and famous codes</h3><p>Sequences, mirrors and slang codes like 1314, 4649 and 5201314.</p></a>
+      <a class="card card-link" href="{{ r }}numbers/abcabc/"><h3>ABCABC numbers</h3><p>All 900 numbers written twice, from 100100 to 999999, each divisible by 7, 11 and 13.</p></a>
+      <a class="card card-link" href="{{ r }}numerology/"><h3>Numerology roots</h3><p>The meanings of 1 to 9 and the master numbers 11, 22 and 33.</p></a>
+      <a class="card card-link" href="{{ r }}947947/"><h3>947947, decoded</h3><p>The full report on our namesake number across maths, cultures, codes and economics.</p></a>
+    </div>
+  </section>
+
+  <section class="section prose narrow">
+    <h2>What every number page includes</h2>
+    <p>Each page combines facts you can check with traditions you can explore. The maths is computed when the site is built, so it is exact; the cultural readings come from the sources listed in <a href="{{ r }}about/#methods">our methods</a>.</p>
+    <ul>
+      <li><strong>At a glance:</strong> the number in words, its digit sum, numerology root, prime factors, Roman numeral, binary and hexadecimal.</li>
+      <li><strong>Meaning:</strong> the angel-number reading for love, career and spiritual growth, with practical steps.</li>
+      <li><strong>Culture:</strong> how the digits sound in Chinese, Japanese and Korean, and any famous codes hidden inside.</li>
+      <li><strong>Maths:</strong> divisors, perfect, abundant or deficient, square, triangular, Fibonacci, happy and more.</li>
+      <li><strong>Codes and dates:</strong> area codes, country codes, emergency numbers, years and clock times.</li>
+    </ul>
+  </section>
+</div>
