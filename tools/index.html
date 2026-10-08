@@ -1,0 +1,26 @@
+---
+layout: page
+tools_js: false
+section: tools
+title: "Free number tools: numerology, angel numbers and maths"
+h1: "Free number tools"
+crumb: "Tools"
+description: "Twelve free calculators: life path, name numerology, angel number decoder, lucky numbers, phone number check, compatibility, prime factors, bases, Roman numerals and more."
+lede: "Twelve calculators that show their working. Numerology tools follow the standard Pythagorean method; the maths tools are exact."
+---
+{% include rel.html %}
+<div class="wrap page-body">
+  <h2>Numerology and angel numbers</h2>
+  <div class="cols-3">
+    {%- for t in site.data.tools limit: 6 -%}<a class="card card-link" href="{{ r }}{{ t.url }}"><h3>{{ t.name }}</h3><p>{{ t.blurb }}</p></a>{%- endfor -%}
+  </div>
+  <h2 style="margin-top:40px">Phone numbers, maths and conversions</h2>
+  <div class="cols-3">
+    {%- for t in site.data.tools offset: 6 -%}<a class="card card-link" href="{{ r }}{{ t.url }}"><h3>{{ t.name }}</h3><p>{{ t.blurb }}</p></a>{%- endfor -%}
+  </div>
+  <section class="section prose narrow">
+    <h2>How these tools work</h2>
+    <p>Everything runs in your browser. Nothing you type is stored or sent anywhere unless you choose to request a full reading, and even then only the details in that form are sent.</p>
+    <p>Numerology calculators use the Pythagorean letter values by default (A = 1 through I = 9, then repeating) and keep the master numbers 11, 22 and 33. The name calculator can switch to the older Chaldean values. Treat the interpretations as a tradition for reflection rather than a prediction.</p>
+  </section>
+</div>

@@ -1,0 +1,23 @@
+---
+title: "Number to words converter"
+permalink: /tools/number-to-words/
+tool_url: tools/number-to-words/
+description: "Write any number in words: English, the Indian lakh and crore system and Chinese numerals, plus Roman numerals."
+lede: "Spell out any number in English, in the Indian lakh and crore system, and in Chinese numerals."
+faq:
+  - q: "How is 947947 written in words?"
+    a: "Nine hundred forty-seven thousand nine hundred forty-seven. In the Indian system it is 9,47,947: nine lakh forty-seven thousand nine hundred forty-seven."
+  - q: "How do lakh and crore work?"
+    a: "One lakh is 100,000 and one crore is 10,000,000. After the first three digits, Indian notation groups digits in twos: 52,01,314."
+---
+{% include rel.html %}
+<div class="tool" data-tool="words">
+  <form novalidate>
+    <div class="field"><label for="wnum">Number</label><input id="wnum" name="num" inputmode="numeric" maxlength="20" placeholder="e.g. 5201314" required></div>
+    <button class="btn btn-primary btn-lg" type="submit">Write it out</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>Writing cheques and contracts</h2>
+<p>In English, hyphenate compound numbers from twenty-one to ninety-nine. US usage normally drops "and" (nine hundred forty-seven); British usage keeps it (nine hundred and forty-seven). Chinese groups digits by ten thousand (万), so 947947 is 九十四万七千九百四十七.</p>

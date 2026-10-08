@@ -1,0 +1,33 @@
+---
+title: "Life path number calculator"
+permalink: /tools/life-path-calculator/
+tool_url: tools/life-path-calculator/
+description: "Free life path number calculator. Enter your birth date to get your life path, birthday number and personal year, with the working shown and the meaning explained."
+lede: "Your life path number is the main number in numerology. Enter your birth date to see yours, how it is calculated and what it is said to mean."
+faq:
+  - q: "How is the life path number calculated?"
+    a: "Reduce the month, the day and the year of birth separately to a single digit or a master number (11, 22, 33), add the three results, then reduce the total the same way. For 29 November 1987: 11 + 11 + 7 = 29, and 2 + 9 = 11."
+  - q: "Why are 11, 22 and 33 not reduced?"
+    a: "Numerology treats 11, 22 and 33 as master numbers with a stronger version of the energy of 2, 4 and 6, so most numerologists keep them as they are."
+  - q: "Can two methods give different life path numbers?"
+    a: "Yes. Adding every digit of the birth date in one go can give a different result from reducing month, day and year first, especially for master numbers. This calculator uses the month-day-year method, which is the most widely taught."
+  - q: "Is the life path number scientific?"
+    a: "No. Numerology is a centuries-old tradition, not a science. Many people use it as a prompt for reflection, which is how we present it."
+---
+{% include rel.html %}
+<div class="tool" data-tool="life-path">
+  <form novalidate>
+    {% include dob.html required=true %}
+    <button class="btn btn-primary btn-lg" type="submit">Calculate my life path</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>What the life path number means</h2>
+<p>In numerology, the life path number describes the broad direction of a life: the strengths you lean on and the lessons that keep returning. Each number from 1 to 9 has a character, from the independent <a href="{{ r }}1/">1</a> to the compassionate <a href="{{ r }}9/">9</a>, and the master numbers <a href="{{ r }}11/">11</a>, <a href="{{ r }}22/">22</a> and <a href="{{ r }}33/">33</a> add intensity.</p>
+<h2>The 12 life path numbers at a glance</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Number</th><th scope="col">Archetype</th><th scope="col">Keywords</th></tr></thead><tbody>
+{%- assign order = "1,2,3,4,5,6,7,8,9,11,22,33" | split: "," -%}
+{%- for k in order -%}{%- assign R = site.data.roots[k] -%}<tr><th scope="row"><a href="{{ r }}numerology/#n{{ k }}">{{ k }}</a></th><td>{{ R.title }}</td><td>{{ R.keywords | join: ", " }}</td></tr>{%- endfor -%}
+</tbody></table></div>
+<p>Want the full set? Your name adds the expression, soul urge and personality numbers. Try the <a href="{{ r }}tools/name-numerology-calculator/">name numerology calculator</a> or get everything at once in your <a href="{{ r }}reading/">free number blueprint</a>.</p>

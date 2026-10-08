@@ -1,0 +1,24 @@
+---
+title: "Lucky number calculator"
+permalink: /tools/lucky-number-calculator/
+tool_url: tools/lucky-number-calculator/
+description: "Find your personal lucky numbers from your birth date and name using numerology, plus your harmonious numbers and Vedic ruling planet."
+lede: "Numerology links your luckiest numbers to your life path, birthday and name numbers. Enter your details to see your personal set."
+faq:
+  - q: "How are personal lucky numbers worked out?"
+    a: "This calculator uses your life path, birthday and expression numbers, plus numbers that reduce to them (for example 16 and 25 reduce to 7). Numbers from the same family, such as 1, 5 and 7, are listed as harmonious."
+  - q: "Can I use these numbers for the lottery?"
+    a: "Please don't rely on them. Lottery draws are random, and no number is luckier than another. Treat lucky numbers as a cultural tradition."
+---
+{% include rel.html %}
+<div class="tool" data-tool="lucky">
+  <form novalidate>
+    {% include dob.html required=true %}
+    <div class="field"><label for="ln_name">Full name <span class="muted">(optional)</span></label><input id="ln_name" name="full_name" type="text" autocomplete="name"></div>
+    <button class="btn btn-primary btn-lg" type="submit">Show my lucky numbers</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>Lucky numbers across cultures</h2>
+<p>Numerology is only one tradition. In Chinese culture <a href="{{ r }}8/">8</a> is prized because it sounds like prosper, in the West <a href="{{ r }}7/">7</a> is the classic lucky number, and in Thailand <a href="{{ r }}9/">9</a> sounds like stepping forward. Our guide to <a href="{{ r }}guides/lucky-numbers-around-the-world/">lucky numbers around the world</a> compares them.</p>

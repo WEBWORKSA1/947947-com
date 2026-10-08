@@ -1,0 +1,366 @@
+<!doctype html>
+{%- include rel.html -%}
+{%- assign s = page.slug | append: "" -%}
+{%- include num/compute.html -%}
+{%- assign nf = s -%}
+{%- comment -%} ---------- derived copy ---------- {%- endcomment -%}
+{%- if odd == 1 -%}{%- assign parity = "odd" -%}{%- assign a_parity = "an odd" -%}{%- else -%}{%- assign parity = "even" -%}{%- assign a_parity = "an even" -%}{%- endif -%}
+{%- if n == 0 -%}{%- assign kind = "zero, which is neither prime nor composite" -%}
+{%- elsif n == 1 -%}{%- assign kind = "one, which is neither prime nor composite" -%}
+{%- elsif is_prime -%}{%- assign kind = a_parity | append: " prime number" -%}
+{%- else -%}{%- assign kind = a_parity | append: " composite number equal to " | append: pf_txt -%}{%- endif -%}
+{%- if is_prime == false and n > 1 -%}{%- assign kind_html = a_parity | append: " composite number equal to " | append: pf -%}{%- else -%}{%- assign kind_html = kind -%}{%- endif -%}
+{%- assign dwords = "" -%}{%- for c in ud -%}{%- unless forloop.first -%}{%- if forloop.last -%}{%- assign dwords = dwords | append: " and " -%}{%- else -%}{%- assign dwords = dwords | append: ", " -%}{%- endif -%}{%- endunless -%}{%- assign dwords = dwords | append: c -%}{%- endfor -%}
+{%- assign zh_parts = "" | split: "" -%}
+{%- if c8 > 0 -%}{%- assign zh_parts = zh_parts | push: "8 sounds like prosper" -%}{%- endif -%}
+{%- if c9 > 0 -%}{%- assign zh_parts = zh_parts | push: "9 sounds like long-lasting" -%}{%- endif -%}
+{%- if c6 > 0 -%}{%- assign zh_parts = zh_parts | push: "6 sounds like smooth" -%}{%- endif -%}
+{%- if c4 > 0 -%}{%- assign zh_parts = zh_parts | push: "4 sounds like death" -%}{%- endif -%}
+{%- assign zh_reasons = zh_parts | join: "; " -%}
+{%- if R -%}{%- assign rkw = "" -%}{%- for kw in R.keywords -%}{%- unless forloop.first -%}{%- if forloop.last -%}{%- assign rkw = rkw | append: " and " -%}{%- else -%}{%- assign rkw = rkw | append: ", " -%}{%- endif -%}{%- endunless -%}{%- assign rkw = rkw | append: kw -%}{%- endfor -%}{%- assign rtitle = R.title -%}{%- else -%}{%- assign rkw = "potential, wholeness and fresh starts" -%}{%- assign rtitle = "The Open Circle" -%}{%- endif -%}
+{%- assign F = R -%}{%- assign froot = root -%}
+{%- if repdigit and d[0] != "0" -%}
+  {%- assign fd = d[0] | plus: 0 -%}{%- assign froot = fd -%}
+  {%- if len_m2 == 0 and fd <= 3 -%}{%- assign froot = fd | times: 11 -%}{%- endif -%}
+  {%- assign froot_s = froot | append: "" -%}{%- assign F = site.data.roots[froot_s] -%}
+{%- endif -%}
+{%- if F -%}{%- assign fkw = "" -%}{%- for kw in F.keywords -%}{%- unless forloop.first -%}{%- if forloop.last -%}{%- assign fkw = fkw | append: " and " -%}{%- else -%}{%- assign fkw = fkw | append: ", " -%}{%- endif -%}{%- endunless -%}{%- assign fkw = fkw | append: kw -%}{%- endfor -%}{%- else -%}{%- assign fkw = rkw -%}{%- endif -%}
+{%- assign pat_line = "" -%}
+{%- if repdigit -%}{%- assign lenw = "zero,once,twice,three times,four times,five times,six times,seven times" | split: "," -%}{%- capture pat_line -%}{{ nf }} repeats one digit, {{ d[0] }}, {{ lenw[len] }}. Repeated digits are read as the same message turned up louder.{%- endcapture -%}
+{%- elsif abcabc -%}{%- capture pat_line -%}{{ nf }} is {{ half_s }} written twice. Readers treat a doubled number as a message given with emphasis, so the themes of {{ half_s }} are said twice.{%- endcapture -%}
+{%- elsif pat == "ABAB" -%}{%- capture pat_line -%}{{ nf }} alternates two digits, {{ d[0] }} and {{ d[1] }}. That back-and-forth rhythm is read as balancing two sides of your life.{%- endcapture -%}
+{%- elsif pat == "ABBA" or palindrome -%}{%- capture pat_line -%}{{ nf }} is a mirror number: it reads the same backwards, a pattern linked with reflection and balance.{%- endcapture -%}
+{%- elsif pat == "AABB" -%}{%- capture pat_line -%}{{ nf }} moves from a doubled {{ d[0] }} to a doubled {{ d[2] }}, read as a shift from one strong theme to the next.{%- endcapture -%}
+{%- elsif seq_up -%}{%- capture pat_line -%}{{ nf }} climbs in order, a pattern read as steady progress taken one step at a time.{%- endcapture -%}
+{%- elsif seq_down -%}{%- capture pat_line -%}{{ nf }} counts down, a pattern read as simplifying and returning to essentials.{%- endcapture -%}
+{%- elsif tandem -%}{%- capture pat_line -%}{{ nf }} is {{ half_s }} written twice, a doubled message.{%- endcapture -%}
+{%- endif -%}
+{%- comment -%} ---------- titles ---------- {%- endcomment -%}
+{%- if is_year -%}
+  {%- assign meta_title = s | append: " meaning: numerology, Chinese zodiac and Roman numerals " | append: roman -%}
+  {%- assign h1_sub = "the year, its numerology and its numbers" -%}
+{%- elsif abcabc -%}
+  {%- assign meta_title = nf | append: " meaning: numerology, factors and why it divides by 7, 11 and 13" -%}
+  {%- assign h1_sub = "meaning, maths and culture" -%}
+{%- elsif len <= 3 or repdigit or pat != "" -%}
+  {%- assign meta_title = "Angel number " | append: nf | append: " meaning, numerology and number facts" -%}
+  {%- assign h1_sub = "meaning, numerology and number facts" -%}
+{%- else -%}
+  {%- assign meta_title = nf | append: " meaning: numerology, factors and number facts" -%}
+  {%- assign h1_sub = "meaning, maths and culture" -%}
+{%- endif -%}
+{%- if s == "947947" -%}{%- assign meta_title = "947947 decoded: maths, cultures, codes and the 947 story" -%}{%- assign h1_sub = "decoded across maths, cultures, codes and economics" -%}{%- endif -%}
+{%- capture meta_desc -%}{{ nf }} is {{ kind }}. Numerology root {{ root }} ({{ rtitle }}). Angel-number meaning, Chinese, Japanese and Korean readings{% if roman != "" %}, Roman numeral {{ roman_txt }}{% endif %}, binary {{ bin }} and more.{%- endcapture -%}
+{%- capture quick -%}{{ nf }} is {{ kind_html }}. In numerology it reduces to {{ root }} ({{ rtitle }}), and angel-number readers link it with {{ fkw }}{% if froot != root %} (the energy of {{ froot }}){% endif %}.{% if zh_reasons != "" %} In Chinese number lore it is {{ zh_verdict | downcase }} ({{ zh_reasons }}).{% endif %}{% if exact_codes != "" %} It is also a well-known code: {{ exact_codes | strip }}{% endif %}{%- endcapture -%}
+{%- comment -%} ---------- range hub for breadcrumbs ---------- {%- endcomment -%}
+{%- if n <= 1000 -%}{%- assign hub_lo = n | divided_by: 100 | times: 100 -%}{%- if n == 1000 -%}{%- assign hub_lo = 900 -%}{%- endif -%}{%- assign hub_hi = hub_lo | plus: 99 -%}{%- assign hub_url = "numbers/" | append: hub_lo | append: "-" | append: hub_hi | append: "/" -%}{%- assign hub_name = hub_lo | append: "–" | append: hub_hi -%}
+{%- elsif is_year -%}{%- assign hub_url = "numbers/years/" -%}{%- assign hub_name = "Years" -%}
+{%- elsif abcabc -%}{%- assign hub_url = "numbers/abcabc/" -%}{%- assign hub_name = "ABCABC numbers" -%}
+{%- else -%}{%- assign hub_url = "numbers/patterns/" -%}{%- assign hub_name = "Patterns and codes" -%}{%- endif -%}
+{%- comment -%} ---------- FAQ (plain text, reused for JSON-LD) ---------- {%- endcomment -%}
+{%- capture fq1 -%}{{ quick | replace: kind_html, kind | strip_html | strip }}{%- endcapture -%}
+{%- capture fq2 -%}{% if is_prime %}Yes. {{ nf }} is prime: its only divisors are 1 and {{ nf }}.{% elsif n < 2 %}No. {{ n }} is neither prime nor composite by definition.{% else %}No. {{ nf }} is composite: {{ nf }} = {{ pf_txt }}.{% endif %}{%- endcapture -%}
+{%- capture fq3 -%}{% if n == 0 %}Every non-zero integer divides 0, so it has infinitely many divisors.{% elsif divs.size > 0 %}{{ nf }} has {{ tau }} divisors: {{ divs | join: ", " }}. Their sum is {% include num/fmt.html v=sigma %}{{ fmt }}.{% else %}{{ nf }} has {{ tau }} divisors; its prime factorisation is {{ pf_txt }}.{% endif %}{%- endcapture -%}
+{%- capture fq4 -%}{% if F %}{{ F.love }} {{ site.data.digits[top_d].love | capitalize }}.{% else %}{{ site.data.digits["0"].love | capitalize }}.{% endif %}{%- endcapture -%}
+{%- capture fq5 -%}{{ zh_verdict }}. {% if zh_reasons != "" %}In Mandarin {{ zh_reasons }}.{% else %}Its digits carry no strong lucky or unlucky sound in Mandarin.{% endif %} Read digit by digit it is {{ in_py }}.{%- endcapture -%}
+{%- capture fq6 -%}{% if roman_txt != "" %}{{ nf }} in Roman numerals is {{ roman_txt }}{% if n > 3999 %} (a bar over letters multiplies them by 1,000){% endif %}.{% else %}Roman numerals have no symbol for zero.{% endif %}{%- endcapture -%}
+{%- capture fq7 -%}{{ nf }} in binary is {{ bin }}, in hexadecimal {{ hex }} and in octal {{ oct }}.{%- endcapture -%}
+{%- capture jsonld -%}{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Numbers","item":"{{ site.url }}/numbers/"},{"@type":"ListItem","position":3,"name":{{ hub_name | jsonify }},"item":"{{ site.url }}/{{ hub_url }}"},{"@type":"ListItem","position":4,"name":{{ nf | jsonify }},"item":"{{ site.url }}{{ page.url }}"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":{{ "What does " | append: nf | append: " mean?" | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ fq1 | jsonify }}}},{"@type":"Question","name":{{ "Is " | append: nf | append: " a prime number?" | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ fq2 | jsonify }}}},{"@type":"Question","name":{{ "What are the factors of " | append: nf | append: "?" | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ fq3 | jsonify }}}},{"@type":"Question","name":{{ "Is " | append: nf | append: " lucky in Chinese culture?" | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ fq5 | jsonify }}}},{"@type":"Question","name":{{ "How do you write " | append: nf | append: " in Roman numerals?" | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ fq6 | jsonify }}}}]}]}{%- endcapture -%}
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body class="t-number">
+{% include chrome-top.html %}
+<main id="main">
+<nav class="crumbs wrap" aria-label="Breadcrumb"><a href="{{ r }}">Home</a> <span aria-hidden="true">/</span> <a href="{{ r }}numbers/">Numbers</a> <span aria-hidden="true">/</span> <a href="{{ r }}{{ hub_url }}">{{ hub_name }}</a> <span aria-hidden="true">/</span> <span aria-current="page">{{ nf }}</span></nav>
+<section class="nhero">
+  <div class="wrap nhero-in">
+    <div class="nhero-text">
+      <h1 class="nh1"><span class="nh-num{% if len > 6 %} nh-long{% endif %}">{{ nf }}</span><span class="nh-sub">{{ h1_sub }}</span></h1>
+      <p class="answer">{{ quick }}</p>
+      <ul class="tags" aria-label="Quick facts">
+        {%- if is_prime %}<li class="tag tag-ink">Prime</li>{% elsif n > 1 %}<li class="tag">Composite</li>{% endif -%}
+        <li class="tag">{{ parity | capitalize }}</li>
+        {%- if repdigit %}<li class="tag tag-jade">Repdigit</li>{% endif -%}
+        {%- if abcabc %}<li class="tag tag-jade">ABCABC</li>{% elsif tandem %}<li class="tag tag-jade">Doubled</li>{% endif -%}
+        {%- if pat == "ABAB" %}<li class="tag tag-jade">Alternating</li>{% endif -%}
+        {%- if palindrome %}<li class="tag tag-jade">Palindrome</li>{% endif -%}
+        {%- if seq_up or seq_down %}<li class="tag tag-jade">Sequence</li>{% endif -%}
+        {%- if is_square and n > 3 %}<li class="tag">Square of {{ sq }}</li>{% endif -%}
+        {%- if is_cube and n > 1 %}<li class="tag">Cube of {{ cb }}</li>{% endif -%}
+        {%- if is_tri %}<li class="tag">Triangular</li>{% endif -%}
+        {%- if is_fib %}<li class="tag">Fibonacci</li>{% endif -%}
+        {%- if nclass == "perfect" %}<li class="tag tag-ink">Perfect</li>{% endif -%}
+        {%- if area %}<li class="tag">Area code</li>{% endif -%}
+        {%- if is_year %}<li class="tag">Year of the {{ zod[zi] }}</li>{% endif -%}
+        <li class="tag tag-{{ zh_tone }}">Chinese: {{ zh_verdict | downcase }}</li>
+      </ul>
+    </div>
+    <figure class="loshu" aria-label="Lo Shu square for {{ nf }}">
+      {%- assign lcol = "x,1,2,0,0,1,2,2,0,1" | split: "," -%}{%- assign lrow = "x,2,0,1,0,1,2,1,2,0" | split: "," -%}
+      {%- assign lpts = "" -%}{%- assign lprev = "" -%}
+      {%- for c in d -%}{%- if c != "0" and c != lprev -%}{%- assign ci = c | plus: 0 -%}{%- assign lx = lcol[ci] | times: 40 | plus: 20 -%}{%- assign ly = lrow[ci] | times: 40 | plus: 20 -%}{%- assign lpts = lpts | append: lx | append: "," | append: ly | append: " " -%}{%- endif -%}{%- assign lprev = c -%}{%- endfor -%}
+      <svg viewBox="0 0 120 120" role="img" aria-hidden="true">
+        <g class="ls-grid"><rect x="0.5" y="0.5" width="119" height="119" rx="6"/><path d="M40 0v120M80 0v120M0 40h120M0 80h120"/></g>
+        {%- if lpts != "" %}<polyline class="ls-path" points="{{ lpts | strip }}" pathLength="1"/>{% endif %}
+        {%- assign lorder = "4,9,2,3,5,7,8,1,6" | split: "," -%}
+        {%- for cell in lorder -%}{%- assign ci = cell | plus: 0 -%}{%- assign cx = lcol[ci] | times: 40 | plus: 20 -%}{%- assign cy = lrow[ci] | times: 40 | plus: 20 -%}{%- assign k = counts[ci] | plus: 0 -%}
+        <g class="ls-cell{% if k > 0 %} on{% endif %}"><text x="{{ cx }}" y="{{ cy | plus: 7 }}">{{ cell }}</text>{% if k > 1 %}<text class="ls-k" x="{{ cx | plus: 12 }}" y="{{ cy | plus: 16 }}">×{{ k }}</text>{% endif %}</g>
+        {%- endfor -%}
+      </svg>
+      {%- assign lpn = lpts | strip | split: " " | size -%}
+      <figcaption>Digits of {{ nf }} on the Lo Shu magic square{% if counts[0] != "0" %} (plus {{ counts[0] }} × 0){% endif %}.{% if lpn > 1 %} The line follows the digits in order.{% endif %}</figcaption>
+    </figure>
+  </div>
+</section>
+{%- if s == "947947" %}{% include special/947947.html %}{% endif %}
+<div class="wrap with-rail">
+<article class="article num-article">
+{% include ad.html slot="top" %}
+<section id="facts" class="block">
+  <h2>{{ nf }} at a glance</h2>
+  <dl class="facts">
+    <div><dt>In words</dt><dd>{{ words }}{% if n > 0 %} <span class="muted">(ordinal: {{ nf }}{{ ord }})</span>{% endif %}</dd></div>
+    <div><dt>Digits</dt><dd>{{ len }} digit{% if len > 1 %}s{% endif %}: {{ d | join: " " }}</dd></div>
+    <div><dt>Digit sum</dt><dd>{{ dsum }}</dd></div>
+    <div><dt>Numerology root</dt><dd>{{ chain }}{% if R %} <a href="{{ r }}numerology/#n{{ root }}">({{ rtitle }})</a>{% endif %}</dd></div>
+    <div><dt>Prime factors</dt><dd>{% if n < 2 %}None{% elsif is_prime %}{{ nf }} is prime{% else %}{{ pf }}{% endif %}</dd></div>
+    <div><dt>Divisors</dt><dd>{% if n == 0 %}Infinitely many{% else %}{{ tau }}{% endif %}</dd></div>
+    <div><dt>Reversed</dt><dd>{% assign rhas = false %}{% if rev_s != s %}{% include num/has-page.html x=rev %}{% assign rhas = has_page %}{% endif %}{% if rhas %}<a href="{{ r }}{{ rev }}/">{{ rev_s }}</a>{% else %}{{ rev_s }}{% endif %}</dd></div>
+    {%- if roman != "" %}<div><dt>Roman numeral</dt><dd class="roman">{{ roman }}</dd></div>{% endif %}
+    <div><dt>Binary</dt><dd class="mono-num">{{ bin }}</dd></div>
+    <div><dt>Hexadecimal</dt><dd class="mono-num">{{ hex }}</dd></div>
+    {%- if clock != "" %}<div><dt>As a time</dt><dd>{{ clock }}</dd></div>{% endif %}
+    {%- if keypad != "" %}<div><dt>Phone keypad</dt><dd>{{ keypad }}</dd></div>{% endif %}
+  </dl>
+</section>
+
+<aside class="luckcheck" data-luckcheck data-n="{{ s }}" data-root="{{ root }}">
+  <h2 class="lc-h">Is {{ nf }} a good number for you?</h2>
+  <p>Enter your birth date. We compare your life path number with {{ nf }}'s root ({{ root }}). Nothing is stored unless you ask for your full reading.</p>
+  <form class="lc-form" novalidate>
+    <fieldset class="dob"><legend class="sr">Birth date</legend>
+      <label><span>Day</span><select name="day" required aria-label="Day"><option value="">Day</option>{% for i in (1..31) %}<option>{{ i }}</option>{% endfor %}</select></label>
+      <label><span>Month</span><select name="month" required aria-label="Month"><option value="">Month</option><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option><option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option><option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option><option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option></select></label>
+      <label><span>Year</span><select name="year" required aria-label="Year" data-years></select></label>
+    </fieldset>
+    <button class="btn btn-primary" type="submit">Check my match</button>
+  </form>
+  <div class="lc-out" aria-live="polite" hidden></div>
+</aside>
+
+<section id="meaning" class="block prose">
+  <h2>What does {{ nf }} mean?</h2>
+  {%- if R %}
+  <p>{% if len == 1 %}{{ nf }} is a root number in its own right. {{ R.essence }}{% elsif repdigit %}{{ pat_line }} Readers take the theme of {{ d[0] }}{% if froot > 9 %} and of the master number {{ froot }}{% endif %} and amplify it. {{ F.essence }} Added up, {{ nf }} reduces to {{ root }} ({{ rtitle }}), the practical foundation under that message.{% else %}{{ nf }} brings together the digits {{ dwords }}. {{ pat_line }} Added up and reduced, it gives {{ root }}, known in numerology as {{ rtitle }}. {{ R.essence }}{% endif %}</p>
+  {%- else %}
+  <p>{{ site.data.digits["0"].meaning }} Zero has no numerology root of its own, which is why readers describe it as pure potential.</p>
+  {%- endif %}
+  {%- if len > 1 %}
+  <h3>The digits inside {{ nf }}</h3>
+  <ul class="digit-list">
+  {%- for c in ud -%}{%- assign ci = c | plus: 0 -%}{%- assign k = counts[ci] | plus: 0 -%}{%- assign dg = site.data.digits[c] -%}
+    <li><a class="dl-num" href="{{ r }}{{ c }}/">{{ c }}</a> <span><strong>{{ dg.theme | capitalize }}</strong>{% if k > 1 %}, appearing {{ k }} times{% endif %}. {{ dg.meaning }}{% if k > 1 %} Repeated, its influence is read as stronger.{% endif %}</span></li>
+  {%- endfor -%}
+  </ul>
+  {%- endif %}
+  {%- assign tdg = site.data.digits[top_d] -%}
+  {%- if F %}
+  <h3>{{ nf }} in love and relationships</h3>
+  <p>{{ F.love }} The {% if top_c > 1 %}repeated{% else %}leading{% endif %} {{ top_d }} adds a note for love: {{ tdg.love }}.</p>
+  <h3>{{ nf }} for career and money</h3>
+  <p>Fields that suit this energy include {{ F.career | slice: 0, 1 | downcase }}{{ F.career | slice: 1, 400 }} {{ F.money }}{% unless repdigit %} The {{ tdg.word }} in {{ nf }} adds: {{ tdg.work }}.{% endunless %}</p>
+  <h3>Spiritual meaning and twin flames</h3>
+  <p>{{ F.spiritual }} Twin-flame readers interpret {{ nf }} this way: {{ F.twinflame | slice: 0, 1 | downcase }}{{ F.twinflame | slice: 1, 400 }}</p>
+  <h3>What to do when you keep seeing {{ nf }}</h3>
+  <ol class="steps">
+    {%- for st in F.steps %}<li>{{ st }}</li>{% endfor %}
+    <li>{{ tdg.action }}</li>
+  </ol>
+  {%- endif %}
+  <p class="note">Angel numbers and numerology are folklore. We present them as traditions people use for reflection, never as predictions. Seeing a number often is usually the <a href="{{ r }}guides/angel-numbers-explained/#why">frequency illusion</a> at work, and that is fine: the useful part is the question it prompts.</p>
+</section>
+
+<section id="numerology" class="block">
+  <h2>{{ nf }} in numerology</h2>
+  {%- if R %}
+  <div class="rootcard">
+    <div class="rc-num" aria-hidden="true">{{ root }}</div>
+    <div class="rc-body">
+      <p class="rc-title"><strong>Root {{ root }}: {{ rtitle }}</strong> <span class="muted">({{ chain }})</span></p>
+      <p>{{ R.essence }}</p>
+      <dl class="mini">
+        <div><dt>Strengths</dt><dd>{{ R.strengths }}</dd></div>
+        <div><dt>Watch for</dt><dd>{{ R.challenges }}</dd></div>
+        <div><dt>Vedic planet</dt><dd>{{ R.planet }}</dd></div>
+        <div><dt>Tarot card</dt><dd>{% if n <= 21 %}{% assign tarot_list = "The Fool,The Magician,The High Priestess,The Empress,The Emperor,The Hierophant,The Lovers,The Chariot,Strength,The Hermit,Wheel of Fortune,Justice,The Hanged Man,Death,Temperance,The Devil,The Tower,The Star,The Moon,The Sun,Judgement,The World" | split: "," %}{{ tarot_list[n] }} (card {{ n }}){% else %}{{ R.tarot }} (via root {{ root }}){% endif %}</dd></div>
+        <div><dt>Harmonious numbers</dt><dd>{% for x in R.family %}<a href="{{ r }}{{ x }}/">{{ x }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd></div>
+      </dl>
+    </div>
+  </div>
+  {%- endif %}
+  <p>The <strong>digital root</strong> used in mathematics is {{ dr }}{% if dr != root %}, which differs from the numerology root because numerology keeps the master numbers 11, 22 and 33{% endif %}. Want your own numbers? Try the <a href="{{ r }}tools/life-path-calculator/">life path calculator</a> or the <a href="{{ r }}tools/name-numerology-calculator/">name calculator</a>.</p>
+</section>
+
+{% include ad.html slot="mid" %}
+
+<section id="culture" class="block">
+  <h2>{{ nf }} in Chinese, Japanese and Korean</h2>
+  <p>Read digit by digit in Mandarin, {{ nf }} is <span lang="zh">{{ in_zh }}</span> (<em>{{ in_py }}</em>). <span class="tag tag-{{ zh_tone }}">{{ zh_verdict }}</span>{% if zh_reasons != "" %} in Chinese number lore: {{ zh_reasons }}.{% endif %}</p>
+  <div class="table-wrap">
+  <table class="dtable">
+    <thead><tr><th scope="col">Digit</th><th scope="col">Chinese</th><th scope="col">Japanese</th><th scope="col">Korean</th></tr></thead>
+    <tbody>
+    {%- for c in ud -%}{%- assign dg = site.data.digits[c] -%}
+      <tr><th scope="row">{{ c }}</th><td class="tone-{{ dg.zh.tone }}"><span lang="zh">{{ dg.zh.char }}</span> {{ dg.zh.pinyin }}<br><small>{{ dg.zh.sound | slice: 0, 1 | upcase }}{{ dg.zh.sound | slice: 1, 400 }}.</small></td><td class="tone-{{ dg.ja.tone }}"><span lang="ja">{{ dg.ja.char }}</span> {{ dg.ja.reading }}<br><small>{{ dg.ja.note }}</small></td><td class="tone-{{ dg.ko.tone }}"><span lang="ko">{{ dg.ko.char }}</span> {{ dg.ko.reading }}<br><small>{{ dg.ko.note }}</small></td></tr>
+    {%- endfor -%}
+    </tbody>
+  </table>
+  </div>
+  {%- if codes_hit != "" %}
+  <h3>Famous codes inside {{ nf }}</h3>
+  <ul class="codes">{{ codes_hit }}</ul>
+  {%- endif %}
+  {%- if c9 > 0 %}<p>In Thai, 9 (<em>gâo</em>) sounds like the word for stepping forward, which makes it one of Thailand's favourite digits.</p>{% endif %}
+  <h3>Other traditions</h3>
+  <ul class="plain">
+    {%- for c in ud -%}{%- assign dg = site.data.digits[c] -%}
+    <li><strong>{{ c }}</strong>: Vedic planet {{ dg.vedic }}; Lo Shu element {{ dg.element }}; biblical symbolism: {{ dg.bible }}</li>
+    {%- endfor -%}
+  </ul>
+  <p class="more">Go deeper: <a href="{{ r }}guides/chinese-lucky-numbers/">Chinese lucky numbers</a>, <a href="{{ r }}guides/japanese-number-wordplay/">Japanese number wordplay</a>, <a href="{{ r }}guides/lucky-numbers-around-the-world/">lucky numbers around the world</a>.</p>
+</section>
+
+<section id="maths" class="block">
+  <h2>The maths of {{ nf }}</h2>
+  <p>{% if n == 0 %}Zero is even, is neither prime nor composite, and is divisible by every non-zero integer.{% elsif n == 1 %}One is neither prime nor composite; it divides every integer.{% elsif is_prime %}{{ nf }} is a prime number: nothing divides it except 1 and itself.{% else %}{{ nf }} is composite. Its prime factorisation is <span class="pf">{{ pf }}</span>, so it has {{ omega }} distinct prime factor{% if omega > 1 %}s{% endif %} and {{ tau }} divisors.{% endif %}
+  {%- if abcabc %} Like every six-digit number of the form ABCABC, {{ nf }} = {{ half_s }} × 1,001, and 1,001 = 7 × 11 × 13. <a href="{{ r }}guides/the-1001-trick/">See why the trick always works</a>.{% endif %}</p>
+  {%- if divs.size > 0 and n > 0 %}
+  <p><strong>Divisors:</strong> {{ divs | join: ", " }}.</p>
+  {%- endif %}
+  {%- if n > 0 %}
+  <p>The divisors add up to {% include num/fmt.html v=sigma %}{{ fmt }}. Without {{ nf }} itself they sum to {% include num/fmt.html v=aliquot %}{{ fmt }}, which makes {{ nf }} a{% if nclass == "abundant" %}n{% endif %} <strong>{{ nclass }}</strong> number{% if nclass == "perfect" %}, one of the rare numbers equal to the sum of their proper divisors{% endif %}. Euler's totient φ({{ nf }}) = {% include num/fmt.html v=phi %}{{ fmt }}.</p>
+  {%- endif %}
+  <div class="table-wrap">
+  <table class="flags">
+    <caption class="sr">Number properties of {{ nf }}</caption>
+    <tbody>
+      <tr><th scope="row">Prime</th><td>{% if is_prime %}Yes{% else %}No{% endif %}</td><th scope="row">Perfect square</th><td>{% if is_square %}Yes ({{ sq }}²){% else %}No{% endif %}</td></tr>
+      <tr><th scope="row">Perfect cube</th><td>{% if is_cube %}Yes ({{ cb }}³){% else %}No{% endif %}</td><th scope="row">Triangular</th><td>{% if is_tri %}Yes (T{{ tri_k }}){% else %}No{% endif %}</td></tr>
+      <tr><th scope="row">Fibonacci</th><td>{% if is_fib %}Yes{% else %}No{% endif %}</td><th scope="row">Power of 2</th><td>{% if is_pow2 %}Yes (2<sup>{{ pow2_k }}</sup>){% else %}No{% endif %}</td></tr>
+      <tr><th scope="row">Palindrome</th><td>{% if palindrome %}Yes{% else %}No{% endif %}</td><th scope="row">Harshad (divisible by its digit sum)</th><td>{% if harshad %}Yes{% else %}No{% endif %}</td></tr>
+      <tr><th scope="row">Happy number</th><td>{% if happy %}Yes{% else %}No{% endif %}</td><th scope="row">Armstrong (narcissistic)</th><td>{% if armstrong %}Yes{% else %}No{% endif %}</td></tr>
+      <tr><th scope="row">Evil or odious</th><td>{% if ones_m == 0 %}Evil ({{ ones }} ones in binary){% else %}Odious ({{ ones }} ones in binary){% endif %}</td><th scope="row">Square-free</th><td>{% if n > 0 and squarefree %}Yes{% elsif n > 0 %}No (has a repeated prime factor){% else %}n/a{% endif %}</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>Bases, powers and roots</h3>
+  <dl class="facts facts-2">
+    <div><dt>Binary (base 2)</dt><dd class="mono-num">{{ bin }}</dd></div>
+    <div><dt>Octal (base 8)</dt><dd class="mono-num">{{ oct }}</dd></div>
+    <div><dt>Hexadecimal (base 16)</dt><dd class="mono-num">{{ hex }}</dd></div>
+    <div><dt>Base 36</dt><dd class="mono-num">{{ b36 }}</dd></div>
+    <div><dt>Square</dt><dd>{% include num/fmt.html v=n2 %}{{ fmt }}</dd></div>
+    <div><dt>Cube</dt><dd>{% include num/fmt.html v=n3 %}{{ fmt }}</dd></div>
+    <div><dt>Square root</dt><dd>{% if is_square %}{{ sq }}{% else %}≈ {{ sqrt_f }}{% endif %}</dd></div>
+    <div><dt>Cube root</dt><dd>{% if is_cube %}{{ cb }}{% else %}≈ {{ cbrt_f }}{% endif %}</dd></div>
+  </dl>
+  <h3>{{ nf }} in other numeral systems</h3>
+  <dl class="facts facts-2">
+    <div><dt>Indian grouping</dt><dd>{{ indian }}</dd></div>
+    <div><dt>Chinese digits</dt><dd lang="zh">{{ in_zh }}</dd></div>
+    <div><dt>Devanagari</dt><dd lang="hi">{{ in_dev }}</dd></div>
+    <div><dt>Eastern Arabic</dt><dd lang="ar">{{ in_ar }}</dd></div>
+    <div><dt>Thai</dt><dd lang="th">{{ in_th }}</dd></div>
+    <div><dt>Bengali</dt><dd lang="bn">{{ in_bn }}</dd></div>
+  </dl>
+</section>
+
+<section id="codes" class="block">
+  <h2>{{ nf }} as a code, a date and a time</h2>
+  <ul class="plain">
+    {%- if area %}<li><strong>Area code {{ s }}</strong> serves {{ area.r }}{% if area.c.size > 0 %}, including {{ area.c | join: ", " }}{% endif %}.{% if area.note %} {{ area.note }}.{% endif %} From abroad, dial +1 {{ s }} and the 7-digit number.</li>{% endif %}
+    {%- if ccode %}<li><strong>Country calling code +{{ s }}</strong>: {% if s == "1" %}the North American Numbering Plan (United States, Canada and {{ ccode.size | minus: 2 }} other countries and territories){% else %}{{ ccode | join: ", " }}{% endif %}.</li>{% endif %}
+    {%- if special %}{% for sp in special %}<li><strong>{{ s }}</strong>: {{ sp }}.</li>{% endfor %}{% endif %}
+    {%- if is_year %}<li><strong>The year {{ s }}</strong> is written {{ roman }} in Roman numerals. On the Chinese calendar most of {{ s }} is a {{ zodiac }} year ({{ yinyang }}); Chinese New Year falls in late January or February, so the first weeks belong to the previous sign. Its numerology year number is {{ root }}. <a href="https://en.wikipedia.org/wiki/{{ s }}" rel="noopener" target="_blank">Events of {{ s }} on Wikipedia</a>.</li>
+    {%- elsif n >= 1000 and n <= 2100 %}<li><strong>The year {{ s }}</strong> is written {{ roman }}. <a href="https://en.wikipedia.org/wiki/{{ s }}" rel="noopener" target="_blank">Events of {{ s }} on Wikipedia</a>.</li>{% endif %}
+    {%- if clock != "" %}<li><strong>As a clock time</strong>, {{ nf }} reads {{ clock }}. Seeing it on a clock is a common trigger for angel-number searches.</li>{% endif %}
+    {%- if n >= 60 %}<li><strong>{{ nf }} seconds</strong> is {{ dur }}.</li>{% endif %}
+    {%- if n >= 365 %}<li><strong>{{ nf }} days</strong> is about {% if years_f >= 100 %}{{ years_f | round }}{% else %}{{ years_f }}{% endif %} years.</li>{% endif %}
+    {%- if keypad != "" %}<li><strong>On a phone keypad</strong> the digits carry the letters {{ keypad }}.</li>{% endif %}
+  </ul>
+  {%- if s == "947" %}{% include special/947.html %}{% endif %}
+</section>
+
+{% include lead-band.html %}
+
+<section id="faq" class="block faq">
+  <h2>Questions about {{ nf }}</h2>
+  <details open><summary>What does {{ nf }} mean?</summary><p>{{ fq1 }}</p></details>
+  <details><summary>Is {{ nf }} a prime number?</summary><p>{{ fq2 }}</p></details>
+  <details><summary>What are the factors of {{ nf }}?</summary><p>{{ fq3 }}</p></details>
+  <details><summary>What does {{ nf }} mean in love?</summary><p>{{ fq4 }}</p></details>
+  <details><summary>Is {{ nf }} lucky in Chinese culture?</summary><p>{{ fq5 }}</p></details>
+  <details><summary>How do you write {{ nf }} in Roman numerals?</summary><p>{{ fq6 }}</p></details>
+  <details><summary>What is {{ nf }} in binary?</summary><p>{{ fq7 }}</p></details>
+</section>
+
+<section id="related" class="block">
+  <h2>Related numbers</h2>
+  <ul class="tiles">
+    {%- assign rel_list = "" -%}
+    {%- if n > 0 -%}{%- assign x = n | minus: 1 -%}{%- include num/has-page.html x=x -%}{%- if has_page -%}{%- assign rel_list = rel_list | append: x | append: ":Previous " -%}{%- endif -%}{%- endif -%}
+    {%- assign x = n | plus: 1 -%}{%- include num/has-page.html x=x -%}{%- if has_page -%}{%- assign rel_list = rel_list | append: x | append: ":Next " -%}{%- endif -%}
+    {%- if abcabc -%}{%- assign x = n | minus: 1001 -%}{%- if x >= 100100 -%}{%- assign rel_list = rel_list | append: x | append: ":Previous_ABCABC " -%}{%- endif -%}{%- assign x = n | plus: 1001 -%}{%- if x <= 999999 -%}{%- assign rel_list = rel_list | append: x | append: ":Next_ABCABC " -%}{%- endif -%}{%- assign rel_list = rel_list | append: abc | append: ":Half " -%}{%- endif -%}
+    {%- if len == 3 -%}{%- assign x = n | times: 1001 -%}{%- assign rel_list = rel_list | append: x | append: ":Doubled " -%}{%- endif -%}
+    {%- if rev_s != s and rhas -%}{%- assign rel_list = rel_list | append: rev | append: ":Reversed " -%}{%- endif -%}
+    {%- if root != n and R -%}{%- assign rel_list = rel_list | append: root | append: ":Root " -%}{%- endif -%}
+    {%- if repdigit -%}{%- for k in (1..9) -%}{%- assign rx = k | append: "" -%}{%- assign rr = "" -%}{%- for j in (1..len) -%}{%- assign rr = rr | append: rx -%}{%- endfor -%}{%- if rr != s -%}{%- assign rel_list = rel_list | append: rr | append: ":Repdigit " -%}{%- endif -%}{%- endfor -%}{%- endif -%}
+    {%- assign rel_items = rel_list | split: " " -%}
+    {%- for it in rel_items -%}{%- assign pr = it | split: ":" -%}{%- assign pr0 = pr[0] -%}{%- include num/fmt.html v=pr0 -%}
+    <li><a href="{{ r }}{{ pr0 }}/"><span class="tile-n">{{ fmt }}</span><span class="tile-l">{{ pr[1] | replace: "_", " " }}</span></a></li>
+    {%- endfor -%}
+  </ul>
+  <p class="more">Browse <a href="{{ r }}{{ hub_url }}">{{ hub_name }}</a>, <a href="{{ r }}angel-numbers/">angel numbers</a> or <a href="{{ r }}numbers/">look up any number</a>.</p>
+</section>
+
+<footer class="page-foot">
+  <div class="share" data-share data-title="{{ nf }}: meaning, maths and culture">
+    <span>Share</span>
+    <a class="share-btn" data-net="whatsapp" href="#">WhatsApp</a>
+    <a class="share-btn" data-net="x" href="#">X</a>
+    <a class="share-btn" data-net="facebook" href="#">Facebook</a>
+    <button class="share-btn" type="button" data-copy>Copy link</button>
+  </div>
+  <p class="cite">Cite this page: "{{ nf }}: meaning, maths and culture", 947947.com, {{ site.url }}{{ page.url }}. Maths computed automatically; cultural notes reviewed against the sources in our <a href="{{ r }}about/#methods">methods</a>. Spotted an error? <a href="{{ r }}contact/?topic=correction&amp;n={{ s }}">Tell us</a>.</p>
+</footer>
+{% include ad.html slot="foot" %}
+</article>
+<aside class="rail" aria-label="On this page">
+  <div class="rail-sticky">
+    <nav class="toc" aria-label="Contents">
+      <p class="toc-h">On this page</p>
+      <ol>
+        <li><a href="#facts">At a glance</a></li>
+        <li><a href="#meaning">Meaning</a></li>
+        <li><a href="#numerology">Numerology</a></li>
+        <li><a href="#culture">Chinese, Japanese, Korean</a></li>
+        <li><a href="#maths">Maths</a></li>
+        <li><a href="#codes">Codes and dates</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ol>
+    </nav>
+    <form class="lookup lookup-rail" action="{{ r }}numbers/" method="get" data-lookup>
+      <label for="lookup-rail">Look up another number</label>
+      <div class="lk-row"><input id="lookup-rail" name="n" inputmode="numeric" maxlength="16" placeholder="e.g. 1111" autocomplete="off"><button type="submit">Go</button></div>
+    </form>
+    {% include ad.html slot="side" %}
+  </div>
+</aside>
+</div>
+</main>
+<div class="sticky-cta" role="complementary"><p>Is {{ nf }} your number?</p><a class="btn btn-primary" href="{{ r }}reading/?n={{ s }}">Find out free</a><button class="x" type="button" aria-label="Dismiss">×</button></div>
+{% include chrome-bottom.html %}
+</body>
+</html>
