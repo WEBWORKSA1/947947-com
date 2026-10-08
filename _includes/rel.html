@@ -1,0 +1,13 @@
+{%- comment -%}
+  Sets r = relative path back to the site root ("./", "../", "../../" …).
+  Every internal link is written as {{ r }}path/ so the site works on
+  github.io/947947-com/ and on the custom domain without changes.
+{%- endcomment -%}
+{%- if page.is_404 -%}{%- assign r = "" -%}{%- else -%}
+{%- assign _rel_parts = page.url | split: "/" -%}{%- assign _rel_n = _rel_parts | size -%}
+{%- assign _rel_last = page.url | slice: -1, 1 -%}
+{%- if _rel_last == "/" -%}{%- assign _rel_depth = _rel_n | minus: 1 -%}{%- else -%}{%- assign _rel_depth = _rel_n | minus: 2 -%}{%- endif -%}
+{%- assign r = "" -%}
+{%- if _rel_depth > 0 -%}{%- for _i in (1.._rel_depth) -%}{%- assign r = r | append: "../" -%}{%- endfor -%}{%- endif -%}
+{%- if r == "" -%}{%- assign r = "./" -%}{%- endif -%}
+{%- endif -%}

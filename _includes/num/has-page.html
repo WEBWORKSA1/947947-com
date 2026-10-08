@@ -1,0 +1,28 @@
+{%- comment -%}
+  Sets has_page = true when number include.x has its own page.
+  Mirrors hasPage() in scripts/make-stubs.mjs — keep the two in sync.
+{%- endcomment -%}
+{%- assign hp_x = include.x | plus: 0 -%}{%- assign has_page = false -%}
+{%- if hp_x >= 0 -%}
+{%- if hp_x <= 1000 -%}{%- assign has_page = true -%}
+{%- elsif hp_x >= 1900 and hp_x <= 2100 -%}{%- assign has_page = true -%}
+{%- else -%}
+{%- assign hp_s = hp_x | append: "" -%}{%- assign hp_l = hp_s | size -%}{%- assign hp_d = hp_s | split: "" -%}
+{%- if hp_l == 4 -%}
+{%- assign hp_m = hp_x | modulo: 1000 -%}
+{%- if hp_d[0] == hp_d[2] and hp_d[1] == hp_d[3] -%}{%- assign has_page = true -%}
+{%- elsif hp_d[0] == hp_d[3] and hp_d[1] == hp_d[2] -%}{%- assign has_page = true -%}
+{%- elsif hp_d[0] == hp_d[1] and hp_d[2] == hp_d[3] -%}{%- assign has_page = true -%}
+{%- elsif hp_m == 0 -%}{%- assign has_page = true -%}
+{%- endif -%}
+{%- elsif hp_l == 5 or hp_l == 7 -%}
+{%- assign hp_u = hp_d | uniq | size -%}{%- if hp_u == 1 -%}{%- assign has_page = true -%}{%- endif -%}
+{%- elsif hp_l == 6 -%}
+{%- assign hp_m = hp_x | modulo: 1001 -%}{%- if hp_m == 0 -%}{%- assign has_page = true -%}{%- endif -%}
+{%- endif -%}
+{%- unless has_page -%}
+{%- assign hp_list = "1234,2345,3456,4567,5678,6789,9876,8765,7654,6543,5432,4321,3210,1004,1192,1314,1337,2333,3150,4649,7456,9413,9487,14106,12345,54321,5201314" | split: "," -%}
+{%- if hp_list contains hp_s -%}{%- assign has_page = true -%}{%- endif -%}
+{%- endunless -%}
+{%- endif -%}
+{%- endif -%}

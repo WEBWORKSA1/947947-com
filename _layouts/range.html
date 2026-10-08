@@ -1,0 +1,45 @@
+---
+layout: page
+section: numbers
+parent_title: Numbers
+parent_url: numbers/
+sticky_cta: "Is one of these your number?"
+---
+{%- include rel.html -%}
+<div class="wrap page-body">
+  <nav class="range-nav" aria-label="Number ranges">
+    {%- for k in (0..9) -%}{%- assign lo = k | times: 100 -%}{%- assign hi = lo | plus: 99 -%}
+    <a href="{{ r }}numbers/{{ lo }}-{{ hi }}/"{% if page.lo == lo and page.kind == "range" %} aria-current="page"{% endif %}>{{ lo }}–{{ hi }}</a>
+    {%- endfor -%}
+    <a href="{{ r }}numbers/years/"{% if page.kind == "years" %} aria-current="page"{% endif %}>Years</a>
+    <a href="{{ r }}numbers/patterns/"{% if page.kind == "patterns" %} aria-current="page"{% endif %}>Patterns and codes</a>
+    <a href="{{ r }}numbers/abcabc/"{% if page.kind == "abcabc" %} aria-current="page"{% endif %}>ABCABC</a>
+  </nav>
+  {{ content }}
+  {%- if page.kind == "range" -%}
+    {%- assign hi = page.lo | plus: 99 -%}{%- if page.lo == 900 -%}{%- assign hi = 1000 -%}{%- endif -%}
+    <ul class="num-grid">{% for x in (page.lo..hi) %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}</ul>
+  {%- elsif page.kind == "years" -%}
+    {%- for dec in (190..210) -%}{%- assign y0 = dec | times: 10 -%}{%- assign y9 = y0 | plus: 9 -%}{%- if y9 > 2100 -%}{%- assign y9 = 2100 -%}{%- endif -%}
+    <h2 class="h-dec">{{ y0 }}s</h2>
+    <ul class="num-grid">{% for x in (y0..y9) %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}</ul>
+    {%- endfor -%}
+  {%- elsif page.kind == "abcabc" -%}
+    {%- for h in (1..9) -%}{%- assign k0 = h | times: 100 -%}{%- assign k1 = k0 | plus: 99 -%}
+    <h2>{{ k0 }}{{ k0 }} to {{ k1 }}{{ k1 }}</h2>
+    <ul class="num-grid wide">{% for k in (k0..k1) %}<li><a href="{{ r }}{{ k }}{{ k }}/">{{ k }}{{ k }}</a></li>{% endfor %}</ul>
+    {%- endfor -%}
+  {%- elsif page.kind == "patterns" -%}
+    {%- assign four = "" -%}{%- assign big = "" -%}
+    {%- for doc in site.numbers -%}{%- assign sl = doc.slug -%}{%- assign L = sl | size -%}{%- assign v = sl | plus: 0 -%}
+      {%- if L == 4 and v > 1000 -%}{%- unless v >= 1900 and v <= 2100 -%}{%- assign four = four | append: sl | append: " " -%}{%- endunless -%}
+      {%- elsif L == 5 or L == 7 -%}{%- assign big = big | append: sl | append: " " -%}{%- endif -%}
+    {%- endfor -%}
+    <h2>Four-digit patterns and codes</h2>
+    <p>Alternating (1212), mirror (1221), doubled pairs (1122), sequences (1234) and round thousands.</p>
+    <ul class="num-grid">{% assign fl = four | split: " " %}{% for x in fl %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}</ul>
+    <h2>Longer repeats and famous codes</h2>
+    <ul class="num-grid wide">{% assign bl = big | split: " " %}{% for x in bl %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}<li><a href="{{ r }}5201314/">5201314</a></li></ul>
+  {%- endif -%}
+  {% include ad.html slot="foot" %}
+</div>

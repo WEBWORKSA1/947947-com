@@ -1,0 +1,46 @@
+{%- if page.is_404 -%}
+<script>(function(){var p=location.pathname,b=p.indexOf('/947947-com/')===0?'/947947-com/':'/';document.write('<base href="'+location.origin+b+'">');})();</script>
+{%- endif -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="site-root" content="{{ r }}">
+{%- if meta_title -%}{%- assign _title = meta_title | append: " | " | append: site.title -%}
+{%- elsif page.title -%}{%- assign _title = page.title | append: " | " | append: site.title -%}
+{%- else -%}{%- assign _title = site.title | append: ": " | append: site.tagline -%}{%- endif -%}
+{%- if page.title_full -%}{%- assign _title = page.title_full -%}{%- endif -%}
+{%- assign _desc = meta_desc | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 165 -%}
+{%- assign _canon = site.url | append: page.url | replace: "index.html", "" -%}
+<title>{{ _title | escape }}</title>
+<meta name="description" content="{{ _desc | escape }}">
+<link rel="canonical" href="{{ _canon }}">
+{%- if page.noindex or page.is_404 %}
+<meta name="robots" content="noindex, follow">
+{%- else %}
+<meta name="robots" content="index, follow, max-image-preview:large">
+{%- endif %}
+<meta property="og:site_name" content="947947">
+<meta property="og:type" content="{% if page.og_type %}{{ page.og_type }}{% else %}website{% endif %}">
+<meta property="og:title" content="{{ _title | escape }}">
+<meta property="og:description" content="{{ _desc | escape }}">
+<meta property="og:url" content="{{ _canon }}">
+<meta property="og:image" content="{{ site.url }}/assets/img/og.png">
+<meta property="og:image:alt" content="947947 — every number, decoded">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f2f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1624" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="{{ r }}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="{{ r }}manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap">
+<link rel="stylesheet" href="{{ r }}assets/css/site.css?v={{ site.time | date: '%y%m%d%H%M' }}">
+<meta name="google-adsense-account" content="{{ site.data.settings.adsense.client }}">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.data.settings.adsense.client }}" crossorigin="anonymous"></script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"947947","url":"{{ site.url }}/","description":{{ site.description | jsonify }},"potentialAction":{"@type":"SearchAction","target":"{{ site.url }}/numbers/?n={n}","query-input":"required name=n"}}</script>
+{%- if jsonld %}
+<script type="application/ld+json">{{ jsonld }}</script>
+{%- endif %}
+{%- if page.jsonld %}
+<script type="application/ld+json">{{ page.jsonld }}</script>
+{%- endif %}

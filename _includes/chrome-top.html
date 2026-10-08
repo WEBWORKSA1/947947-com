@@ -1,0 +1,43 @@
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap topbar-in"><a href="{{ site.data.settings.owner_contact_url }}" target="_blank" rel="noopener">Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership</a></div></div>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="{{ r }}" aria-label="947947 home">{% include logo.html %}<span class="brand-word">947947</span></a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="{{ r }}numbers/"{% if page.section == "numbers" %} aria-current="page"{% endif %}>Numbers</a></li>
+        <li><a href="{{ r }}angel-numbers/"{% if page.section == "angel" %} aria-current="page"{% endif %}>Angel numbers</a></li>
+        <li><a href="{{ r }}numerology/"{% if page.section == "numerology" %} aria-current="page"{% endif %}>Numerology</a></li>
+        <li><a href="{{ r }}guides/"{% if page.section == "guides" %} aria-current="page"{% endif %}>Guides</a></li>
+        <li><a href="{{ r }}tools/"{% if page.section == "tools" %} aria-current="page"{% endif %}>Tools</a></li>
+        <li><a href="{{ r }}videos/"{% if page.section == "videos" %} aria-current="page"{% endif %}>Videos</a></li>
+        <li class="nav-more">
+          <details>
+            <summary>More</summary>
+            <ul>
+              <li><a href="{{ r }}business/">Business number audit</a></li>
+              <li><a href="{{ r }}contests/">Contests</a></li>
+              <li><a href="{{ r }}support/">Support 947947</a></li>
+              <li><a href="{{ r }}advertise/">Advertise</a></li>
+              <li><a href="{{ r }}careers/">Work with us</a></li>
+              <li><a href="{{ r }}947947/">947947, decoded</a></li>
+              <li><a href="{{ r }}about/">About</a></li>
+              <li><a href="{{ r }}contact/">Contact</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+      <form class="lookup" action="{{ r }}numbers/" method="get" role="search" data-lookup>
+        <label class="sr" for="lookup-head">Look up a number</label>
+        <input id="lookup-head" name="n" inputmode="numeric" pattern="[0-9 ,.:]*" maxlength="16" placeholder="Look up a number" autocomplete="off">
+        <button type="submit" aria-label="Look up">Go</button>
+      </form>
+      <a class="btn btn-primary nav-cta" href="{{ r }}reading/">Get my free reading</a>
+    </nav>
+    <div class="head-actions">
+      <a class="btn btn-primary btn-sm" href="{{ r }}reading/">Get my reading</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch colour theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></button>
+      <button class="icon-btn menu-btn" type="button" aria-controls="site-nav" aria-expanded="false" data-menu><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="sr">Menu</span></button>
+    </div>
+  </div>
+</header>

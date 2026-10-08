@@ -1,0 +1,212 @@
+{%- comment -%}
+  Number engine (Liquid). Input: s = the number as a string (from the page file name).
+  Everything here is computed at build time by GitHub Pages, so each page ships
+  its own verified facts in plain HTML. The browser engine (assets/js/engine.js)
+  mirrors these rules for numbers without a page.
+{%- endcomment -%}
+{%- assign n = s | plus: 0 -%}
+{%- assign len = s | size -%}
+{%- assign d = s | split: "" -%}
+{%- include num/fmt.html v=s -%}{%- assign nf = fmt -%}
+{%- assign dsum = 0 -%}{%- assign dprod = 1 -%}
+{%- for c in d -%}{%- assign dsum = dsum | plus: c -%}{%- assign dprod = dprod | times: c -%}{%- endfor -%}
+{%- assign odd = n | modulo: 2 -%}
+{%- assign rev_s = d | reverse | join: "" -%}{%- assign rev = rev_s | plus: 0 -%}
+{%- assign palindrome = false -%}{%- if len > 1 and rev_s == s -%}{%- assign palindrome = true -%}{%- endif -%}
+{%- assign ud = d | uniq -%}{%- assign ud_n = ud | size -%}
+{%- assign repdigit = false -%}{%- if len > 1 and ud_n == 1 -%}{%- assign repdigit = true -%}{%- endif -%}
+{%- assign half = len | divided_by: 2 -%}{%- assign len_m2 = len | modulo: 2 -%}
+{%- assign tandem = false -%}{%- assign half_s = "" -%}
+{%- if len_m2 == 0 and len > 1 -%}{%- assign half_s = s | slice: 0, half -%}{%- assign half_s2 = s | slice: half, half -%}{%- if half_s == half_s2 -%}{%- assign tandem = true -%}{%- endif -%}{%- endif -%}
+{%- assign abcabc = false -%}{%- if tandem and len == 6 -%}{%- assign abcabc = true -%}{%- assign abc = half_s | plus: 0 -%}{%- endif -%}
+{%- assign pat = "" -%}
+{%- if len == 4 and repdigit == false -%}
+  {%- if d[0] == d[2] and d[1] == d[3] -%}{%- assign pat = "ABAB" -%}
+  {%- elsif d[0] == d[3] and d[1] == d[2] -%}{%- assign pat = "ABBA" -%}
+  {%- elsif d[0] == d[1] and d[2] == d[3] -%}{%- assign pat = "AABB" -%}{%- endif -%}
+{%- endif -%}
+{%- assign seq_up = false -%}{%- assign seq_down = false -%}
+{%- if len > 2 -%}{%- assign seq_up = true -%}{%- assign seq_down = true -%}
+  {%- for c in d -%}{%- unless forloop.first -%}{%- assign cur = c | plus: 0 -%}{%- assign up = prev | plus: 1 -%}{%- assign dn = prev | minus: 1 -%}
+    {%- if cur != up -%}{%- assign seq_up = false -%}{%- endif -%}{%- if cur != dn -%}{%- assign seq_down = false -%}{%- endif -%}
+  {%- endunless -%}{%- assign prev = c | plus: 0 -%}{%- endfor -%}
+{%- endif -%}
+{%- assign is_year = false -%}{%- if n >= 1900 and n <= 2100 -%}{%- assign is_year = true -%}{%- endif -%}
+
+{%- comment -%} digit counts, most repeated digit {%- endcomment -%}
+{%- assign cnt = "" -%}{%- assign top_c = 0 -%}{%- assign top_d = d[0] -%}
+{%- for k in (0..9) -%}{%- assign ks = k | append: "" -%}{%- assign rest = s | remove: ks | size -%}{%- assign kc = len | minus: rest -%}
+{%- assign cnt = cnt | append: kc | append: "," -%}{%- if kc > top_c -%}{%- assign top_c = kc -%}{%- assign top_d = ks -%}{%- endif -%}{%- endfor -%}
+{%- assign counts = cnt | split: "," -%}
+
+{%- comment -%} numerology reduction {%- endcomment -%}
+{%- if n == 11 or n == 22 or n == 33 -%}{%- assign root = n -%}{%- assign chain = s -%}
+{%- else -%}
+  {%- assign root = dsum -%}{%- if len == 1 -%}{%- assign chain = s -%}{%- else -%}{%- assign chain = s | append: " → " | append: dsum -%}{%- endif -%}
+  {%- for i in (1..6) -%}
+    {%- if root < 10 or root == 11 or root == 22 or root == 33 -%}{%- break -%}{%- endif -%}
+    {%- assign rs = root | append: "" | split: "" -%}{%- assign t = 0 -%}{%- for c in rs -%}{%- assign t = t | plus: c -%}{%- endfor -%}
+    {%- assign root = t -%}{%- assign chain = chain | append: " → " | append: root -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign root_s = root | append: "" -%}{%- assign R = site.data.roots[root_s] -%}
+{%- if n == 0 -%}{%- assign dr = 0 -%}{%- else -%}{%- assign dr = n | minus: 1 | modulo: 9 | plus: 1 -%}{%- endif -%}
+
+{%- comment -%} integer square root (Newton) and cube root {%- endcomment -%}
+{%- assign sq = 0 -%}
+{%- if n > 0 -%}{%- assign sq = n -%}{%- assign y = n | plus: 1 | divided_by: 2 -%}
+  {%- for i in (1..80) -%}{%- if y >= sq -%}{%- break -%}{%- endif -%}{%- assign sq = y -%}{%- assign y = n | divided_by: sq | plus: sq | divided_by: 2 -%}{%- endfor -%}
+{%- endif -%}
+{%- assign sq2 = sq | times: sq -%}{%- assign is_square = false -%}{%- if sq2 == n -%}{%- assign is_square = true -%}{%- endif -%}
+{%- assign cb = 0 -%}{%- assign cbrt_f = 0 -%}
+{%- if n > 0 -%}{%- assign xf = n | times: 1.0 -%}{%- assign g = sq | plus: 1.0 -%}{%- if n > 8 -%}{%- assign g = sq | divided_by: 2.0 | plus: 1.0 -%}{%- endif -%}
+  {%- for i in (1..40) -%}{%- assign g2 = g | times: g -%}{%- assign gn = xf | divided_by: g2 | plus: g | plus: g | divided_by: 3.0 -%}{%- assign gd = g | minus: gn | abs -%}{%- assign g = gn -%}{%- if gd < 0.000001 -%}{%- break -%}{%- endif -%}{%- endfor -%}
+  {%- assign cbrt_f = g | round: 4 -%}{%- assign cb = g | round -%}
+{%- endif -%}
+{%- assign cb3 = cb | times: cb | times: cb -%}{%- assign is_cube = false -%}{%- if cb3 == n -%}{%- assign is_cube = true -%}{%- endif -%}
+{%- assign t8 = n | times: 8 | plus: 1 -%}{%- assign st = t8 -%}{%- assign y = t8 | plus: 1 | divided_by: 2 -%}
+{%- for i in (1..80) -%}{%- if y >= st -%}{%- break -%}{%- endif -%}{%- assign st = y -%}{%- assign y = t8 | divided_by: st | plus: st | divided_by: 2 -%}{%- endfor -%}
+{%- assign st2 = st | times: st -%}{%- assign is_tri = false -%}{%- if st2 == t8 and n > 0 -%}{%- assign is_tri = true -%}{%- assign tri_k = st | minus: 1 | divided_by: 2 -%}{%- endif -%}
+{%- assign is_fib = false -%}{%- if site.data.fib contains n -%}{%- assign is_fib = true -%}{%- endif -%}
+
+{%- comment -%} prime factorisation by trial division {%- endcomment -%}
+{%- assign fs = "" -%}{%- assign m = n -%}
+{%- if n > 1 -%}
+  {%- assign plim = sq | plus: 1 -%}
+  {%- for p in (2..plim) -%}
+    {%- assign pp = p | times: p -%}{%- if pp > m -%}{%- break -%}{%- endif -%}
+    {%- assign r0 = m | modulo: p -%}
+    {%- if r0 == 0 -%}{%- for k in (1..40) -%}{%- assign r0 = m | modulo: p -%}{%- if r0 != 0 -%}{%- break -%}{%- endif -%}{%- assign fs = fs | append: p | append: " " -%}{%- assign m = m | divided_by: p -%}{%- endfor -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if m > 1 -%}{%- assign fs = fs | append: m | append: " " -%}{%- endif -%}
+{%- endif -%}
+{%- assign factors = fs | split: " " -%}{%- assign f_n = factors | size -%}
+{%- assign is_prime = false -%}{%- if n > 1 and f_n == 1 -%}{%- assign is_prime = true -%}{%- endif -%}
+{%- assign uf = factors | uniq -%}{%- assign omega = uf | size -%}
+{%- assign squarefree = true -%}{%- assign pf = "" -%}{%- assign pf_txt = "" -%}{%- assign tau = 1 -%}{%- assign sigma = 1 -%}{%- assign phi = n -%}
+{%- for p in uf -%}
+  {%- assign e = 0 -%}{%- for f in factors -%}{%- if f == p -%}{%- assign e = e | plus: 1 -%}{%- endif -%}{%- endfor -%}
+  {%- assign pn = p | plus: 0 -%}{%- assign e1 = e | plus: 1 -%}{%- assign tau = tau | times: e1 -%}{%- if e > 1 -%}{%- assign squarefree = false -%}{%- endif -%}
+  {%- assign pw = 1 -%}{%- assign ss = 0 -%}{%- for i in (0..e) -%}{%- assign ss = ss | plus: pw -%}{%- assign pw = pw | times: pn -%}{%- endfor -%}
+  {%- assign sigma = sigma | times: ss -%}{%- assign pm1 = pn | minus: 1 -%}{%- assign phi = phi | divided_by: pn | times: pm1 -%}
+  {%- unless forloop.first -%}{%- assign pf = pf | append: " × " -%}{%- assign pf_txt = pf_txt | append: " × " -%}{%- endunless -%}
+  {%- if e > 1 -%}{%- assign pf = pf | append: p | append: "<sup>" | append: e | append: "</sup>" -%}{%- assign pf_txt = pf_txt | append: p | append: "^" | append: e -%}
+  {%- else -%}{%- assign pf = pf | append: p -%}{%- assign pf_txt = pf_txt | append: p -%}{%- endif -%}
+{%- endfor -%}
+{%- assign is_pow2 = false -%}{%- if n == 1 -%}{%- assign is_pow2 = true -%}{%- assign pow2_k = 0 -%}{%- elsif omega == 1 and uf[0] == "2" -%}{%- assign is_pow2 = true -%}{%- assign pow2_k = f_n -%}{%- endif -%}
+{%- assign aliquot = sigma | minus: n -%}
+{%- if n == 0 -%}{%- assign nclass = "" -%}{%- elsif aliquot == n -%}{%- assign nclass = "perfect" -%}{%- elsif aliquot > n -%}{%- assign nclass = "abundant" -%}{%- else -%}{%- assign nclass = "deficient" -%}{%- endif -%}
+{%- assign divs = "" | split: "" -%}
+{%- if n > 0 and tau <= 64 -%}
+  {%- assign divs = divs | push: 1 -%}
+  {%- for p in uf -%}
+    {%- assign pn = p | plus: 0 -%}{%- assign e = 0 -%}{%- for f in factors -%}{%- if f == p -%}{%- assign e = e | plus: 1 -%}{%- endif -%}{%- endfor -%}
+    {%- assign nd = "" | split: "" -%}
+    {%- for dv in divs -%}{%- assign mult = dv -%}{%- for k in (0..e) -%}{%- assign nd = nd | push: mult -%}{%- assign mult = mult | times: pn -%}{%- endfor -%}{%- endfor -%}
+    {%- assign divs = nd -%}
+  {%- endfor -%}
+  {%- assign divs = divs | sort -%}
+{%- endif -%}
+
+{%- comment -%} bases {%- endcomment -%}
+{%- assign hexd = "0123456789ABCDEF" -%}{%- assign b36d = "0123456789abcdefghijklmnopqrstuvwxyz" -%}
+{%- assign bin = "" -%}{%- assign ones = 0 -%}{%- assign t = n -%}
+{%- for i in (1..64) -%}{%- assign r0 = t | modulo: 2 -%}{%- if r0 == 1 -%}{%- assign ones = ones | plus: 1 -%}{%- endif -%}{%- assign bin = r0 | append: bin -%}{%- assign t = t | divided_by: 2 -%}{%- if t == 0 -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- assign oct = "" -%}{%- assign t = n -%}{%- for i in (1..30) -%}{%- assign r0 = t | modulo: 8 -%}{%- assign oct = r0 | append: oct -%}{%- assign t = t | divided_by: 8 -%}{%- if t == 0 -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- assign hex = "" -%}{%- assign t = n -%}{%- for i in (1..20) -%}{%- assign r0 = t | modulo: 16 -%}{%- assign hc = hexd | slice: r0, 1 -%}{%- assign hex = hc | append: hex -%}{%- assign t = t | divided_by: 16 -%}{%- if t == 0 -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- assign b36 = "" -%}{%- assign t = n -%}{%- for i in (1..20) -%}{%- assign r0 = t | modulo: 36 -%}{%- assign hc = b36d | slice: r0, 1 -%}{%- assign b36 = hc | append: b36 -%}{%- assign t = t | divided_by: 36 -%}{%- if t == 0 -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- assign ones_m = ones | modulo: 2 -%}
+
+{%- comment -%} words, ordinal, Roman numerals {%- endcomment -%}
+{%- assign w_ones = "zero,one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen" | split: "," -%}
+{%- assign w_tens = "x,x,twenty,thirty,forty,fifty,sixty,seventy,eighty,ninety" | split: "," -%}
+{%- if n == 0 -%}{%- assign words = "zero" -%}{%- else -%}{%- assign words = "" -%}
+  {%- assign g_m = n | divided_by: 1000000 -%}{%- assign g_t = n | divided_by: 1000 | modulo: 1000 -%}{%- assign g_u = n | modulo: 1000 -%}
+  {%- if g_m > 0 -%}{%- include num/words3.html g=g_m -%}{%- assign words = w3 | append: " million" -%}{%- endif -%}
+  {%- if g_t > 0 -%}{%- include num/words3.html g=g_t -%}{%- if words != "" -%}{%- assign words = words | append: " " -%}{%- endif -%}{%- assign words = words | append: w3 | append: " thousand" -%}{%- endif -%}
+  {%- if g_u > 0 -%}{%- include num/words3.html g=g_u -%}{%- if words != "" -%}{%- assign words = words | append: " " -%}{%- endif -%}{%- assign words = words | append: w3 -%}{%- endif -%}
+{%- endif -%}
+{%- assign m100 = n | modulo: 100 -%}{%- assign m10 = n | modulo: 10 -%}
+{%- if m100 >= 11 and m100 <= 13 -%}{%- assign ord = "th" -%}{%- elsif m10 == 1 -%}{%- assign ord = "st" -%}{%- elsif m10 == 2 -%}{%- assign ord = "nd" -%}{%- elsif m10 == 3 -%}{%- assign ord = "rd" -%}{%- else -%}{%- assign ord = "th" -%}{%- endif -%}
+{%- assign rm_vals = "1000,900,500,400,100,90,50,40,10,9,5,4,1" | split: "," -%}{%- assign rm_syms = "M,CM,D,CD,C,XC,L,XL,X,IX,V,IV,I" | split: "," -%}
+{%- assign roman = "" -%}{%- assign roman_txt = "" -%}
+{%- if n >= 1 and n <= 3999 -%}{%- include num/roman.html v=n -%}{%- assign roman = rom -%}{%- assign roman_txt = rom -%}
+{%- elsif n >= 4000 and n <= 3999999 -%}
+  {%- assign rk = n | divided_by: 1000 -%}{%- assign ru = n | modulo: 1000 -%}
+  {%- include num/roman.html v=rk -%}{%- assign rhi = rom -%}{%- assign rhi_txt = "" -%}
+  {%- assign rhc = rhi | split: "" -%}{%- for c in rhc -%}{%- assign rhi_txt = rhi_txt | append: c | append: "̅" -%}{%- endfor -%}
+  {%- assign rom = "" -%}{%- if ru > 0 -%}{%- include num/roman.html v=ru -%}{%- endif -%}
+  {%- assign roman = '<span class="ovl">' | append: rhi | append: '</span>' | append: rom -%}{%- assign roman_txt = rhi_txt | append: rom -%}
+{%- endif -%}
+
+{%- comment -%} recreational properties {%- endcomment -%}
+{%- assign harshad = false -%}{%- if n > 0 -%}{%- assign hm = n | modulo: dsum -%}{%- if hm == 0 -%}{%- assign harshad = true -%}{%- endif -%}{%- endif -%}
+{%- assign arm = 0 -%}{%- for c in d -%}{%- assign pw = 1 -%}{%- for k in (1..len) -%}{%- assign pw = pw | times: c -%}{%- endfor -%}{%- assign arm = arm | plus: pw -%}{%- endfor -%}
+{%- assign armstrong = false -%}{%- if arm == n and len > 1 -%}{%- assign armstrong = true -%}{%- endif -%}
+{%- assign hpv = n -%}{%- assign happy = false -%}
+{%- for i in (1..40) -%}{%- if hpv == 1 -%}{%- assign happy = true -%}{%- break -%}{%- endif -%}{%- if hpv == 4 or hpv == 0 -%}{%- break -%}{%- endif -%}
+  {%- assign hd = hpv | append: "" | split: "" -%}{%- assign hs = 0 -%}{%- for c in hd -%}{%- assign c2 = c | times: c -%}{%- assign hs = hs | plus: c2 -%}{%- endfor -%}{%- assign hpv = hs -%}{%- endfor -%}
+{%- assign n2 = n | times: n -%}{%- assign n3 = n2 | times: n -%}
+{%- if n > 0 -%}{%- assign xf = n | times: 1.0 -%}{%- assign g = sq | plus: 0.5 -%}{%- for i in (1..4) -%}{%- assign g = xf | divided_by: g | plus: g | divided_by: 2.0 -%}{%- endfor -%}{%- assign sqrt_f = g | round: 4 -%}{%- else -%}{%- assign sqrt_f = 0 -%}{%- endif -%}
+
+{%- comment -%} time readings {%- endcomment -%}
+{%- assign t_d = n | divided_by: 86400 -%}{%- assign t_h = n | modulo: 86400 | divided_by: 3600 -%}{%- assign t_m = n | modulo: 3600 | divided_by: 60 -%}{%- assign t_s = n | modulo: 60 -%}
+{%- assign dur = "" -%}
+{%- if t_d > 0 -%}{%- assign dur = dur | append: t_d | append: " d " -%}{%- endif -%}{%- if t_h > 0 -%}{%- assign dur = dur | append: t_h | append: " h " -%}{%- endif -%}{%- if t_m > 0 -%}{%- assign dur = dur | append: t_m | append: " min " -%}{%- endif -%}{%- if t_s > 0 -%}{%- assign dur = dur | append: t_s | append: " s" -%}{%- endif -%}
+{%- assign dur = dur | strip -%}
+{%- assign clock = "" -%}
+{%- if len == 3 -%}{%- assign cmm = s | slice: 1, 2 | plus: 0 -%}{%- if cmm < 60 and d[0] != "0" -%}{%- assign clock = d[0] | append: ":" | append: d[1] | append: d[2] -%}{%- endif -%}
+{%- elsif len == 4 -%}{%- assign chh = s | slice: 0, 2 | plus: 0 -%}{%- assign cmm = s | slice: 2, 2 | plus: 0 -%}{%- if chh < 24 and cmm < 60 -%}{%- assign clock = s | slice: 0, 2 | append: ":" | append: d[2] | append: d[3] -%}{%- endif -%}{%- endif -%}
+{%- assign years_f = n | divided_by: 365.25 | round: 2 -%}
+
+{%- comment -%} other numeral systems {%- endcomment -%}
+{%- assign sys_zh = "〇一二三四五六七八九" -%}{%- assign sys_dev = "०१२३४५६७८९" -%}{%- assign sys_ar = "٠١٢٣٤٥٦٧٨٩" -%}{%- assign sys_th = "๐๑๒๓๔๕๖๗๘๙" -%}{%- assign sys_bn = "০১২৩৪৫৬৭৮৯" -%}
+{%- assign py = "líng,yī,èr,sān,sì,wǔ,liù,qī,bā,jiǔ" | split: "," -%}
+{%- assign in_zh = "" -%}{%- assign in_dev = "" -%}{%- assign in_ar = "" -%}{%- assign in_th = "" -%}{%- assign in_bn = "" -%}{%- assign in_py = "" -%}{%- assign keypad = "" -%}
+{%- for c in d -%}{%- assign ci = c | plus: 0 -%}
+  {%- assign ch = sys_zh | slice: ci, 1 -%}{%- assign in_zh = in_zh | append: ch -%}
+  {%- assign ch = sys_dev | slice: ci, 1 -%}{%- assign in_dev = in_dev | append: ch -%}
+  {%- assign ch = sys_ar | slice: ci, 1 -%}{%- assign in_ar = in_ar | append: ch -%}
+  {%- assign ch = sys_th | slice: ci, 1 -%}{%- assign in_th = in_th | append: ch -%}
+  {%- assign ch = sys_bn | slice: ci, 1 -%}{%- assign in_bn = in_bn | append: ch -%}
+  {%- unless forloop.first -%}{%- assign in_py = in_py | append: " " -%}{%- endunless -%}{%- assign in_py = in_py | append: py[ci] -%}
+  {%- assign kp = site.data.digits[c].keypad -%}{%- if kp != "" -%}{%- unless keypad == "" -%}{%- assign keypad = keypad | append: " · " -%}{%- endunless -%}{%- assign keypad = keypad | append: kp -%}{%- endif -%}
+{%- endfor -%}
+{%- assign indian = s -%}
+{%- if len > 3 -%}{%- assign i_tail = s | slice: -3, 3 -%}{%- assign hl = len | minus: 3 -%}{%- assign i_head = s | slice: 0, hl -%}
+  {%- assign ih = i_head | split: "" | reverse -%}{%- assign ihs = "" -%}
+  {%- for c in ih -%}{%- if forloop.index0 > 0 -%}{%- assign im = forloop.index0 | modulo: 2 -%}{%- if im == 0 -%}{%- assign ihs = "," | append: ihs -%}{%- endif -%}{%- endif -%}{%- assign ihs = c | append: ihs -%}{%- endfor -%}
+  {%- assign indian = ihs | append: "," | append: i_tail -%}
+{%- endif -%}
+
+{%- comment -%} cultural readings {%- endcomment -%}
+{%- assign zh_w = "0,0,1,1,-3,0,2,0,3,2" | split: "," -%}
+{%- assign zh_score = 0 -%}{%- for c in d -%}{%- assign ci = c | plus: 0 -%}{%- assign zh_score = zh_score | plus: zh_w[ci] -%}{%- endfor -%}
+{%- assign codes_hit = "" -%}{%- assign codes_n = 0 -%}{%- assign exact_codes = "" -%}
+{%- for cd in site.data.codes -%}
+  {%- assign cl = cd.code | size -%}
+  {%- if cd.code == s or cl > 1 -%}{%- if s contains cd.code -%}
+    {%- if codes_n < 6 or cd.code == s -%}
+      {%- capture one -%}<li class="tone-{{ cd.tone }}"><span class="code">{{ cd.code }}</span> <span class="cult">{{ cd.culture }}</span> <span class="rd">{{ cd.reading }}</span> <span class="mn">{{ cd.meaning }}</span></li>{%- endcapture -%}
+      {%- assign codes_hit = codes_hit | append: one -%}{%- assign codes_n = codes_n | plus: 1 -%}
+      {%- if cd.code == s -%}{%- assign exact_codes = exact_codes | append: cd.meaning | append: " (" | append: cd.culture | append: "). " -%}{%- endif -%}
+      {%- if cd.culture contains "Chinese" or cd.culture contains "Cantonese" -%}
+        {%- if cd.tone == "good" -%}{%- assign zh_score = zh_score | plus: 2 -%}{%- elsif cd.tone == "bad" or cd.tone == "rude" -%}{%- assign zh_score = zh_score | minus: 2 -%}{%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}{%- endif -%}
+{%- endfor -%}
+{%- assign zh_avg = zh_score | times: 1.0 | divided_by: len -%}
+{%- assign c4 = counts[4] | plus: 0 -%}{%- assign c8 = counts[8] | plus: 0 -%}{%- assign c9 = counts[9] | plus: 0 -%}{%- assign c6 = counts[6] | plus: 0 -%}
+{%- if zh_avg >= 1.2 -%}{%- assign zh_verdict = "Very auspicious" -%}{%- assign zh_tone = "good" -%}
+{%- elsif zh_avg >= 0.4 -%}{%- assign zh_verdict = "Auspicious" -%}{%- assign zh_tone = "good" -%}
+{%- elsif zh_avg > -0.4 -%}{%- assign zh_verdict = "Neutral to mixed" -%}{%- assign zh_tone = "neutral" -%}
+{%- else -%}{%- assign zh_verdict = "Usually avoided" -%}{%- assign zh_tone = "bad" -%}{%- endif -%}
+{%- assign area = site.data.areacodes[s] -%}{%- assign ccode = site.data.callingcodes[s] -%}{%- assign special = site.data.specialcodes[s] -%}
+{%- if len > 3 -%}{%- assign area = nil -%}{%- assign ccode = nil -%}{%- endif -%}
+{%- if is_year -%}
+  {%- assign zod = "Rat,Ox,Tiger,Rabbit,Dragon,Snake,Horse,Goat,Monkey,Rooster,Dog,Pig" | split: "," -%}
+  {%- assign elem = "Wood,Wood,Fire,Fire,Earth,Earth,Metal,Metal,Water,Water" | split: "," -%}
+  {%- assign zi = n | minus: 4 | modulo: 12 -%}{%- assign ei = n | minus: 4 | modulo: 10 -%}{%- assign yy = n | minus: 4 | modulo: 2 -%}
+  {%- assign zodiac = elem[ei] | append: " " | append: zod[zi] -%}{%- if yy == 0 -%}{%- assign yinyang = "yang" -%}{%- else -%}{%- assign yinyang = "yin" -%}{%- endif -%}
+{%- endif -%}

@@ -1,0 +1,45 @@
+<!doctype html>
+{%- include rel.html -%}
+{%- capture jsonld -%}{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"datePublished":"{{ page.date_published | default: '2026-10-08' }}","dateModified":"{{ page.date_modified | default: page.date_published | default: '2026-10-08' }}","author":{"@type":"Organization","name":"947947 editorial team","url":"{{ site.url }}/about/"},"publisher":{"@type":"Organization","name":"947947","url":"{{ site.url }}/"},"mainEntityOfPage":"{{ site.url }}{{ page.url }}"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Guides","item":"{{ site.url }}/guides/"},{"@type":"ListItem","position":3,"name":{{ page.title | jsonify }},"item":"{{ site.url }}{{ page.url }}"}]}]}{%- endcapture -%}
+{%- assign parts = content | split: "<!--mid-->" -%}
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body class="t-guide">
+{% include chrome-top.html %}
+<main id="main">
+<nav class="crumbs wrap" aria-label="Breadcrumb"><a href="{{ r }}">Home</a> <span aria-hidden="true">/</span> <a href="{{ r }}guides/">Guides</a> <span aria-hidden="true">/</span> <span aria-current="page">{{ page.crumb | default: page.title }}</span></nav>
+<header class="phero">
+  <div class="wrap"><div class="phero-in">
+    <h1>{{ page.h1 | default: page.title }}</h1>
+    {%- if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+    <p class="byline">By the 947947 editorial team. Updated {{ page.date_modified | default: page.date_published | default: "2026-10-08" | date: "%-d %B %Y" }}, about a {{ content | number_of_words | divided_by: 220 | plus: 1 }}-minute read.</p>
+  </div></div>
+</header>
+<div class="wrap with-rail">
+  <article class="article prose guide-body">
+    {{ parts[0] }}
+    {%- if parts.size > 1 %}
+    {% include ad.html slot="mid" %}
+    {{ parts[1] }}
+    {%- endif %}
+    {% include lead-band.html %}
+    <footer class="page-foot">
+      <div class="share" data-share data-title="{{ page.title | escape }}"><span>Share</span><a class="share-btn" data-net="whatsapp" href="#">WhatsApp</a><a class="share-btn" data-net="x" href="#">X</a><a class="share-btn" data-net="facebook" href="#">Facebook</a><button class="share-btn" type="button" data-copy>Copy link</button></div>
+      <p class="cite">Cultural and numerological content is presented as tradition and folklore. Found an error or a better source? <a href="{{ r }}contact/?topic=correction">Tell us</a>.</p>
+    </footer>
+  </article>
+  <aside class="rail" aria-label="More">
+    <div class="rail-sticky">
+      <nav class="toc" aria-label="Contents" data-autotoc><p class="toc-h">On this page</p><ol></ol></nav>
+      <form class="lookup lookup-rail" action="{{ r }}numbers/" method="get" data-lookup><label for="lookup-rail">Look up a number</label><div class="lk-row"><input id="lookup-rail" name="n" inputmode="numeric" maxlength="16" placeholder="e.g. 1111" autocomplete="off"><button type="submit">Go</button></div></form>
+      {% include ad.html slot="side" %}
+    </div>
+  </aside>
+</div>
+</main>
+<div class="sticky-cta" role="complementary"><p>What do your own numbers say?</p><a class="btn btn-primary" href="{{ r }}reading/">Find out free</a><button class="x" type="button" aria-label="Dismiss">×</button></div>
+{% include chrome-bottom.html %}
+</body>
+</html>

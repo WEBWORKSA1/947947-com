@@ -1,0 +1,7 @@
+{%- assign w3 = "" -%}{%- assign w3g = include.g | plus: 0 -%}
+{%- assign w3h = w3g | divided_by: 100 -%}{%- assign w3r = w3g | modulo: 100 -%}
+{%- if w3h > 0 -%}{%- assign w3 = w_ones[w3h] | append: " hundred" -%}{%- endif -%}
+{%- if w3r > 0 -%}{%- if w3h > 0 -%}{%- assign w3 = w3 | append: " " -%}{%- endif -%}
+{%- if w3r < 20 -%}{%- assign w3 = w3 | append: w_ones[w3r] -%}
+{%- else -%}{%- assign w3t = w3r | divided_by: 10 -%}{%- assign w3o = w3r | modulo: 10 -%}{%- assign w3 = w3 | append: w_tens[w3t] -%}{%- if w3o > 0 -%}{%- assign w3 = w3 | append: "-" | append: w_ones[w3o] -%}{%- endif -%}
+{%- endif -%}{%- endif -%}

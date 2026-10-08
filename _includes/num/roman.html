@@ -1,0 +1,4 @@
+{%- assign rom = "" -%}{%- assign rmv = include.v | plus: 0 -%}
+{%- for rmi in (0..12) -%}{%- assign rmval = rm_vals[rmi] | plus: 0 -%}
+{%- for rmk in (1..4) -%}{%- if rmv >= rmval -%}{%- assign rom = rom | append: rm_syms[rmi] -%}{%- assign rmv = rmv | minus: rmval -%}{%- else -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- endfor -%}

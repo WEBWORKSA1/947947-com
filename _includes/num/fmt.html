@@ -1,0 +1,4 @@
+{%- assign fmt_s = include.v | append: "" -%}{%- assign fmt_l = fmt_s | size -%}
+{%- if fmt_l > 4 -%}{%- assign fmt_r = fmt_s | split: "" | reverse -%}{%- assign fmt = "" -%}
+{%- for fmt_c in fmt_r -%}{%- if forloop.index0 > 0 -%}{%- assign fmt_m = forloop.index0 | modulo: 3 -%}{%- if fmt_m == 0 -%}{%- assign fmt = "," | append: fmt -%}{%- endif -%}{%- endif -%}{%- assign fmt = fmt_c | append: fmt -%}{%- endfor -%}
+{%- else -%}{%- assign fmt = fmt_s -%}{%- endif -%}
