@@ -1,0 +1,16 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign now = site.time | date: "%Y-%m-%d" -%}
+{%- for p in site.pages -%}
+{%- unless p.noindex or p.is_404 or p.layout == null or p.url contains ".xml" or p.url contains ".txt" or p.url contains ".js" or p.url contains ".webmanifest" -%}
+<url><loc>{{ site.url }}{{ p.url | replace: "index.html", "" }}</loc><lastmod>{{ now }}</lastmod></url>
+{%- endunless -%}
+{%- endfor -%}
+{%- for d in site.numbers -%}
+<url><loc>{{ site.url }}{{ d.url }}</loc><lastmod>{{ now }}</lastmod></url>
+{%- endfor -%}
+</urlset>

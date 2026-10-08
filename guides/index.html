@@ -1,0 +1,23 @@
+---
+layout: page
+section: guides
+title: "Guides to number meanings, culture and maths"
+h1: "Guides"
+crumb: "Guides"
+description: "Researched guides to angel numbers, numerology, Chinese and Japanese number culture, lucky numbers worldwide, phone codes and number maths."
+lede: "Researched explainers with sources, written for the curious: what people believe about numbers, where it comes from, and the maths underneath."
+---
+{% include rel.html %}
+<div class="wrap page-body">
+  <ul class="list-links">
+    {%- for g in site.data.guides -%}
+    <li><a href="{{ r }}{{ g.url }}"><span><strong>{{ g.title }}</strong><span>{{ g.blurb }}</span></span><em>{{ g.tag }}</em></a></li>
+    {%- endfor -%}
+  </ul>
+  <section class="section">
+    <div class="cols-2">
+      <div class="card"><h3>Suggest a guide</h3><p>Which number custom or question should we research next?</p><p><a href="{{ r }}contact/?topic=Other">Send an idea</a></p></div>
+      <div class="card"><h3>Write for us</h3><p>Paid work for researchers, writers and translators.</p><p><a href="{{ r }}careers/">See open roles</a></p></div>
+    </div>
+  </section>
+</div>

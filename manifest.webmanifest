@@ -1,0 +1,9 @@
+{
+  "name": "947947: every number, decoded",
+  "short_name": "947947",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f2f5f0",
+  "theme_color": "#14233f",
+  "icons": [{ "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
