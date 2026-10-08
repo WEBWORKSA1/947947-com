@@ -1,0 +1,32 @@
+---
+layout: page
+section: angel
+title: "Angel numbers: meanings of 111, 222, 1111, 1212 and more"
+h1: "Angel numbers"
+crumb: "Angel numbers"
+description: "Meanings of angel numbers from 000 to 9999: triple numbers, quadruple numbers, mirror numbers and sequences, with love, career and twin-flame readings."
+lede: "Repeating and patterned numbers, and what folklore says when they keep turning up. Every number links to a full reading with the maths and cultural meanings."
+sticky_cta: "Keep seeing a number? Get your own reading."
+---
+{% include rel.html %}
+<div class="wrap page-body">
+  <form class="decoder" action="{{ r }}tools/angel-number-decoder/" method="get" style="max-width:640px;margin-bottom:34px" data-lookup>
+    <label for="an-n">Which number do you keep seeing?</label>
+    <div class="dec-row"><input id="an-n" name="n" inputmode="numeric" maxlength="18" placeholder="e.g. 1111" autocomplete="off"><button class="btn btn-primary" type="submit">Show its meaning</button></div>
+  </form>
+  <h2>Triple numbers</h2>
+  <ul class="num-grid">{% for k in (1..9) %}{% assign x = k | times: 111 %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}</ul>
+  <h2>Quadruple numbers</h2>
+  <ul class="num-grid">{% for k in (1..9) %}{% assign x = k | times: 1111 %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}</ul>
+  <h2>Mirror hours and alternating numbers</h2>
+  <ul class="num-grid">{% assign mir = "1010,1212,1221,1313,1331,1414,1441,1515,1551,2020,2121,2112,2323,2332,0,1001,2002" | split: "," %}{% for x in mir %}{% if x != "0" %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endif %}{% endfor %}</ul>
+  <h2>Doubles and sequences</h2>
+  <ul class="num-grid">{% assign dbl = "11,22,33,44,55,66,77,88,99,123,234,345,456,567,678,789,1234,2345,3456,4321" | split: "," %}{% for x in dbl %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}</ul>
+  <h2>Five, six and seven digits</h2>
+  <ul class="num-grid wide">{% for k in (1..9) %}{% assign x = k | times: 11111 %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}{% for k in (1..9) %}{% assign x = k | times: 111111 %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}{% for k in (1..9) %}{% assign x = k | times: 1111111 %}<li><a href="{{ r }}{{ x }}/">{{ x }}</a></li>{% endfor %}</ul>
+  <section class="section prose narrow">
+    <h2>How to read an angel number</h2>
+    <p>Readers start with the digits. Each digit has a theme, from new beginnings (1) to completion (9). Repetition is read as emphasis, so 111 is 1's message turned up, and 1111 louder still. Then the digits are added and reduced to a root number for the overall theme.</p>
+    <p>It is folklore, not science: psychologists explain repeated sightings through the frequency illusion. Many people still find the pause useful. Read our full guide, <a href="{{ r }}guides/angel-numbers-explained/">angel numbers explained</a>, or <a href="{{ r }}numbers/">look up any number</a>.</p>
+  </section>
+</div>
