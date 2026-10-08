@@ -1,0 +1,104 @@
+---
+layout: page
+title: "Your free number blueprint: life path, name numbers and lucky numbers"
+h1: "Your number blueprint, free"
+crumb: "Number blueprint"
+section: reading
+description: "Get your free numerology blueprint: life path, expression, soul urge, personality, personal year and lucky numbers from your birth date and name, explained in plain English."
+lede: "Five core numbers from your birth date and name, explained in plain English. See them on screen straight away; we also email you a copy."
+---
+{% include rel.html %}
+<div class="wrap page-body">
+  <div class="with-rail" style="padding-top:0">
+    <div class="article">
+      <form class="form-card" data-funnel="reading" novalidate>
+        <ol class="stepper" aria-label="Progress"><li class="now">Focus</li><li>Birth date</li><li>Name</li><li>Send</li></ol>
+
+        <div class="step" data-step="1">
+          <fieldset class="choice-grid"><legend>What would you like clarity on?</legend>
+            <label class="choice"><input type="radio" name="focus" value="Love and relationships" required><span>Love and relationships<small>Compatibility, timing, patterns</small></span></label>
+            <label class="choice"><input type="radio" name="focus" value="Career and money"><span>Career and money<small>Direction, strengths, this year's timing</small></span></label>
+            <label class="choice"><input type="radio" name="focus" value="Personal growth"><span>Personal growth<small>Strengths and lessons</small></span></label>
+            <label class="choice"><input type="radio" name="focus" value="A number I keep seeing"><span>A number I keep seeing<small>Angel numbers and signs</small></span></label>
+            <label class="choice"><input type="radio" name="focus" value="Choosing a lucky number"><span>Choosing a lucky number<small>Phone, house, car or date</small></span></label>
+            <label class="choice"><input type="radio" name="focus" value="Business name, number or launch date"><span>Business numbers<small>Name, phone, prices, launch date</small></span></label>
+          </fieldset>
+          <div class="step-actions"><button class="btn btn-primary btn-lg" type="button" data-next>Continue</button></div>
+        </div>
+
+        <div class="step" data-step="2" hidden>
+          <h2>When were you born?</h2>
+          <p class="hint">Your birth date gives your life path, the main number in numerology.</p>
+          {% include dob.html required=true legend="Birth date" %}
+          <div class="teaser" data-teaser="lp" hidden></div>
+          <div class="step-actions"><button class="btn btn-ghost" type="button" data-back>Back</button><button class="btn btn-primary btn-lg" type="button" data-next>Continue</button></div>
+        </div>
+
+        <div class="step" data-step="3" hidden>
+          <h2>Your full birth name</h2>
+          <div class="field"><label for="birth_name">Full name at birth</label><input id="birth_name" name="birth_name" type="text" autocomplete="name" required><p class="hint">Gives your expression, soul urge and personality numbers. Use every name on your birth certificate.</p></div>
+          <div class="field"><label for="current_name">Name you use now <span class="muted">(optional)</span></label><input id="current_name" name="current_name" type="text"></div>
+          <div class="teaser" data-teaser="expr" hidden></div>
+          <div class="step-actions"><button class="btn btn-ghost" type="button" data-back>Back</button><button class="btn btn-primary btn-lg" type="button" data-next>Continue</button></div>
+        </div>
+
+        <div class="step" data-step="4" hidden>
+          <h2>Where should we send your blueprint?</h2>
+          <div class="row-2">
+            <div class="field"><label for="first_name">First name</label><input id="first_name" name="first_name" type="text" autocomplete="given-name" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><p class="hint">Only used to send your blueprint and anything you opt into below.</p></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="whatsapp">WhatsApp or phone <span class="muted">(optional)</span></label><input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel"><p class="hint">Only if you want to book a session.</p></div>
+            <div class="field"><label for="country">Country</label><select id="country" name="country"><option value="">Choose</option><option>United States</option><option>Canada</option><option>United Kingdom</option><option>India</option><option>Sri Lanka</option><option>Australia</option><option>Singapore</option><option>Malaysia</option><option>Philippines</option><option>China</option><option>Hong Kong</option><option>Taiwan</option><option>Japan</option><option>South Korea</option><option>United Arab Emirates</option><option>South Africa</option><option>Nigeria</option><option>Germany</option><option>France</option><option>Other</option></select></div>
+          </div>
+          <fieldset class="chips"><legend>Would you like a one-to-one session?</legend>
+            <label class="chip"><input type="radio" name="session" value="Free blueprint only" checked><span>Just the free blueprint</span></label>
+            <label class="chip"><input type="radio" name="session" value="Interested in a paid 1:1 session"><span>I'm interested in a paid session</span></label>
+          </fieldset>
+          <div class="field" style="max-width:320px"><label for="budget">Session budget <span class="muted">(if interested)</span></label><select id="budget" name="budget"><option>Not sure yet</option><option>Under US$50</option><option>US$50 to US$150</option><option>Over US$150</option></select></div>
+          <label class="check"><input type="checkbox" name="consent" value="Agreed to privacy policy" required><span>I agree to the <a href="{{ r }}privacy/" target="_blank">privacy policy</a> and to 947947 emailing my blueprint.</span></label>
+          <label class="check"><input type="checkbox" name="newsletter" value="Yes"><span>Also send me my monthly number forecast (unsubscribe any time).</span></label>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="n" value="">
+          <div class="step-actions"><button class="btn btn-ghost" type="button" data-back>Back</button><button class="btn btn-primary btn-lg" type="submit">Send my blueprint</button></div>
+          <p class="privacy-line">We never sell your details. Your blueprint also appears on screen as soon as you press send.</p>
+        </div>
+      </form>
+      <section id="report" class="form-card" hidden tabindex="-1"></section>
+
+      <section class="section prose" id="reading-intro">
+        <h2>What is in your blueprint</h2>
+        <div class="table-wrap"><table><thead><tr><th scope="col">Number</th><th scope="col">Comes from</th><th scope="col">What it describes</th></tr></thead><tbody>
+          <tr><th scope="row">Life path</th><td>Birth date</td><td>Your overall direction, core strengths and recurring lessons</td></tr>
+          <tr><th scope="row">Expression</th><td>Full birth name</td><td>Natural talents and how you come across</td></tr>
+          <tr><th scope="row">Soul urge</th><td>Vowels of your name</td><td>What you want deep down</td></tr>
+          <tr><th scope="row">Personality</th><td>Consonants of your name</td><td>First impressions you make</td></tr>
+          <tr><th scope="row">Personal year</th><td>Birth day, month and this year</td><td>The theme of your current year in a nine-year cycle</td></tr>
+        </tbody></table></div>
+        <p>You also get your birthday number, lucky and harmonious numbers, your Chinese zodiac sign and, if you came from a number page, how that number matches you.</p>
+        <h2>Questions</h2>
+        <div class="faq">
+          <details open><summary>Is the blueprint really free?</summary><p>Yes. The blueprint is free with no payment details. One-to-one sessions with a numerologist are optional and paid; you only hear about them if you ask.</p></details>
+          <details><summary>What do you do with my email?</summary><p>We send your blueprint, and the monthly forecast only if you tick the box. We do not sell or rent your details. See the <a href="{{ r }}privacy/">privacy policy</a>.</p></details>
+          <details><summary>Is numerology accurate?</summary><p>Numerology is a tradition, not a science. We show every calculation so you can check the arithmetic, and we present the meanings as prompts for reflection.</p></details>
+          <details><summary>Who are your numerologists?</summary><p>Independent practitioners we vet for experience and conduct. Sessions are booked directly, and you can ask about their background before you pay.</p></details>
+        </div>
+      </section>
+    </div>
+    <aside class="rail" aria-label="About the blueprint">
+      <div class="rail-sticky">
+        <div class="card">
+          <h3>Why people use 947947</h3>
+          <ul class="plain">
+            <li>Every calculation shown, nothing hidden</li>
+            <li>No payment details for the free blueprint</li>
+            <li>Results on screen instantly</li>
+            <li>Your details are never sold</li>
+          </ul>
+        </div>
+        {% include ad.html slot="side" %}
+      </div>
+    </aside>
+  </div>
+</div>

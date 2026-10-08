@@ -1,0 +1,93 @@
+---
+layout: page
+title: "Support 947947: keep the number tools free"
+h1: "Support 947947"
+crumb: "Support"
+description: "Support keeps 947947's number tools and guides free. Choose one-time or monthly support for operations, writers and translators, promotion and contest prizes."
+lede: "947947 is free for everyone. Reader support pays for running the site, hiring writers and translators, promoting new guides and funding contest prizes."
+---
+{% include rel.html %}
+{%- assign P = site.data.settings.payments -%}
+{%- assign any_pay = false -%}{%- if P.stripe != "" or P.stripe_monthly != "" or P.paypal != "" or P.buymeacoffee != "" or P.kofi != "" or P.github_sponsors != "" -%}{%- assign any_pay = true -%}{%- endif -%}
+<div class="wrap page-body">
+  <section>
+    <div class="section-head"><h2>Choose your support</h2><p>{% if any_pay %}Payments are handled securely by the providers below.{% else %}Pick an amount and we will email you a secure payment link within one working day.{% endif %}</p></div>
+    <div class="tiers">
+      <div class="tier"><p class="amt">$5</p><h3>Keep the lights on</h3><p>Covers a week of running costs: hosting, data updates and keeping 12 tools fast.</p><a class="btn btn-ghost" href="{% if P.stripe != '' %}{{ P.stripe }}{% else %}#pledge{% endif %}" data-pledge {% if P.stripe != '' %}data-pay="1" target="_blank" rel="noopener"{% endif %} data-amount="5" data-purpose="Operations">Give $5</a></div>
+      <div class="tier featured"><p class="amt">$15<small> / month</small></p><h3>Keep it free</h3><p>Steady monthly support is what lets us plan: new number pages, new tools and corrections.</p><a class="btn btn-primary" href="{% if P.stripe_monthly != '' %}{{ P.stripe_monthly }}{% else %}#pledge{% endif %}" data-pledge {% if P.stripe_monthly != '' %}data-pay="1" target="_blank" rel="noopener"{% endif %} data-amount="15" data-frequency="Monthly" data-purpose="Where it is needed most">Give $15 a month</a></div>
+      <div class="tier"><p class="amt">$50</p><h3>Promote a guide</h3><p>Funds promotion and marketing so a new guide or tool reaches the people searching for it.</p><a class="btn btn-ghost" href="#pledge" data-pledge data-amount="50" data-purpose="Promotion and marketing">Give $50</a></div>
+      <div class="tier"><p class="amt">$100</p><h3>Hire a specialist</h3><p>Pays a writer, translator or numerologist for a new researched guide in another language.</p><a class="btn btn-ghost" href="#pledge" data-pledge data-amount="100" data-purpose="Hiring talent">Give $100</a></div>
+      <div class="tier"><p class="amt">$250</p><h3>Fund a contest prize</h3><p>Goes straight into the prize pool of the next contest, with your name on the winners page if you wish.</p><a class="btn btn-ghost" href="#pledge" data-pledge data-amount="250" data-purpose="Contest prizes">Give $250</a></div>
+      <div class="tier"><p class="amt">Any</p><h3>Your amount</h3><p>Any amount, once or monthly, to the area you care about most.</p><a class="btn btn-ghost" href="#pledge" data-pledge data-amount="" data-purpose="Where it is needed most">Choose an amount</a></div>
+    </div>
+  </section>
+
+  {%- if any_pay or P.upi != "" %}
+  <section class="section">
+    <h2>Other ways to pay</h2>
+    <div class="paylinks">
+      {%- if P.paypal != "" %}<a class="btn btn-ghost" href="{{ P.paypal }}" target="_blank" rel="noopener">PayPal</a>{% endif -%}
+      {%- if P.buymeacoffee != "" %}<a class="btn btn-ghost" href="{{ P.buymeacoffee }}" target="_blank" rel="noopener">Buy Me a Coffee</a>{% endif -%}
+      {%- if P.kofi != "" %}<a class="btn btn-ghost" href="{{ P.kofi }}" target="_blank" rel="noopener">Ko-fi</a>{% endif -%}
+      {%- if P.github_sponsors != "" %}<a class="btn btn-ghost" href="{{ P.github_sponsors }}" target="_blank" rel="noopener">GitHub Sponsors</a>{% endif -%}
+    </div>
+    {%- if P.upi != "" %}<p style="margin-top:12px">India: pay by UPI to <strong>{{ P.upi }}</strong>.</p>{% endif %}
+  </section>
+  {%- endif %}
+
+  <section class="section cols-2" style="align-items:start">
+    <div>
+      <h2>Where the money goes</h2>
+      <div class="alloc" role="img" aria-label="Operations 35 percent, talent 25 percent, contests and prizes 20 percent, promotion and marketing 20 percent"><span style="width:35%;background:var(--ink)"></span><span style="width:25%;background:var(--jade)"></span><span style="width:20%;background:var(--hl)"></span><span style="width:20%;background:var(--pencil)"></span></div>
+      <ul class="alloc-key">
+        <li><i style="background:var(--ink)"></i>Operations, 35%: hosting, data, tools and fixes</li>
+        <li><i style="background:var(--jade)"></i>Talent, 25%: writers, translators, numerologists, video</li>
+        <li><i style="background:var(--hl)"></i>Contests and prizes, 20%</li>
+        <li><i style="background:var(--pencil)"></i>Promotion and marketing, 20%</li>
+      </ul>
+      <p style="margin-top:16px">Gifts marked for a purpose go to that purpose. We publish a short summary of income and spending every quarter on this page.</p>
+    </div>
+    <div class="card">
+      <h3>Businesses and sponsors</h3>
+      <p>Want your brand on a contest prize, a tool or a popular number page? Sponsorship gets you visible credit and reporting.</p>
+      <p><a class="btn btn-primary" href="{{ r }}advertise/">See sponsorship options</a></p>
+      <p><a href="{{ site.data.settings.owner_contact_url }}" target="_blank" rel="noopener">Talk to the owner about a partnership</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Supporters</h2>
+    <p>Supporters who choose to be named appear here. Be the first name on the wall.</p>
+  </section>
+
+  <section class="section prose narrow faq">
+    <h2>Questions</h2>
+    <details open><summary>Is my support tax-deductible?</summary><p>No. 947947.com is a privately owned website, not a registered charity, so support payments are not charitable donations and are not tax-deductible.</p></details>
+    <details><summary>Do supporters get anything?</summary><p>Our thanks, an optional name on the supporters wall, and early access to new tools. Support never buys influence over our content.</p></details>
+    <details><summary>Can I cancel monthly support?</summary><p>Yes, any time, through the payment provider or by contacting us.</p></details>
+    <details><summary>How do you choose what to fund?</summary><p>Readers' requests and search demand decide which guides, translations and tools come next.</p></details>
+  </section>
+</div>
+
+<dialog id="pledge-dialog" aria-labelledby="pledge-h">
+  <div class="dlg-in">
+    <button class="icon-btn dlg-close" type="button" data-close aria-label="Close">×</button>
+    <h2 id="pledge-h">Support 947947</h2>
+    <p>Tell us your amount and we will email you a secure payment link within one working day.</p>
+    <form data-form="pledge" data-subject="[Support] New pledge" data-success="Thank you! Your payment link is on its way." data-autoresponse="Thank you for supporting 947947. We will email you a secure payment link within one working day. — 947947.com" novalidate>
+      <div class="row-2">
+        <div class="field"><label for="p_amount">Amount (US$)</label><input id="p_amount" name="amount" type="number" min="1" step="1" required></div>
+        <div class="field"><label for="p_freq">Frequency</label><select id="p_freq" name="frequency"><option>One-time</option><option>Monthly</option></select></div>
+      </div>
+      <div class="field"><label for="p_purpose">Use it for</label><select id="p_purpose" name="purpose"><option>Where it is needed most</option><option>Operations</option><option>Hiring talent</option><option>Promotion and marketing</option><option>Contest prizes</option></select></div>
+      <div class="row-2">
+        <div class="field"><label for="p_name">Name</label><input id="p_name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="p_email">Email</label><input id="p_email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <label class="check"><input type="checkbox" name="show_name" value="Yes"><span>Show my name on the supporters wall</span></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn btn-primary" type="submit">Send my pledge</button>
+      <p class="form-msg" role="status"></p>
+    </form>
+  </div>
+</dialog>
