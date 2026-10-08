@@ -90,7 +90,7 @@
   {%- assign pw = 1 -%}{%- assign ss = 0 -%}{%- for i in (0..e) -%}{%- assign ss = ss | plus: pw -%}{%- assign pw = pw | times: pn -%}{%- endfor -%}
   {%- assign sigma = sigma | times: ss -%}{%- assign pm1 = pn | minus: 1 -%}{%- assign phi = phi | divided_by: pn | times: pm1 -%}
   {%- unless forloop.first -%}{%- assign pf = pf | append: " × " -%}{%- assign pf_txt = pf_txt | append: " × " -%}{%- endunless -%}
-  {%- if e > 1 -%}{%- assign pf = pf | append: p | append: "<sup>" | append: e | append: "</sup>" -%}{%- assign pf_txt = pf_txt | append: p | append: "^" | append: e -%}
+  {%- if e > 1 -%}{%- assign pf = pf | append: p | append: '<span class="sr">^</span><sup>' | append: e | append: "</sup>" -%}{%- assign pf_txt = pf_txt | append: p | append: "^" | append: e -%}
   {%- else -%}{%- assign pf = pf | append: p -%}{%- assign pf_txt = pf_txt | append: p -%}{%- endif -%}
 {%- endfor -%}
 {%- assign is_pow2 = false -%}{%- if n == 1 -%}{%- assign is_pow2 = true -%}{%- assign pow2_k = 0 -%}{%- elsif omega == 1 and uf[0] == "2" -%}{%- assign is_pow2 = true -%}{%- assign pow2_k = f_n -%}{%- endif -%}
