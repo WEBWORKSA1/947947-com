@@ -1,0 +1,27 @@
+---
+title: "Number base converter: binary, octal, decimal, hex"
+crumb: "Base converter"
+permalink: /tools/base-converter/
+tool_url: tools/base-converter/
+description: "Convert numbers between binary, octal, decimal, hexadecimal and base 36, with the decimal-to-binary steps shown."
+lede: "Convert between binary, octal, decimal, hexadecimal and base 36. The binary working is shown step by step."
+faq:
+  - q: "How do I convert decimal to binary by hand?"
+    a: "Divide by 2 repeatedly and write down each remainder. Reading the remainders from the last to the first gives the binary number."
+  - q: "What is base 36?"
+    a: "A system using the digits 0 to 9 and the letters A to Z. It is handy for short codes: 947947 is KBFV in base 36."
+---
+{% include rel.html %}
+<div class="tool" data-tool="base">
+  <form novalidate>
+    <div class="row-2">
+      <div class="field"><label for="val">Value</label><input id="val" name="val" type="text" autocomplete="off" placeholder="e.g. 947947" required></div>
+      <div class="field"><label for="from">It is written in</label><select id="from" name="from"><option value="10" selected>Decimal (base 10)</option><option value="2">Binary (base 2)</option><option value="8">Octal (base 8)</option><option value="16">Hexadecimal (base 16)</option><option value="36">Base 36</option></select></div>
+    </div>
+    <button class="btn btn-primary btn-lg" type="submit">Convert</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>Why different bases?</h2>
+<p>Computers store numbers in binary, programmers read them in hexadecimal because each hex digit is exactly four binary digits, and octal survives in file permissions. Every number page on this site lists its binary, octal, hexadecimal and base 36 forms.</p>

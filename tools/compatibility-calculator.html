@@ -1,0 +1,26 @@
+---
+title: "Numerology compatibility calculator"
+permalink: /tools/compatibility-calculator/
+tool_url: tools/compatibility-calculator/
+description: "Compare two birth dates: life path numbers, the numerology match between them and what each person brings to a relationship."
+lede: "Enter two birth dates to compare life path numbers. Works for partners, friends, family and business partners."
+faq:
+  - q: "How is numerology compatibility judged?"
+    a: "Numbers are grouped into families that share priorities: 1, 5 and 7 (independent thinkers), 2, 4 and 8 (builders and organisers) and 3, 6 and 9 (creative carers). Same-family pairs are called natural matches; other pairs are complementary or growth matches."
+  - q: "Does a growth match mean we are incompatible?"
+    a: "No. It only suggests different rhythms that need more conversation. Plenty of happy couples have growth matches."
+---
+{% include rel.html %}
+<div class="tool" data-tool="compat">
+  <form novalidate>
+    <div class="row-2">
+      <div><div class="field"><label for="name1">First person's name <span class="muted">(optional)</span></label><input id="name1" name="name1" type="text"></div>{% include dob.html legend="First person's birth date" required=true %}</div>
+      <div><div class="field"><label for="name2">Second person's name <span class="muted">(optional)</span></label><input id="name2" name="name2" type="text"></div>{% include dob.html legend="Second person's birth date" sfx="2" required=true %}</div>
+    </div>
+    <button class="btn btn-primary btn-lg" type="submit">Compare us</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>Reading the result</h2>
+<p>A <strong>natural match</strong> shares a number family, a <strong>complementary</strong> pair covers each other's gaps, and a <strong>growth match</strong> has different rhythms. For a deeper reading, add names in the <a href="{{ r }}tools/name-numerology-calculator/">name calculator</a> or ask for a <a href="{{ r }}reading/">full blueprint</a> with a one-to-one session.</p>

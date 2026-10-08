@@ -1,0 +1,24 @@
+---
+title: "The 1001 trick: write it twice, divide by 7, 11 and 13"
+crumb: "The 1001 trick"
+permalink: /tools/1001-trick/
+tool_url: tools/1001-trick/
+description: "Pick any three-digit number, write it twice, then divide by 7, 11 and 13. You always get your number back. Try it and see why."
+lede: "Pick a three-digit number and write it twice, as 947 becomes 947947. Divide by 7, then 11, then 13, and your number comes back every time."
+faq:
+  - q: "Why does the trick always work?"
+    a: "Writing ABC twice gives ABC × 1000 + ABC = ABC × 1001, and 1001 = 7 × 11 × 13. Dividing by 7, 11 and 13 undoes the multiplication."
+  - q: "Does it work with other lengths?"
+    a: "A two-digit number written three times is multiplied by 10101 = 3 × 7 × 13 × 37. A four-digit number written twice is multiplied by 10001 = 73 × 137."
+---
+{% include rel.html %}
+<div class="tool" data-tool="trick">
+  <form novalidate>
+    <div class="field" style="max-width:280px"><label for="abc">Three-digit number</label><input id="abc" name="abc" inputmode="numeric" maxlength="3" placeholder="947" required></div>
+    <button class="btn btn-primary btn-lg" type="submit">Do the trick</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>Use it as a party trick</h2>
+<p>Ask a friend to write a three-digit number twice on a calculator. Tell them, with a straight face, that 7 brings luck, so they should divide by 7, and that there will be no remainder. Then 11, then 13. Their original number appears. The full explanation is in <a href="{{ r }}guides/the-1001-trick/">our guide</a>, and all 900 results are listed on the <a href="{{ r }}numbers/abcabc/">ABCABC page</a>.</p>
