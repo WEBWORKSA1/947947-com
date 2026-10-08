@@ -1,0 +1,194 @@
+# Numerology root numbers (life path, expression, a number's reduced value).
+# Interpretive folklore written by 947947 — for reflection, not prediction.
+"1":
+  title: "The Pioneer"
+  keywords: [independence, initiative, leadership]
+  essence: "One is the self-starter. It favours fresh starts, original ideas and the confidence to act before the path is clear."
+  strengths: "Drive, courage, originality and decisiveness."
+  challenges: "Impatience, stubbornness and a habit of doing everything alone."
+  love: "Love works best when independence is respected. Choose partners who cheer your ambitions, and remember to ask about theirs."
+  career: "Founders, team leads, inventors, freelancers and anyone who needs to make the first move."
+  money: "Income grows when you back your own ideas. Guard against impulsive spending on the next shiny project."
+  spiritual: "Trust the self you are becoming; your thoughts are seeds, so plant deliberately."
+  twinflame: "A call to become whole on your own first, so a connection meets you rather than completes you."
+  steps: ["Start the thing you keep describing but never begin.", "Make one decision today without asking for a second opinion.", "Write a single sentence that defines what you want this year."]
+  family: [1, 5, 7]
+  planet: "Sun (Surya)"
+  tarot: "The Magician"
+  day: "Sunday"
+"2":
+  title: "The Peacemaker"
+  keywords: [partnership, sensitivity, diplomacy]
+  essence: "Two is the bridge between people. It is tactful, intuitive and patient, and it achieves through cooperation rather than force."
+  strengths: "Empathy, tact, patience and an eye for detail."
+  challenges: "People-pleasing, indecision and taking criticism too personally."
+  love: "Romantic and devoted. Two thrives with gentle communication and needs a partner who notices small things."
+  career: "Mediation, counselling, design, administration and any role that keeps a team in balance."
+  money: "Steady gains come through partnerships and careful planning rather than bold bets."
+  spiritual: "Your intuition is accurate; give it as much weight as other people's opinions."
+  twinflame: "Patience: alignment arrives through timing and mutual effort, not pursuit."
+  steps: ["Ask for what you need in one clear sentence.", "Repair one relationship with a simple message.", "Notice which choices you make only to keep the peace."]
+  family: [2, 4, 8]
+  planet: "Moon (Chandra)"
+  tarot: "The High Priestess"
+  day: "Monday"
+"3":
+  title: "The Communicator"
+  keywords: [expression, creativity, optimism]
+  essence: "Three is joy in motion: writing, speaking, performing and making. It spreads enthusiasm and turns ideas into something people can see."
+  strengths: "Charm, creativity, humour and a gift for words."
+  challenges: "Scattered energy, unfinished projects and mood swings."
+  love: "Playful and affectionate. Three needs laughter, conversation and a partner who enjoys its spotlight."
+  career: "Writing, marketing, teaching, media, sales, design and entertainment."
+  money: "Talent turns into income when you finish and publish. Count the cost of half-done projects."
+  spiritual: "Expression is your practice: create first, judge later."
+  twinflame: "Honest conversation is the sign; the right connection lets you be fully yourself."
+  steps: ["Publish one piece of work, even if it is small.", "Cut one commitment that scatters your energy.", "Spend an hour making something just for the joy of it."]
+  family: [3, 6, 9]
+  planet: "Jupiter (Guru)"
+  tarot: "The Empress"
+  day: "Thursday"
+"4":
+  title: "The Builder"
+  keywords: [stability, discipline, reliability]
+  essence: "Four is the foundation. It values order, honest work and systems that hold up under pressure."
+  strengths: "Reliability, patience, practicality and loyalty."
+  challenges: "Rigidity, overwork and resistance to change."
+  love: "Loyal and steady. Four shows love through actions and needs trust before it opens up."
+  career: "Engineering, operations, finance, construction, law and any craft that rewards precision."
+  money: "Slow and secure: budgets, savings and long-term investments suit you best."
+  spiritual: "Every brick counts; patience is how you build something sacred."
+  twinflame: "Stability comes first; a real connection feels safe, not chaotic."
+  steps: ["Choose one system to set up and finish this week.", "Schedule rest the way you schedule work.", "Allow one plan to change without treating it as failure."]
+  family: [2, 4, 8]
+  planet: "Rahu (north lunar node)"
+  tarot: "The Emperor"
+  day: "Saturday"
+"5":
+  title: "The Adventurer"
+  keywords: [freedom, change, curiosity]
+  essence: "Five is change and movement. It learns by experience, adapts quickly and gets restless when life is too predictable."
+  strengths: "Adaptability, curiosity, charisma and resourcefulness."
+  challenges: "Restlessness, impulsiveness and avoiding commitment."
+  love: "Exciting and spontaneous. Five needs freedom inside the relationship and a partner who loves adventure."
+  career: "Travel, sales, media, entrepreneurship, consulting and any role with variety."
+  money: "Income can come from several sources; build a buffer for the swings."
+  spiritual: "Change is not a detour; it is the lesson. Choose your adventures consciously."
+  twinflame: "A connection that expands your world without trying to cage it."
+  steps: ["Try one new thing this week and note what it teaches you.", "Commit to a single priority for thirty days.", "Clear out one habit that keeps you stuck."]
+  family: [1, 5, 7]
+  planet: "Mercury (Budha)"
+  tarot: "The Hierophant"
+  day: "Wednesday"
+"6":
+  title: "The Nurturer"
+  keywords: [care, responsibility, harmony]
+  essence: "Six is the caretaker. It creates beauty, comfort and safety for others and feels most alive when it is useful."
+  strengths: "Compassion, responsibility, warmth and a sense of beauty."
+  challenges: "Over-giving, perfectionism and trying to fix everyone."
+  love: "Devoted and family-minded. Six thrives in committed relationships with equal give and take."
+  career: "Healthcare, teaching, coaching, hospitality, design and community work."
+  money: "Comfortable when you charge fairly for your care instead of giving it away."
+  spiritual: "Serve from a full cup; caring for yourself is part of caring for others."
+  twinflame: "Look for mutual care; the right bond does not ask you to carry it alone."
+  steps: ["Say no to one request that drains you.", "Do one thing that makes your home feel calmer.", "Let someone else help you this week."]
+  family: [3, 6, 9]
+  planet: "Venus (Shukra)"
+  tarot: "The Lovers"
+  day: "Friday"
+"7":
+  title: "The Seeker"
+  keywords: [wisdom, analysis, intuition]
+  essence: "Seven looks beneath the surface. It studies, questions and reflects, and trusts what it has tested for itself."
+  strengths: "Insight, focus, depth and independent thinking."
+  challenges: "Isolation, scepticism and overthinking."
+  love: "Private and loyal. Seven needs space, deep conversation and a partner who respects its quiet."
+  career: "Research, science, analysis, technology, writing and spiritual or specialist work."
+  money: "Expertise pays: invest in skills and research before you invest money."
+  spiritual: "Silence is where your answers come from; make room for it."
+  twinflame: "A meeting of minds first; the soul connection follows understanding."
+  steps: ["Block one quiet hour for study or reflection.", "Write down a question and research it properly.", "Share one insight instead of keeping it to yourself."]
+  family: [1, 5, 7]
+  planet: "Ketu (south lunar node)"
+  tarot: "The Chariot"
+  day: "Monday"
+"8":
+  title: "The Powerhouse"
+  keywords: [ambition, abundance, authority]
+  essence: "Eight is about results in the material world: money, influence, management and lasting achievement."
+  strengths: "Ambition, confidence, judgement and resilience."
+  challenges: "Workaholism, control and measuring worth only in money."
+  love: "Protective and generous. Eight needs a partner who respects its drive and brings it home."
+  career: "Business, finance, management, law, real estate and any role with authority."
+  money: "The strongest money number when effort and ethics line up; the reverse is also true."
+  spiritual: "Power is a responsibility: what you build should lift others too."
+  twinflame: "Equal footing: a connection where both people are strong."
+  steps: ["Ask for the rate or raise you have earned.", "Delegate one task you are clinging to.", "Review your finances and set one measurable goal."]
+  family: [2, 4, 8]
+  planet: "Saturn (Shani)"
+  tarot: "Strength"
+  day: "Saturday"
+"9":
+  title: "The Humanitarian"
+  keywords: [compassion, completion, wisdom]
+  essence: "Nine is the wise elder. It sees the big picture, gives generously and knows when a chapter has ended."
+  strengths: "Compassion, idealism, generosity and creativity."
+  challenges: "Holding on, martyrdom and losing yourself in other people's causes."
+  love: "Romantic and forgiving. Nine loves deeply and needs to let the past go to welcome what is next."
+  career: "Non-profits, the arts, teaching, healing, advocacy and global work."
+  money: "Abundance flows when you work for a purpose; generosity needs boundaries."
+  spiritual: "Endings are sacred: release with gratitude and make room."
+  twinflame: "Completion of an old pattern clears the way for the right connection."
+  steps: ["Finish or close one open loop.", "Give your time to a cause you believe in.", "Forgive one old grievance, if only on paper."]
+  family: [3, 6, 9]
+  planet: "Mars (Mangal)"
+  tarot: "The Hermit"
+  day: "Tuesday"
+"11":
+  title: "The Intuitive (master number)"
+  keywords: [intuition, inspiration, illumination]
+  essence: "Eleven is a master number: Two's sensitivity turned up. It inspires others and receives ideas that seem to come from nowhere."
+  strengths: "Vision, empathy, inspiration and spiritual insight."
+  challenges: "Nervous tension, self-doubt and feeling overwhelmed."
+  love: "Deep and soulful. Eleven needs emotional safety and a partner who honours its sensitivity."
+  career: "Counselling, teaching, the arts, spiritual work and inspiring leadership."
+  money: "Ideas are your capital; ground them in plans so they can pay."
+  spiritual: "A sign of awakening: pay attention to your first impressions and repeated signs."
+  twinflame: "The classic 11:11 sign; let intuition guide you but keep your feet on the ground."
+  steps: ["Write down your intuitions for a week and check which ones were right.", "Protect your energy with one firm boundary.", "Teach or share what you have learned."]
+  family: [2, 4, 8]
+  planet: "Moon (as 1 + 1 = 2)"
+  tarot: "Justice"
+  day: "Monday"
+"22":
+  title: "The Master Builder (master number)"
+  keywords: [vision, practicality, legacy]
+  essence: "Twenty-two is a master number that pairs big vision with practical skill. It can build things that outlast it."
+  strengths: "Strategy, discipline, leadership and large-scale thinking."
+  challenges: "Pressure, perfectionism and fear of wasting potential."
+  love: "Committed and protective. Twenty-two needs a partner who shares long-term plans."
+  career: "Architecture, engineering, institutions, entrepreneurship and public service."
+  money: "Built to create lasting wealth through long-range planning."
+  spiritual: "Turn your ideals into structures that serve many people."
+  twinflame: "A partnership with a shared mission, not just a shared feeling."
+  steps: ["Break your biggest goal into a twelve-month plan.", "Delegate the parts that are not your genius.", "Pick one project that will matter in ten years."]
+  family: [2, 4, 8]
+  planet: "Rahu (as 2 + 2 = 4)"
+  tarot: "The Fool (sometimes numbered 22)"
+  day: "Saturday"
+"33":
+  title: "The Master Teacher (master number)"
+  keywords: [compassion, teaching, healing]
+  essence: "Thirty-three is the rarest master number: the nurturing of Six raised to the level of a calling to teach and heal."
+  strengths: "Compassion, wisdom, devotion and creative healing."
+  challenges: "Self-sacrifice, burnout and carrying everyone's problems."
+  love: "Unconditional and nurturing. Thirty-three needs to be cared for as well as caring."
+  career: "Teaching, healing professions, counselling, the arts and humanitarian work."
+  money: "Purpose-led work pays when you value your own time."
+  spiritual: "Lead by example: your life is the lesson."
+  twinflame: "A bond built on service and kindness rather than drama."
+  steps: ["Mentor one person this month.", "Book rest before you need it.", "Share a lesson from a hard experience."]
+  family: [3, 6, 9]
+  planet: "Venus (as 3 + 3 = 6)"
+  tarot: "The Lovers (as 3 + 3 = 6)"
+  day: "Friday"

@@ -1,0 +1,87 @@
+# ---------------------------------------------------------------
+# 947947.com — ONE place to configure monetisation and contact.
+# Edit on GitHub, commit, and GitHub Pages rebuilds the site.
+# ---------------------------------------------------------------
+
+brand: "947947"
+owner_contact_url: "https://web.works/contact"   # sponsorship / domain / partnership enquiries (top bar on every page)
+
+# Google AdSense ------------------------------------------------
+adsense:
+  client: "ca-pub-6620975821265271"
+  auto_ads: true            # Auto ads place units automatically once the site is approved
+  # Optional manual units: create ad units in AdSense, paste the numeric slot IDs here.
+  # Empty slots show a house promotion instead (sponsor / reading / support).
+  slots:
+    top: ""
+    mid: ""
+    side: ""
+    foot: ""
+
+# Forms ---------------------------------------------------------
+# All forms post to FormSubmit (free). The inbox address is never written in the HTML.
+# After the first live submission FormSubmit emails an activation link to the inbox.
+# Activate it, then paste the random alias FormSubmit gives you below (optional but recommended).
+forms:
+  alias: ""
+
+# Payments for support / donations -------------------------------
+# Paste any links you have. Empty ones are hidden; if all are empty,
+# the support buttons open a pledge form so no visitor hits a dead end.
+payments:
+  stripe: ""          # Stripe Payment Link (one-time, choose your own amount)
+  stripe_monthly: ""  # Stripe Payment Link for a monthly plan
+  paypal: ""          # e.g. https://paypal.me/yourname
+  buymeacoffee: ""    # e.g. https://buymeacoffee.com/yourname
+  kofi: ""            # e.g. https://ko-fi.com/yourname
+  upi: ""             # UPI ID for India, e.g. name@bank
+  github_sponsors: "" # e.g. https://github.com/sponsors/WEBWORKSA1
+
+# YouTube -------------------------------------------------------
+youtube:
+  channel_url: ""      # e.g. https://www.youtube.com/@947947
+  channel_name: "947947 on YouTube"
+  # Add your own video IDs (the 11 characters after watch?v=). They appear on /videos/
+  # and on pages whose topic matches.
+  videos: []
+  # - id: "xxxxxxxxxxx"
+  #   title: "Why 947947 divides by 7, 11 and 13"
+  #   topic: math        # math | angel | culture | numerology | phone | general
+
+# Partner offers (affiliate links, shown with a disclosure) -------
+partners:
+  reading:              # live psychic / numerology readings
+    name: ""
+    url: ""
+    offer: ""
+  report:               # paid personalised numerology report
+    name: ""
+    url: ""
+    offer: ""
+  vanity_numbers:       # memorable phone numbers for businesses
+    name: ""
+    url: ""
+    offer: ""
+  business_phone:       # business phone systems
+    name: ""
+    url: ""
+    offer: ""
+
+# Contest -------------------------------------------------------
+contest:
+  name: "The 947 Number Hunt"
+  status: "open"                 # open | judging | closed
+  closes: "2026-12-31"
+  prize_pool: "US$500 in prizes"
+  prizes:
+    - "Grand prize: US$250"
+    - "Two runner-up prizes: US$100 each"
+    - "Five honourable mentions: a free personal number blueprint"
+
+# Social --------------------------------------------------------
+social:
+  x: ""
+  instagram: ""
+  facebook: ""
+  tiktok: ""
+  whatsapp_channel: ""

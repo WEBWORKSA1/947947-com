@@ -1,0 +1,172 @@
+# Meaning of each digit across traditions. Folklore and symbolism, not science.
+# Sources for cultural readings are listed in docs/RESEARCH.md.
+"0":
+  word: zero
+  theme: potential and wholeness
+  keywords: [potential, wholeness, fresh starts]
+  meaning: "Zero is the open circle: pure potential, the pause before a choice is made. Beside other digits it amplifies them."
+  angel: "you are at the start of a cycle and every option is still open"
+  love: "there is space to begin again, or to recommit with fresh eyes"
+  work: "a clean slate, so plan carefully before you build"
+  action: "Write down the one thing you would start if nothing stood in the way."
+  zh: { char: "零", pinyin: "líng", sound: "líng means zero or nothing", tone: neutral, note: "Buyers of lucky numbers tend to skip 0 because it reads as nothing." }
+  ja: { char: "零", reading: "rei, maru, zero", tone: neutral, note: "In wordplay 0 can be read ma, maru, re, rei, ze or o." }
+  ko: { char: "영 / 공", reading: "yeong, gong", tone: neutral, note: "Phone numbers are usually read with gong." }
+  vedic: "No ruling planet (classical numerology uses 1 to 9)"
+  bible: "No symbolic role: the Hebrew and Greek number systems had no zero."
+  element: "None (the Lo Shu square holds 1 to 9)"
+  keypad: ""
+  tarot: "The Fool"
+"1":
+  word: one
+  theme: initiative and independence
+  keywords: [new beginnings, leadership, self-reliance]
+  meaning: "One is the first step: initiative, independence and the nerve to go first."
+  angel: "act on the idea instead of waiting for permission"
+  love: "know what you want before you ask someone else to provide it"
+  work: "launching, pitching and leading are favoured"
+  action: "Take the first concrete step on something you have been postponing."
+  zh: { char: "一", pinyin: "yī (yāo in phone numbers)", sound: "one also means whole or all the way, as in 168 (一路发, fortune all the way)", tone: neutral, note: "Read yāo when saying phone numbers so it is not confused with 7 (qī)." }
+  ja: { char: "一", reading: "ichi, hi, hito, i, wan", tone: neutral, note: "Wordplay uses hi, hito, i, ichi or wan." }
+  ko: { char: "일", reading: "il", tone: neutral, note: "Il is also the word for day and for work." }
+  vedic: "Sun (Surya)"
+  bible: "Unity: the oneness of God (Deuteronomy 6:4)."
+  element: "Water"
+  keypad: ""
+  tarot: "The Magician"
+"2":
+  word: two
+  theme: partnership and balance
+  keywords: [cooperation, diplomacy, patience]
+  meaning: "Two is the number of pairs: partnership, patience and the quiet power of cooperation."
+  angel: "trust the people beside you, because something is being built in partnership"
+  love: "listen as much as you speak; harmony grows from small acts of attention"
+  work: "collaboration beats solo effort right now"
+  action: "Reach out to one person you would like to work with or reconnect with."
+  zh: { char: "二 / 两", pinyin: "èr, liǎng", sound: "good things come in pairs (好事成双)", tone: good, note: "Doubled digits are popular for this reason, although 250 (二百五) is slang for a fool." }
+  ja: { char: "二", reading: "ni, fu, futa, tsū", tone: neutral, note: "2525 reads niko-niko, smiling." }
+  ko: { char: "이", reading: "i", tone: neutral, note: "A neutral digit." }
+  vedic: "Moon (Chandra)"
+  bible: "Witness and partnership: a matter is settled by two witnesses (Deuteronomy 19:15)."
+  element: "Earth"
+  keypad: "ABC"
+  tarot: "The High Priestess"
+"3":
+  word: three
+  theme: expression and growth
+  keywords: [creativity, communication, joy]
+  meaning: "Three brings expression: creativity, communication and growth you can see."
+  angel: "use your voice, because what you share now can open doors"
+  love: "playfulness and honest conversation bring you closer"
+  work: "writing, selling, teaching and making things are favoured"
+  action: "Share one idea in public that you have been keeping to yourself."
+  zh: { char: "三", pinyin: "sān", sound: "in Cantonese 三 (saam) is said to echo 生 (saang, life)", tone: good, note: "Mildly lucky, especially next to 8 (as in 38) in Cantonese-speaking areas." }
+  ja: { char: "三", reading: "san, mi, sa", tone: good, note: "39 reads san-kyū, thank you." }
+  ko: { char: "삼", reading: "sam", tone: good, note: "Three is a lucky number in Korea; sam is also the word for ginseng." }
+  vedic: "Jupiter (Guru)"
+  bible: "Divine presence and completeness: the Trinity in Christian theology, rising on the third day."
+  element: "Wood"
+  keypad: "DEF"
+  tarot: "The Empress"
+"4":
+  word: four
+  theme: structure and effort
+  keywords: [stability, discipline, foundations]
+  meaning: "Four is the builder's number: structure, discipline and steady work that lasts."
+  angel: "keep building, because your effort is creating something solid even if progress feels slow"
+  love: "loyalty and reliability count for more than grand gestures"
+  work: "organise, systematise and finish what you started"
+  action: "Pick one routine to strengthen this week and track it every day."
+  zh: { char: "四", pinyin: "sì", sound: "四 (sì) sounds like 死 (sǐ, death)", tone: bad, note: "The most avoided digit in Chinese-speaking communities: buildings skip fourth floors and numbers with 4 sell for less. Teochew speakers are an exception and treat 4 as lucky." }
+  ja: { char: "四", reading: "shi, yon, yo", tone: bad, note: "Shi echoes 死 (death), so some hospitals and hotels skip room 4." }
+  ko: { char: "사", reading: "sa", tone: bad, note: "Sa sounds like death; lifts often label the fourth floor F." }
+  vedic: "Rahu (north lunar node)"
+  bible: "The created world: four corners of the earth, four winds, four Gospels."
+  element: "Wood"
+  keypad: "GHI"
+  tarot: "The Emperor"
+"5":
+  word: five
+  theme: change and freedom
+  keywords: [freedom, adventure, adaptability]
+  meaning: "Five is movement: curiosity, change and the freedom to adapt."
+  angel: "a change is coming or already under way, so stay flexible and curious"
+  love: "keep things fresh; saying what you need gives you both room to grow"
+  work: "a time to pivot, travel, test and learn"
+  action: "Say yes to one new experience you would normally turn down."
+  zh: { char: "五", pinyin: "wǔ", sound: "五 (wǔ) sounds like 无 (wú, not) and stands in for 我 (wǒ, I) in slang such as 520", tone: neutral, note: "Five also links to the five elements and the five blessings (五福)." }
+  ja: { char: "五", reading: "go, itsu, ko", tone: neutral, note: "A neutral digit in wordplay." }
+  ko: { char: "오", reading: "o", tone: neutral, note: "A neutral digit." }
+  vedic: "Mercury (Budha)"
+  bible: "Grace: five loaves fed the five thousand; five books of the Torah."
+  element: "Earth"
+  keypad: "JKL"
+  tarot: "The Hierophant"
+"6":
+  word: six
+  theme: care and responsibility
+  keywords: [home, harmony, service]
+  meaning: "Six is the nurturer: home, family, service and the responsibility that comes with love."
+  angel: "balance what you give with what you receive, and look after yourself too"
+  love: "commitment and harmony at home are in focus"
+  work: "teaching, healing, service and anything that helps people feel looked after"
+  action: "Do one practical thing that makes your home or team run more smoothly."
+  zh: { char: "六", pinyin: "liù", sound: "六 (liù) sounds like 流 (liú, flowing, smooth)", tone: good, note: "666 means smooth or awesome in Chinese slang, the opposite of its Western reputation." }
+  ja: { char: "六", reading: "roku, mu, ro", tone: neutral, note: "A neutral digit." }
+  ko: { char: "육", reading: "yuk", tone: neutral, note: "A neutral digit." }
+  vedic: "Venus (Shukra)"
+  bible: "Humanity and work: people were created on the sixth day, after six days of labour."
+  element: "Metal"
+  keypad: "MNO"
+  tarot: "The Lovers"
+"7":
+  word: seven
+  theme: insight and inner wisdom
+  keywords: [intuition, study, reflection]
+  meaning: "Seven is the seeker: reflection, research, intuition and the search for meaning."
+  angel: "you are on the right path, so trust your intuition and keep learning"
+  love: "depth over drama; give each other room to think and grow"
+  work: "research, analysis, strategy and specialist skills are favoured"
+  action: "Set aside quiet time to think, study or journal without distractions."
+  zh: { char: "七", pinyin: "qī", sound: "七 (qī) echoes 起 (rise), 齐 (together) and 气 (vital energy), but also 欺 (deceive)", tone: neutral, note: "The seventh lunar month is ghost month, so 7 is mixed." }
+  ja: { char: "七", reading: "nana, shichi, na", tone: good, note: "Seven Lucky Gods (Shichifukujin) make 7 a happy number in Japan." }
+  ko: { char: "칠", reading: "chil", tone: good, note: "Seven is considered lucky in Korea, as in the West." }
+  vedic: "Ketu (south lunar node)"
+  bible: "Completion: God rested on the seventh day; Revelation has seven seals and seven trumpets."
+  element: "Metal"
+  keypad: "PQRS"
+  tarot: "The Chariot"
+"8":
+  word: eight
+  theme: power and abundance
+  keywords: [ambition, abundance, authority]
+  meaning: "Eight is material mastery: ambition, money, authority and results."
+  angel: "abundance follows aligned effort, so claim your worth"
+  love: "balance ambition with tenderness; partnerships thrive on mutual respect"
+  work: "negotiation, investment, management and scaling up are favoured"
+  action: "Review one money decision you have been avoiding and act on it."
+  zh: { char: "八", pinyin: "bā", sound: "八 (bā) sounds like 发 (fā, to prosper)", tone: good, note: "The luckiest digit: the Beijing Olympics opened at 8:08 pm on 8 August 2008, and plates full of 8s sell for fortunes." }
+  ja: { char: "八", reading: "hachi, ya, ha, ba, pa", tone: good, note: "The character widens toward the bottom (suehirogari), a symbol of growing prosperity." }
+  ko: { char: "팔", reading: "pal", tone: good, note: "Eight is a lucky number in Korea." }
+  vedic: "Saturn (Shani)"
+  bible: "New beginnings: eight people were saved in the ark (1 Peter 3:20)."
+  element: "Earth"
+  keypad: "TUV"
+  tarot: "Strength"
+"9":
+  word: nine
+  theme: completion and compassion
+  keywords: [completion, compassion, wisdom]
+  meaning: "Nine closes the cycle: compassion, wisdom, generosity and graceful endings."
+  angel: "something is completing so that something better can begin, so let go with gratitude"
+  love: "forgiveness and generosity heal; release old patterns"
+  work: "finish, hand over and mentor, and look for work with a bigger purpose"
+  action: "Finish or release one thing that no longer fits who you are becoming."
+  zh: { char: "九", pinyin: "jiǔ", sound: "九 (jiǔ) sounds like 久 (jiǔ, long-lasting)", tone: good, note: "A symbol of longevity used at weddings; the Double Ninth Festival falls on the 9th day of the 9th lunar month." }
+  ja: { char: "九", reading: "kyū, ku, ko", tone: bad, note: "Ku echoes 苦 (suffering), so 9 is avoided in gifts and some room numbers." }
+  ko: { char: "구", reading: "gu", tone: neutral, note: "Ages ending in 9 (ahopsu) are traditionally treated as risky years." }
+  vedic: "Mars (Mangal)"
+  bible: "Divine completeness: the nine fruits of the Spirit (Galatians 5:22-23)."
+  element: "Fire"
+  keypad: "WXYZ"
+  tarot: "The Hermit"

@@ -1,0 +1,62 @@
+# Famous number codes, slang and wordplay. Listed longest first so number
+# pages match the most specific code. tone: good | bad | neutral | rude
+# Sources are listed in docs/RESEARCH.md. Keep entries verified.
+- { code: "5201314", culture: "Chinese", reading: "wǔ èr líng yī sān yī sì", meaning: "I will love you for a lifetime (520 + 1314)", tone: good }
+- { code: "14106", culture: "Japanese", reading: "a-i-shi-te-ru", meaning: "I love you (aishiteru)", tone: good }
+- { code: "1314", culture: "Chinese", reading: "yī sān yī sì ≈ 一生一世", meaning: "Forever, for a whole lifetime", tone: good }
+- { code: "1192", culture: "Japanese", reading: "ii kuni tsukurō", meaning: "Classic school mnemonic for the founding of the Kamakura shogunate", tone: neutral }
+- { code: "4649", culture: "Japanese", reading: "yo-ro-shi-ku", meaning: "Yoroshiku: nice to meet you, best regards", tone: good }
+- { code: "9494", culture: "Chinese (Taiwan)", reading: "jiù shì jiù shì ≈ 就是就是", meaning: "That's right, exactly!", tone: good }
+- { code: "9487", culture: "Chinese (Taiwan)", reading: "≈ 就是白痴", meaning: "Online insult: you're just an idiot", tone: rude }
+- { code: "9413", culture: "Chinese", reading: "≈ 九死一生", meaning: "A narrow escape: nine parts death, one part life", tone: bad }
+- { code: "7456", culture: "Chinese", reading: "≈ 气死我了", meaning: "I'm furious", tone: bad }
+- { code: "1414", culture: "Chinese", reading: "≈ 意思意思", meaning: "Just a token gesture", tone: neutral }
+- { code: "2525", culture: "Japanese", reading: "niko-niko", meaning: "Smiling, all grins", tone: good }
+- { code: "3150", culture: "Japanese", reading: "sa-i-kō", meaning: "The best (saikō)", tone: good }
+- { code: "8282", culture: "Korean", reading: "pal-i pal-i", meaning: "Hurry, hurry (ppalli ppalli)", tone: neutral }
+- { code: "1004", culture: "Korean", reading: "cheon-sa", meaning: "Angel (cheonsa) — 1004 is read the same way", tone: good }
+- { code: "1111", culture: "Western", reading: "eleven eleven", meaning: "Make a wish at 11:11, a popular superstition", tone: good }
+- { code: "2333", culture: "Chinese", reading: "èr sān sān sān", meaning: "LOL, from an old forum emoticon code", tone: good }
+- { code: "1337", culture: "Internet", reading: "leet", meaning: "Hacker slang for elite", tone: neutral }
+- { code: "520", culture: "Chinese", reading: "wǔ èr líng ≈ 我爱你", meaning: "I love you; 20 May is an unofficial Valentine's Day", tone: good }
+- { code: "521", culture: "Chinese", reading: "wǔ èr yī ≈ 我爱你", meaning: "I love you (variant of 520)", tone: good }
+- { code: "168", culture: "Chinese", reading: "yī liù bā ≈ 一路发", meaning: "Fortune all the way", tone: good }
+- { code: "518", culture: "Chinese", reading: "wǔ yāo bā ≈ 我要发", meaning: "I am going to prosper", tone: good }
+- { code: "888", culture: "Chinese", reading: "bā bā bā", meaning: "Triple prosperity", tone: good }
+- { code: "666", culture: "Chinese", reading: "liù liù liù ≈ 溜溜溜", meaning: "Smooth, awesome, nicely done", tone: good }
+- { code: "666", culture: "Western", reading: "six six six", meaning: "The number of the beast (Revelation 13:18)", tone: bad }
+- { code: "777", culture: "Western", reading: "triple seven", meaning: "Jackpot, the classic lucky number", tone: good }
+- { code: "886", culture: "Chinese", reading: "bā bā liù ≈ 拜拜咯", meaning: "Bye-bye then", tone: neutral }
+- { code: "995", culture: "Chinese", reading: "jiǔ jiǔ wǔ ≈ 救救我", meaning: "Save me!", tone: neutral }
+- { code: "996", culture: "Chinese", reading: "jiǔ jiǔ liù", meaning: "The 9am-9pm, six-days-a-week work culture", tone: bad }
+- { code: "484", culture: "Chinese (Taiwan)", reading: "≈ 是不是", meaning: "Is it or isn't it?", tone: neutral }
+- { code: "748", culture: "Chinese", reading: "≈ 去死吧", meaning: "Online insult: go die", tone: rude }
+- { code: "250", culture: "Chinese", reading: "èr bǎi wǔ", meaning: "Slang for a fool or idiot", tone: rude }
+- { code: "233", culture: "Chinese", reading: "èr sān sān", meaning: "LOL (also 2333)", tone: good }
+- { code: "555", culture: "Chinese", reading: "wǔ wǔ wǔ ≈ 呜呜呜", meaning: "Sobbing, boo-hoo", tone: neutral }
+- { code: "555", culture: "Thai", reading: "hâa hâa hâa", meaning: "Hahaha — five is pronounced 'ha'", tone: good }
+- { code: "889", culture: "Japanese", reading: "ha-ya-ku", meaning: "Hurry up (hayaku)", tone: neutral }
+- { code: "893", culture: "Japanese", reading: "ya-ku-za", meaning: "Yakuza", tone: bad }
+- { code: "840", culture: "Japanese", reading: "(0)840 o-ha-yō", meaning: "Good morning (ohayō), written 0840", tone: good }
+- { code: "794", culture: "Japanese", reading: "naku yo uguisu", meaning: "Mnemonic for 794, when Heian-kyō (Kyoto) became the capital", tone: neutral }
+- { code: "634", culture: "Japanese", reading: "mu-sa-shi", meaning: "Musashi — Tokyo Skytree is 634 m tall to match", tone: good }
+- { code: "428", culture: "Japanese", reading: "shi-bu-ya", meaning: "Shibuya", tone: neutral }
+- { code: "710", culture: "Japanese", reading: "nat-tō", meaning: "Nattō; 10 July is Nattō Day", tone: neutral }
+- { code: "486", culture: "Korean", reading: "sa-pal-yuk", meaning: "I love you (pager-era code)", tone: good }
+- { code: "404", culture: "Internet", reading: "four-oh-four", meaning: "Web error: page not found", tone: neutral }
+- { code: "911", culture: "North America", reading: "nine-one-one", meaning: "Emergency telephone number in the US and Canada", tone: neutral }
+- { code: "99", culture: "Chinese", reading: "jiǔ jiǔ ≈ 久久", meaning: "Together for a long, long time", tone: good }
+- { code: "88", culture: "Chinese", reading: "bā bā", meaning: "Double prosperity; also slang for bye-bye", tone: good }
+- { code: "94", culture: "Chinese (Taiwan)", reading: "jiù shì ≈ 就是", meaning: "Exactly, that's it", tone: good }
+- { code: "94", culture: "Japanese", reading: "ku-shi", meaning: "Comb (kushi); 4 September is Comb Day", tone: neutral }
+- { code: "87", culture: "Chinese (Taiwan)", reading: "≈ 白痴 (Taiwanese)", meaning: "Slang for idiot", tone: rude }
+- { code: "49", culture: "Japanese", reading: "shi-ku", meaning: "Read as painful death (shiku), so it is avoided", tone: bad }
+- { code: "39", culture: "Japanese", reading: "san-kyū", meaning: "Thank you", tone: good }
+- { code: "14", culture: "Cantonese", reading: "sap sei", meaning: "Sounds like 'will certainly die', so it is avoided", tone: bad }
+- { code: "24", culture: "Cantonese", reading: "yi sap sei", meaning: "Sounds like 'easy to die', so it is avoided", tone: bad }
+- { code: "17", culture: "Italian", reading: "XVII ↔ VIXI", meaning: "Unlucky in Italy: XVII rearranges to VIXI, Latin for 'I have lived'", tone: bad }
+- { code: "13", culture: "Western", reading: "thirteen", meaning: "The classic unlucky number (triskaidekaphobia)", tone: bad }
+- { code: "42", culture: "Pop culture", reading: "forty-two", meaning: "The 'answer to life, the universe and everything' in a famous sci-fi comedy novel", tone: neutral }
+- { code: "7", culture: "Western", reading: "seven", meaning: "Lucky seven", tone: good }
+- { code: "8", culture: "Chinese", reading: "bā ≈ 发", meaning: "Prosperity", tone: good }
+- { code: "4", culture: "East Asian", reading: "sì / shi / sa", meaning: "Sounds like death in Chinese, Japanese and Korean", tone: bad }

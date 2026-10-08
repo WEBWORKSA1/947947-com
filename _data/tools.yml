@@ -1,0 +1,13 @@
+# Listed on /tools/, the home page and under every tool.
+- { name: "Life path calculator", url: "tools/life-path-calculator/", blurb: "Your core numerology number from your birth date, with the working shown." }
+- { name: "Name numerology calculator", url: "tools/name-numerology-calculator/", blurb: "Expression, soul urge and personality numbers, Pythagorean or Chaldean." }
+- { name: "Angel number decoder", url: "tools/angel-number-decoder/", blurb: "Type the digits you keep seeing and get every reading at once." }
+- { name: "Lucky number calculator", url: "tools/lucky-number-calculator/", blurb: "Your personal lucky and harmonious numbers from name and birth date." }
+- { name: "Compatibility calculator", url: "tools/compatibility-calculator/", blurb: "Compare two life path numbers in seconds." }
+- { name: "Personal year calculator", url: "tools/personal-year-calculator/", blurb: "Your personal year, every personal month and today's personal day." }
+- { name: "Lucky phone number check", url: "tools/phone-number-numerology/", blurb: "Score any phone number for numerology and East Asian luck." }
+- { name: "Prime factorization calculator", url: "tools/prime-factorization/", blurb: "Factor any number up to 100 trillion, with every division shown." }
+- { name: "Number base converter", url: "tools/base-converter/", blurb: "Binary, octal, decimal, hex and base 36, with step-by-step binary." }
+- { name: "Roman numeral converter", url: "tools/roman-numerals/", blurb: "Both directions, including the bar notation for thousands." }
+- { name: "Number to words", url: "tools/number-to-words/", blurb: "English, Indian lakh and crore, and Chinese numerals." }
+- { name: "The 1001 trick", url: "tools/1001-trick/", blurb: "Write a number twice, divide by 7, 11 and 13, and watch it come back." }
