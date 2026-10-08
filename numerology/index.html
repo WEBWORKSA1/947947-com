@@ -1,0 +1,45 @@
+---
+layout: page
+section: numerology
+title: "Numerology numbers 1 to 9, 11, 22 and 33: meanings explained"
+h1: "Numerology numbers"
+crumb: "Numerology"
+description: "Meanings of the numerology root numbers 1 to 9 and the master numbers 11, 22 and 33: strengths, challenges, love, career, money and spiritual themes."
+lede: "Every number reduces to one of twelve roots. Here is what each one is said to mean, whether it is your life path, your name number or a number you keep seeing."
+sticky_cta: "Which root is yours? Find out free."
+---
+{% include rel.html %}
+<div class="wrap page-body">
+  <nav class="range-nav" aria-label="Root numbers">{% assign order = "1,2,3,4,5,6,7,8,9,11,22,33" | split: "," %}{% for k in order %}<a href="#n{{ k }}">{{ k }}</a>{% endfor %}</nav>
+  <div class="article" style="max-width:860px">
+  {%- for k in order -%}{%- assign R = site.data.roots[k] -%}
+  <section id="n{{ k }}" class="block">
+    <div class="rootcard">
+      <div class="rc-num" aria-hidden="true">{{ k }}</div>
+      <div class="rc-body">
+        <h2 style="border:0;padding:0;margin-bottom:6px">{{ k }}: {{ R.title }}</h2>
+        <p class="muted" style="font-family:var(--font-ui);font-size:15px">{{ R.keywords | join: ", " }}</p>
+        <p>{{ R.essence }}</p>
+        <dl class="mini">
+          <div><dt>Strengths</dt><dd>{{ R.strengths }}</dd></div>
+          <div><dt>Watch for</dt><dd>{{ R.challenges }}</dd></div>
+          <div><dt>Love</dt><dd>{{ R.love }}</dd></div>
+          <div><dt>Career</dt><dd>{{ R.career }}</dd></div>
+          <div><dt>Money</dt><dd>{{ R.money }}</dd></div>
+          <div><dt>Spiritual</dt><dd>{{ R.spiritual }}</dd></div>
+          <div><dt>Vedic planet</dt><dd>{{ R.planet }}</dd></div>
+          <div><dt>Tarot</dt><dd>{{ R.tarot }}</dd></div>
+          <div><dt>Harmonious</dt><dd>{% for x in R.family %}<a href="{{ r }}{{ x }}/">{{ x }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd></div>
+        </dl>
+        <p style="margin-top:12px"><a href="{{ r }}{{ k }}/">Everything about {{ k }}</a></p>
+      </div>
+    </div>
+  </section>
+  {%- if forloop.index == 4 %}{% include ad.html slot="mid" %}{% endif -%}
+  {%- endfor -%}
+  </div>
+  <section class="section prose narrow">
+    <h2>How reduction works</h2>
+    <p>Add the digits of a number, then add the digits of the result, until one digit remains: 947947 → 9 + 4 + 7 + 9 + 4 + 7 = 40 → 4 + 0 = 4. If you reach 11, 22 or 33 along the way, numerologists usually stop there because these are master numbers. Calculate your own with the <a href="{{ r }}tools/life-path-calculator/">life path calculator</a> and the <a href="{{ r }}tools/name-numerology-calculator/">name calculator</a>.</p>
+  </section>
+</div>

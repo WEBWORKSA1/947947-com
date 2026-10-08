@@ -1,0 +1,53 @@
+---
+layout: page
+title: "Work with 947947: writers, translators, numerologists and creators"
+h1: "Work with us"
+crumb: "Work with us"
+description: "Paid, remote work for numerologists, researchers and writers, translators, video creators, moderators, ad sales partners and developers."
+lede: "We are building the most useful number reference on the web, in many languages. The work is remote, flexible and paid."
+---
+{% include rel.html %}
+<div class="wrap page-body">
+  <section>
+    <div class="section-head"><h2>Open roles</h2><p>Pay is agreed per project before work starts; the figures are indicative.</p></div>
+    <div class="cols-2">
+      <div class="card"><p class="kicker">Freelance · revenue share</p><h3>Numerologist or astrology consultant</h3><p>Run paid one-to-one sessions and write personalised reports for readers who ask for them. You keep 60% of session fees. Experience and references required.</p><p><a href="#apply" data-role="Numerologist">Apply for this role</a></p></div>
+      <div class="card"><p class="kicker">Freelance · per article</p><h3>Researcher and writer</h3><p>Write sourced guides on number culture, maths and numerology. Indicative US$80 to US$200 per article, depending on length and research.</p><p><a href="#apply" data-role="Researcher and writer">Apply for this role</a></p></div>
+      <div class="card"><p class="kicker">Freelance · per word</p><h3>Translators</h3><p>Chinese (Simplified and Traditional), Japanese, Korean, Hindi, Sinhala, Tamil, Spanish and Portuguese. Native speakers who know their culture's number beliefs.</p><p><a href="#apply" data-role="Translator">Apply for this role</a></p></div>
+      <div class="card"><p class="kicker">Freelance · per video</p><h3>Video creator</h3><p>Short videos for YouTube and social: one number, one surprising fact, under a minute. Script, edit and voice.</p><p><a href="#apply" data-role="Video creator">Apply for this role</a></p></div>
+      <div class="card"><p class="kicker">Part-time · hourly</p><h3>Community and contest moderator</h3><p>Review contest entries, reader corrections and comments. A few hours a week.</p><p><a href="#apply" data-role="Moderator">Apply for this role</a></p></div>
+      <div class="card"><p class="kicker">Commission</p><h3>Partnerships and ad sales</h3><p>Bring sponsors to number pages, tools and contests. Indicative 20% commission on first-year revenue you bring in.</p><p><a href="#apply" data-role="Partnerships and ad sales">Apply for this role</a></p></div>
+      <div class="card"><p class="kicker">Freelance · project</p><h3>Front-end developer</h3><p>Static-site and JavaScript work on tools and performance. Experience with Jekyll and accessibility a plus.</p><p><a href="#apply" data-role="Front-end developer">Apply for this role</a></p></div>
+    </div>
+  </section>
+  <section class="section cols-2" style="align-items:start">
+    <div class="prose">
+      <h2>How hiring works</h2>
+      <ol class="steps"><li>Apply with links to your work.</li><li>We reply within five working days.</li><li>Shortlisted people do a small, paid trial task.</li><li>We agree scope and pay in writing before any project.</li></ol>
+      <p>We welcome applicants of every background, age, gender, faith and location, and we judge work on its quality.</p>
+    </div>
+    <form class="form-card" id="apply" data-form="careers" data-subject="[Careers] Application" data-success="Application received. We reply within five working days." data-autoresponse="Thanks for applying to work with 947947. We reply to every application within five working days. — 947947.com" novalidate>
+      <h2>Apply</h2>
+      <div class="row-2">
+        <div class="field"><label for="a_name">Full name</label><input id="a_name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="a_email">Email</label><input id="a_email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label for="a_role">Role</label><select id="a_role" name="role" required><option value="">Choose</option><option>Numerologist</option><option>Researcher and writer</option><option>Translator</option><option>Video creator</option><option>Moderator</option><option>Partnerships and ad sales</option><option>Front-end developer</option><option>Something else</option></select></div>
+        <div class="field"><label for="a_tz">Location and time zone</label><input id="a_tz" name="location" type="text" required></div>
+      </div>
+      <div class="field"><label for="a_lang">Languages</label><input id="a_lang" name="languages" type="text" placeholder="e.g. English, Mandarin"></div>
+      <div class="field"><label for="a_links">Portfolio or profile links</label><textarea id="a_links" name="links" required placeholder="One link per line"></textarea></div>
+      <div class="row-2">
+        <div class="field"><label for="a_rate">Your usual rate</label><input id="a_rate" name="rate" type="text"></div>
+        <div class="field"><label for="a_hours">Hours per week</label><input id="a_hours" name="hours" type="text"></div>
+      </div>
+      <div class="field"><label for="a_why">What number fascinates you, and why?</label><textarea id="a_why" name="why" maxlength="1200"></textarea></div>
+      <label class="check"><input type="checkbox" name="consent" value="Agreed" required><span>I agree to the <a href="{{ r }}privacy/" target="_blank">privacy policy</a>.</span></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn btn-primary btn-lg" type="submit">Send my application</button>
+      <p class="form-msg" role="status"></p>
+    </form>
+  </section>
+</div>
+<script>document.addEventListener("click",function(e){var a=e.target.closest("[data-role]");if(!a)return;var s=document.getElementById("a_role");if(s)s.value=a.getAttribute("data-role");});</script>

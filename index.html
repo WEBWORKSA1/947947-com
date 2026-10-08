@@ -1,0 +1,131 @@
+---
+layout: page
+title: "947947: what does your number mean?"
+title_full: "What does your number mean? Numerology, angel numbers, maths and culture | 947947"
+description: "Decode any number free: maths you can verify, numerology, angel-number folklore and Chinese, Japanese and Korean readings. 2,400+ number pages and 12 free tools."
+hero: false
+crumbs: false
+---
+{% include rel.html %}
+<section class="home-hero paper-grid">
+  <div class="wrap home-grid">
+    <div class="phero-in">
+      <h1>What does your number mean?</h1>
+      <p class="lede">Type any number. Get the maths you can check, plus what it means in numerology, angel-number folklore and Chinese, Japanese and Korean wordplay. Free, instant, no sign-up.</p>
+      <p class="hero-note">Or browse <a href="{{ r }}numbers/">2,402 number pages</a>, from 0 to 5,201,314, and <a href="{{ r }}tools/">12 free tools</a>.</p>
+    </div>
+    <form class="decoder" data-decoder action="{{ r }}numbers/" method="get" role="search">
+      <label for="dec-in">Decode a number</label>
+      <div class="dec-row"><input id="dec-in" name="n" inputmode="numeric" maxlength="18" placeholder="947947" autocomplete="off"><button class="btn btn-primary" type="submit">Decode</button></div>
+      <div class="try">Try: <button type="button" data-try="111">111</button><button type="button" data-try="777">777</button><button type="button" data-try="520">520</button><button type="button" data-try="1314">1314</button><button type="button" data-try="2026">2026</button><button type="button" data-try="947947">947947</button></div>
+      <div class="dec-out" aria-live="polite" hidden></div>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Numbers people look up most</h2><p>Repeating numbers, love codes, emergency numbers and this year. Each page has the full reading.</p></div>
+    <ul class="tiles">
+      {%- assign pop = "111:Angel number,222:Angel number,333:Angel number,444:Angel number,555:Angel number,666:Two meanings,777:Lucky,888:Prosperity,999:Completion,1111:Make a wish,1212:Mirror,1234:Sequence,520:I love you,1314:Forever,911:Emergency,2026:This year,4649:Yoroshiku,947947:Our name" | split: "," -%}
+      {%- for p in pop -%}{%- assign pr = p | split: ":" -%}
+      <li><a href="{{ r }}{{ pr[0] }}/"><span class="tile-n">{{ pr[0] }}</span><span class="tile-l">{{ pr[1] }}</span></a></li>
+      {%- endfor -%}
+    </ul>
+    <p class="more">Or browse <a href="{{ r }}numbers/">every number</a>, <a href="{{ r }}angel-numbers/">angel numbers</a>, <a href="{{ r }}numbers/years/">years 1900–2100</a> and <a href="{{ r }}numbers/patterns/">famous codes</a>.</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Seven ways to read one number</h2><p>Every number page answers all seven, so you never need three different sites.</p></div>
+    <div class="lens-list">
+      <div class="lens"><h3>Maths</h3><p>Prime or not, factors, divisors, binary, Roman numerals and the properties mathematicians care about.</p><a class="lens-ex" href="{{ r }}947947/">947947 = 7 × 11 × 13 × 947</a></div>
+      <div class="lens"><h3>Numerology</h3><p>Each number reduces to a root from 1 to 9, or a master number 11, 22 or 33, with its traditional meaning.</p><a class="lens-ex" href="{{ r }}numerology/">The 12 root numbers</a></div>
+      <div class="lens"><h3>Angel numbers</h3><p>The modern folklore of repeating numbers: love, career and what to do when a number keeps appearing.</p><a class="lens-ex" href="{{ r }}1111/">What 1111 is said to mean</a></div>
+      <div class="lens"><h3>Chinese</h3><p>Digits read for their sound: 8 for prosperity, 9 for long life, 4 avoided, and slang like 520 for I love you.</p><a class="lens-ex" href="{{ r }}guides/chinese-lucky-numbers/">Chinese lucky numbers</a></div>
+      <div class="lens"><h3>Japanese</h3><p>Goroawase wordplay turns numbers into words: 39 is thank you, 4649 is nice to meet you.</p><a class="lens-ex" href="{{ r }}guides/japanese-number-wordplay/">Japanese number wordplay</a></div>
+      <div class="lens"><h3>Korean and Thai</h3><p>1004 sounds like angel in Korean, while in Thai 555 is a laugh and 9 means stepping forward.</p><a class="lens-ex" href="{{ r }}1004/">Why 1004 means angel</a></div>
+      <div class="lens"><h3>Codes and dates</h3><p>Area codes, country codes, emergency numbers, Chinese zodiac years and clock times.</p><a class="lens-ex" href="{{ r }}947/">947: a Michigan area code</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap cols-2" style="align-items:center">
+    <div>
+      <h2>Your own numbers, in about a minute</h2>
+      <p>Your birth date gives your life path number; your full name adds expression, soul urge and personality. See your life path instantly here, then get the complete blueprint, with this year's forecast and your lucky numbers, sent to your inbox.</p>
+      <ul class="plain">
+        <li>Free, with the working shown so you can check it</li>
+        <li>Optional one-to-one session with a numerologist</li>
+        <li>We never sell your details</li>
+      </ul>
+    </div>
+    <aside class="luckcheck" data-reveal style="margin:0">
+      <h2 class="lc-h">Reveal my life path number</h2>
+      <form class="lc-form" novalidate>
+        <fieldset class="dob"><legend class="sr">Birth date</legend>
+          <label><span>Day</span><select name="day" aria-label="Day"><option value="">Day</option>{% for i in (1..31) %}<option>{{ i }}</option>{% endfor %}</select></label>
+          <label><span>Month</span><select name="month" aria-label="Month"><option value="">Month</option><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option><option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option><option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option><option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option></select></label>
+          <label><span>Year</span><select name="year" aria-label="Year" data-years></select></label>
+        </fieldset>
+        <button class="btn btn-primary" type="submit">Reveal my number</button>
+      </form>
+      <div class="lc-out" aria-live="polite" hidden></div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Free tools</h2><p>Calculators that show their working, from life path numbers to prime factors.</p></div>
+    <div class="cols-3">
+      {%- for t in site.data.tools limit: 9 -%}
+      <a class="card card-link" href="{{ r }}{{ t.url }}"><h3>{{ t.name }}</h3><p>{{ t.blurb }}</p></a>
+      {%- endfor -%}
+    </div>
+    <p class="more" style="margin-top:16px"><a href="{{ r }}tools/">See all 12 tools</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap cols-2" style="align-items:center">
+    <div class="tree" role="img" aria-label="947947 equals 947 times 7 times 11 times 13">
+      <div class="tree-top">947947</div>
+      <div class="tree-row"><span>947</span><span class="op">×</span><span>1001</span></div>
+      <div class="tree-row tree-leaves"><span class="prime">947</span><span class="op">×</span><span class="prime">7</span><span class="op">×</span><span class="prime">11</span><span class="op">×</span><span class="prime">13</span></div>
+    </div>
+    <div>
+      <h2>Why we are called 947947</h2>
+      <p>947 is a prime that sits exactly halfway between its neighbours. Written twice, it becomes a number divisible by 7, 11 and 13. Along the way it is a Michigan area code, the start of every Sri Lankan mobile number in international format, a Berkeley ZIP region and a year when dynasties changed in China and Japan.</p>
+      <p><a class="btn btn-ghost" href="{{ r }}947947/">Read the 947947 report</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Guides</h2><p>Researched explainers with sources, written for curious people rather than believers or sceptics.</p></div>
+    <ul class="list-links">
+      {%- for g in site.data.guides limit: 6 -%}
+      <li><a href="{{ r }}{{ g.url }}"><span><strong>{{ g.title }}</strong><span>{{ g.blurb }}</span></span><em>{{ g.tag }}</em></a></li>
+      {%- endfor -%}
+    </ul>
+    <p class="more" style="margin-top:14px"><a href="{{ r }}guides/">All guides</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Work with 947947</h2><p>Brands, numerologists, writers and readers help build this site.</p></div>
+    <div class="cols-3">
+      <a class="card card-link" href="{{ r }}advertise/"><p class="kicker">For brands</p><h3>Advertise or sponsor a number</h3><p>Sponsor a page like 777 or 2026, a tool, or this month's contest.</p></a>
+      <a class="card card-link" href="{{ r }}business/"><p class="kicker">For businesses</p><h3>Business number audit</h3><p>Check phone numbers, prices and launch dates before they reach Chinese, Indian or Japanese customers.</p></a>
+      <a class="card card-link" href="{{ r }}support/"><p class="kicker">For readers</p><h3>Support the site</h3><p>Keep the tools free and fund writers, translators and contest prizes.</p></a>
+      <a class="card card-link" href="{{ r }}contests/"><p class="kicker">Win prizes</p><h3>{{ site.data.settings.contest.name }}</h3><p>Spot a remarkable number in the wild and tell its story. {{ site.data.settings.contest.prize_pool }}.</p></a>
+      <a class="card card-link" href="{{ r }}careers/"><p class="kicker">Join us</p><h3>Work with us</h3><p>Paid work for numerologists, writers, translators and video creators.</p></a>
+      <a class="card card-link" href="{{ site.data.settings.owner_contact_url }}" target="_blank" rel="noopener"><p class="kicker">Partnerships</p><h3>Interested in the domain or a partnership?</h3><p>Talk to the owner about 947947.com, sponsorship or a joint venture.</p></a>
+    </div>
+  </div>
+</section>

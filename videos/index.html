@@ -1,0 +1,38 @@
+---
+layout: page
+title: "Number videos: meanings, maths and culture"
+h1: "Videos"
+crumb: "Videos"
+section: videos
+description: "Short videos about numbers: Chinese lucky numbers, Japanese wordplay, angel numbers, the 1001 trick and more, plus topic playlists to explore on YouTube."
+lede: "One number, one surprising story, in under a minute. Watch ours, explore topic playlists, or make videos with us."
+---
+{% include rel.html %}
+{%- assign Y = site.data.settings.youtube -%}
+<div class="wrap page-body">
+  {%- if Y.videos and Y.videos.size > 0 %}
+  <section>
+    <div class="section-head"><h2>Latest from 947947</h2>{% if Y.channel_url != "" %}<p><a class="btn btn-primary btn-sm" href="{{ Y.channel_url }}?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a></p>{% endif %}</div>
+    <div class="video-grid">
+      {%- for v in Y.videos -%}
+      <div class="vcard"><div class="yt" data-id="{{ v.id }}" data-title="{{ v.title | escape }}" role="button" tabindex="0" aria-label="Play: {{ v.title | escape }}"><button type="button" aria-hidden="true" tabindex="-1"></button></div><h3>{{ v.title }}</h3></div>
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- else %}
+  <section class="card" style="margin-bottom:30px">
+    <h2>Our channel is coming</h2>
+    <p>We are producing short videos on the most-searched numbers and the strangest number customs. {% if Y.channel_url != "" %}<a href="{{ Y.channel_url }}?sub_confirmation=1" target="_blank" rel="noopener">Subscribe now</a> to see the first ones.{% else %}Join the contest or the newsletter to hear when the first ones go live.{% endif %}</p>
+    <p><a class="btn btn-ghost btn-sm" href="{{ r }}careers/">Make videos with us</a> <a class="btn btn-ghost btn-sm" href="{{ r }}advertise/">Sponsor a video</a></p>
+  </section>
+  {%- endif %}
+  <section>
+    <div class="section-head"><h2>Topic playlists to explore</h2><p>These open YouTube searches on each topic, then come back for the full write-up.</p></div>
+    <div class="cols-3">
+      {%- assign topics = "Why Chinese culture avoids the number 4|why chinese avoid number 4 tetraphobia|guides/chinese-lucky-numbers/;Japanese number wordplay (goroawase)|goroawase japanese number wordplay|guides/japanese-number-wordplay/;Angel numbers and the frequency illusion|frequency illusion baader meinhof explained|guides/angel-numbers-explained/;The 7 × 11 × 13 = 1001 trick|1001 7 11 13 math trick|guides/the-1001-trick/;How life path numbers are calculated|how to calculate life path number numerology|guides/life-path-numbers/;Why 8 is lucky in China|why is 8 lucky in chinese culture|8/;The history of Roman numerals|history of roman numerals explained|tools/roman-numerals/;How phone area codes work|how area codes work north american numbering plan|guides/area-code-947/;Prime numbers explained|prime numbers explained|tools/prime-factorization/" | split: ";" -%}
+      {%- for t in topics -%}{%- assign p = t | split: "|" -%}
+      <div class="card"><h3>{{ p[0] }}</h3><p><a href="https://www.youtube.com/results?search_query={{ p[1] | url_encode }}" target="_blank" rel="noopener">Watch on YouTube</a> · <a href="{{ r }}{{ p[2] }}">Read our write-up</a></p></div>
+      {%- endfor -%}
+    </div>
+  </section>
+</div>

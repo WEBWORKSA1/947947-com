@@ -1,0 +1,37 @@
+---
+layout: page
+title: "Official rules: The 947 Number Hunt"
+h1: "Official contest rules"
+crumb: "Official rules"
+parent_title: "Contests"
+parent_url: "contests/"
+description: "Official rules for The 947 Number Hunt, a free skill-based contest run by 947947.com."
+lede: "No purchase necessary. A purchase will not improve your chances of winning. Void where prohibited."
+---
+{% include rel.html %}
+{%- assign C = site.data.settings.contest -%}
+<div class="wrap page-body prose narrow">
+  <h2>1. Sponsor</h2>
+  <p>The contest is run by 947947.com (the "Sponsor"). Questions about the contest can be sent through our <a href="{{ r }}contact/?topic=Contest">contact form</a>.</p>
+  <h2>2. Contest period</h2>
+  <p>The contest opens on 8 October 2026 and closes at 23:59 Eastern Time on {{ C.closes | date: "%-d %B %Y" }}. Entries received after the close are not considered. The Sponsor's server time is the official clock.</p>
+  <h2>3. Who can enter</h2>
+  <p>Open to individuals who are 18 or older and the age of majority where they live, in any country where this type of contest is lawful. Employees and contractors of the Sponsor and their immediate families may not enter. Void where prohibited or restricted by law.</p>
+  <h2>4. How to enter</h2>
+  <p>Complete the entry form on the <a href="{{ r }}contests/">contest page</a>. Limit: one entry per person per category. Entries must be the entrant's own original work, written in English, no longer than 300 words, and must not infringe anyone's rights or include content that is offensive, unlawful or identifies private individuals without consent.</p>
+  <h2>5. Judging</h2>
+  <p>This is a contest of skill. A panel appointed by the Sponsor scores eligible entries on story and insight (40%), interest of the number (30%), originality and photo (20%) and clarity (10%). Ties are broken by the higher story score. The panel's decisions are final on all matters relating to judging.</p>
+  <h2>6. Prizes</h2>
+  <ul>{% for p in C.prizes %}<li>{{ p }}</li>{% endfor %}</ul>
+  <p>Cash prizes are paid in US dollars by PayPal or bank transfer within 30 days of verification. Prizes are not transferable. The Sponsor may substitute a prize of equal or greater value. Winners are responsible for any taxes.</p>
+  <h2>7. Winner verification</h2>
+  <p>Potential winners are contacted by email and must reply within 14 days, confirm eligibility and, if resident in Canada, correctly answer a time-limited mathematical skill-testing question without assistance. A potential winner who cannot be reached or does not comply may be disqualified and an alternate selected.</p>
+  <h2>8. Licence and publicity</h2>
+  <p>Entrants keep ownership of their entries and grant the Sponsor a non-exclusive, royalty-free licence to publish, edit for length and display them on 947947.com and its social channels with the entrant's first name and country. Winners agree to the use of their first name and country in the winners announcement, unless prohibited by law.</p>
+  <h2>9. Privacy</h2>
+  <p>Personal information is used only to run the contest and, if you opt in, to tell you about future contests. See the <a href="{{ r }}privacy/">privacy policy</a>.</p>
+  <h2>10. General conditions</h2>
+  <p>The Sponsor may disqualify entries that break these rules or that attempt to manipulate the contest, and may cancel, modify or suspend the contest if it cannot run as planned for reasons beyond its control. The Sponsor is not responsible for entries that are late, lost, incomplete or misdirected because of technical problems.</p>
+  <p><strong>Quebec residents:</strong> any litigation respecting the conduct or organization of a publicity contest may be submitted to the Régie des alcools, des courses et des jeux for a ruling. Any litigation respecting the awarding of a prize may be submitted to the Régie only for the purpose of helping the parties reach a settlement.</p>
+  <p>By entering, entrants agree to these rules and to the decisions of the Sponsor.</p>
+</div>
