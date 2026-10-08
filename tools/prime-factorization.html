@@ -1,0 +1,25 @@
+---
+title: "Prime factorization calculator"
+permalink: /tools/prime-factorization/
+tool_url: tools/prime-factorization/
+description: "Find the prime factors of any whole number up to 100 trillion, with every division shown and the full list of divisors."
+lede: "Break any whole number into primes, with each division step shown. Works instantly up to 100 trillion."
+faq:
+  - q: "What is prime factorization?"
+    a: "Writing a number as a product of prime numbers. Every whole number above 1 has exactly one prime factorization, for example 947947 = 7 × 11 × 13 × 947."
+  - q: "How does the calculator find the factors?"
+    a: "It divides by 2, then by each odd number in turn, up to the square root of what remains. Whatever is left above 1 at the end is itself prime."
+  - q: "How many divisors does a number have?"
+    a: "Add one to each exponent in the prime factorization and multiply. 947947 = 7 × 11 × 13 × 947 has 2 × 2 × 2 × 2 = 16 divisors."
+---
+{% include rel.html %}
+<div class="tool" data-tool="factor">
+  <form novalidate>
+    <div class="field"><label for="num">Number to factor</label><input id="num" name="num" inputmode="numeric" maxlength="18" placeholder="e.g. 947947" required></div>
+    <button class="btn btn-primary btn-lg" type="submit">Factor it</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>Worked example: 947947</h2>
+<p>947947 ÷ 7 = 135421; 135421 ÷ 11 = 12311; 12311 ÷ 13 = 947; and 947 is prime because no prime up to its square root (about 30.8) divides it. So 947947 = 7 × 11 × 13 × 947. Every number on this site lists its factors, divisors and more: try <a href="{{ r }}947947/">947947</a> or <a href="{{ r }}numbers/">any number</a>.</p>

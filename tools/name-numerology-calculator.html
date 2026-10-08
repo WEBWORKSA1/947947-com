@@ -1,0 +1,32 @@
+---
+title: "Name numerology calculator"
+permalink: /tools/name-numerology-calculator/
+tool_url: tools/name-numerology-calculator/
+description: "Free name numerology calculator: expression (destiny), soul urge and personality numbers from your full name, using Pythagorean or Chaldean letter values."
+lede: "Your full birth name gives three numbers: expression (destiny), soul urge (heart's desire) and personality. Choose Pythagorean or Chaldean letter values."
+faq:
+  - q: "Which name should I use?"
+    a: "Traditional numerology uses your full name exactly as it appears on your birth certificate. Many people also check the name they use today to compare the two."
+  - q: "What is the difference between Pythagorean and Chaldean numerology?"
+    a: "Pythagorean numerology numbers the alphabet 1 to 9 in order and repeats. Chaldean numerology uses older values based on sound and never assigns 9 to a letter. The two systems can give different results."
+  - q: "How is Y treated?"
+    a: "This calculator counts Y as a vowel when it has no vowel next to it (as in Lynn) and as a consonant otherwise (as in Yasmin)."
+---
+{% include rel.html %}
+<div class="tool" data-tool="name">
+  <form novalidate>
+    <div class="field"><label for="full_name">Full birth name</label><input id="full_name" name="full_name" type="text" autocomplete="name" placeholder="e.g. Ada Augusta Byron" required></div>
+    <fieldset class="chips"><legend>Letter values</legend>
+      <label class="chip"><input type="radio" name="system" value="pythagorean" checked><span>Pythagorean</span></label>
+      <label class="chip"><input type="radio" name="system" value="chaldean"><span>Chaldean</span></label>
+    </fieldset>
+    <button class="btn btn-primary btn-lg" type="submit">Calculate my name numbers</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>The three name numbers</h2>
+<p><strong>Expression</strong> (also called destiny) adds every letter. It describes your natural talents and how you tend to express yourself. <strong>Soul urge</strong> adds only the vowels and points to what you want deep down. <strong>Personality</strong> adds only the consonants and reflects how others first see you.</p>
+<h2>Pythagorean letter values</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th><th scope="col">9</th></tr></thead><tbody><tr><td>A J S</td><td>B K T</td><td>C L U</td><td>D M V</td><td>E N W</td><td>F O X</td><td>G P Y</td><td>H Q Z</td><td>I R</td></tr></tbody></table></div>
+<p>Combine your name numbers with your <a href="{{ r }}tools/life-path-calculator/">life path number</a> for the full picture, or get all five in your <a href="{{ r }}reading/">free number blueprint</a>.</p>

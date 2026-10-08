@@ -1,0 +1,26 @@
+---
+title: "Roman numeral converter"
+permalink: /tools/roman-numerals/
+tool_url: tools/roman-numerals/
+description: "Convert numbers to Roman numerals and back, including years and the bar (vinculum) notation for numbers above 3,999."
+lede: "Convert numbers to Roman numerals or Roman numerals to numbers. Large numbers use the traditional bar over the letters, which multiplies them by 1,000."
+faq:
+  - q: "How do you write 2026 in Roman numerals?"
+    a: "MMXXVI: M + M = 2000, XX = 20, VI = 6."
+  - q: "How are numbers above 3,999 written?"
+    a: "A bar (vinculum) over a numeral multiplies it by 1,000. 947947 is CMXLVII with a bar, followed by CMXLVII."
+  - q: "Is there a Roman numeral for zero?"
+    a: "No. Romans had no symbol for zero; medieval writers sometimes used the word nulla."
+---
+{% include rel.html %}
+<div class="tool" data-tool="roman">
+  <form novalidate>
+    <div class="field"><label for="rval">Number or Roman numeral</label><input id="rval" name="val" type="text" autocomplete="off" placeholder="e.g. 1947 or MCMXLVII" required></div>
+    <button class="btn btn-primary btn-lg" type="submit">Convert</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>The seven symbols</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">I</th><th scope="col">V</th><th scope="col">X</th><th scope="col">L</th><th scope="col">C</th><th scope="col">D</th><th scope="col">M</th></tr></thead><tbody><tr><td>1</td><td>5</td><td>10</td><td>50</td><td>100</td><td>500</td><td>1,000</td></tr></tbody></table></div>
+<p>A smaller symbol before a larger one is subtracted (IV = 4, XC = 90); otherwise symbols add. Every <a href="{{ r }}numbers/years/">year page</a> shows its Roman numerals.</p>

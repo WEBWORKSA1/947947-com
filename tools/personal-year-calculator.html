@@ -1,0 +1,24 @@
+---
+title: "Personal year number calculator"
+permalink: /tools/personal-year-calculator/
+tool_url: tools/personal-year-calculator/
+description: "Calculate your personal year number for 2026 or any year, plus all twelve personal months and today's personal day."
+lede: "Numerology runs in nine-year cycles. Your personal year sets the theme; personal months and days fine-tune it."
+faq:
+  - q: "How is the personal year calculated?"
+    a: "Add your birth month and birth day to the year you want to check, then reduce to a single digit. Born 4 July, the 2026 personal year is 7 + 4 + (2 + 0 + 2 + 6 = 10, which reduces to 1) = 12, which reduces to 3."
+  - q: "When does a personal year start?"
+    a: "Most numerologists start it on 1 January; some start it on your birthday. This calculator uses the calendar year."
+---
+{% include rel.html %}
+<div class="tool" data-tool="year">
+  <form novalidate>
+    {% include dob.html required=true %}
+    <div class="field" style="max-width:220px"><label for="target_year">Year to check</label><input id="target_year" name="target_year" type="number" min="1900" max="2100" step="1"></div>
+    <button class="btn btn-primary btn-lg" type="submit">Show my year</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>The nine-year cycle</h2>
+<p>Year 1 starts new things, 2 builds partnerships, 3 expands and expresses, 4 consolidates, 5 brings change, 6 focuses on home and responsibility, 7 turns inward to study, 8 harvests results and 9 completes and releases. Then the cycle begins again. See the <a href="{{ r }}numbers/years/">year pages</a> for the universal year number of any year from 1900 to 2100.</p>

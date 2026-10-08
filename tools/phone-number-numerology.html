@@ -1,0 +1,27 @@
+---
+title: "Lucky phone number checker"
+permalink: /tools/phone-number-numerology/
+tool_url: tools/phone-number-numerology/
+description: "Check how lucky your phone number is: numerology total and root, Chinese digit rules (8s and 4s), hidden number codes and compatibility with your life path."
+lede: "Choosing a new mobile number or a business line? Score it for numerology and for the digit beliefs many customers in China, India, Japan and Korea care about."
+faq:
+  - q: "What makes a phone number lucky?"
+    a: "In numerology, a number whose digits reduce to a root that harmonises with your life path is considered favourable. In Chinese tradition, 8, 6 and 9 are welcome and 4 is avoided. Some people also look at the last four digits separately."
+  - q: "Should a business choose its phone number this way?"
+    a: "If many of your customers come from cultures where number beliefs are strong, avoiding 4s and choosing 8s can be a small courtesy that costs nothing. Our business number audit covers this in detail."
+  - q: "Is my number stored?"
+    a: "No. The check runs in your browser and nothing is sent anywhere."
+---
+{% include rel.html %}
+<div class="tool" data-tool="phone">
+  <form novalidate>
+    <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" inputmode="tel" placeholder="e.g. +94 77 947 9470" required><p class="hint">Include the country code if you like; spaces and symbols are ignored.</p></div>
+    {% include dob.html legend="Your birth date (optional)" %}
+    <button class="btn btn-primary btn-lg" type="submit">Check my number</button>
+  </form>
+  <div class="tool-out" aria-live="polite" hidden></div>
+</div>
+<!--explain-->
+<h2>How the check works</h2>
+<p>We add every digit and reduce the total to a root number from 1 to 9 (or a master number), then read that root's traditional meaning. We count the digits that matter in Chinese number lore and look for famous codes inside the number, such as 168 (fortune all the way) or 748 (an insult). With your birth date, we compare the number's root with your life path.</p>
+<p>Want help choosing? Read <a href="{{ r }}guides/choose-a-lucky-phone-number/">how to choose a lucky phone number</a> or ask us to <a href="{{ r }}reading/?focus=Choosing%20a%20lucky%20number">find one for you</a>.</p>
