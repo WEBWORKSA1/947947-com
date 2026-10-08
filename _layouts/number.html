@@ -77,7 +77,7 @@
 <section class="nhero">
   <div class="wrap nhero-in">
     <div class="nhero-text">
-      <h1 class="nh1"><span class="nh-num{% if len > 6 %} nh-long{% endif %}">{{ nf }}</span><span class="nh-sub">{{ h1_sub }}</span></h1>
+      <h1 class="nh1"><span class="nh-num{% if len > 6 %} nh-long{% endif %}">{{ nf }}</span> <span class="nh-sub">{{ h1_sub }}</span></h1>
       <p class="answer">{{ quick }}</p>
       <ul class="tags" aria-label="Quick facts">
         {%- if is_prime %}<li class="tag tag-ink">Prime</li>{% elsif n > 1 %}<li class="tag">Composite</li>{% endif -%}
@@ -248,7 +248,7 @@
     <tbody>
       <tr><th scope="row">Prime</th><td>{% if is_prime %}Yes{% else %}No{% endif %}</td><th scope="row">Perfect square</th><td>{% if is_square %}Yes ({{ sq }}²){% else %}No{% endif %}</td></tr>
       <tr><th scope="row">Perfect cube</th><td>{% if is_cube %}Yes ({{ cb }}³){% else %}No{% endif %}</td><th scope="row">Triangular</th><td>{% if is_tri %}Yes (T{{ tri_k }}){% else %}No{% endif %}</td></tr>
-      <tr><th scope="row">Fibonacci</th><td>{% if is_fib %}Yes{% else %}No{% endif %}</td><th scope="row">Power of 2</th><td>{% if is_pow2 %}Yes (2<sup>{{ pow2_k }}</sup>){% else %}No{% endif %}</td></tr>
+      <tr><th scope="row">Fibonacci</th><td>{% if is_fib %}Yes{% else %}No{% endif %}</td><th scope="row">Power of 2</th><td>{% if is_pow2 %}Yes (2<span class="sr">^</span><sup>{{ pow2_k }}</sup>){% else %}No{% endif %}</td></tr>
       <tr><th scope="row">Palindrome</th><td>{% if palindrome %}Yes{% else %}No{% endif %}</td><th scope="row">Harshad (divisible by its digit sum)</th><td>{% if harshad %}Yes{% else %}No{% endif %}</td></tr>
       <tr><th scope="row">Happy number</th><td>{% if happy %}Yes{% else %}No{% endif %}</td><th scope="row">Armstrong (narcissistic)</th><td>{% if armstrong %}Yes{% else %}No{% endif %}</td></tr>
       <tr><th scope="row">Evil or odious</th><td>{% if ones_m == 0 %}Evil ({{ ones }} ones in binary){% else %}Odious ({{ ones }} ones in binary){% endif %}</td><th scope="row">Square-free</th><td>{% if n > 0 and squarefree %}Yes{% elsif n > 0 %}No (has a repeated prime factor){% else %}n/a{% endif %}</td></tr>
